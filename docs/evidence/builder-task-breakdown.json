@@ -1,0 +1,133 @@
+{
+  "run_id": "20260927-205440-6350b9",
+  "shared_reference_n": 4635,
+  "metric": "Selected label matches, identical common-support inputs per group; descriptive, no multiple-comparison claim.",
+  "groups": {
+    "JevBench public": {
+      "n": 195,
+      "scores": {
+        "clm": 0.4205128205128205,
+        "decider": 0.8717948717948718,
+        "jev": 0.9025641025641026,
+        "laya": 0.6153846153846154,
+        "laya-multi": 0.5282051282051282,
+        "laya-typed": 0.5897435897435898,
+        "nimble": 0.7846153846153846,
+        "nli": 0.5538461538461539,
+        "plumb": 0.9230769230769231,
+        "qwen": 0.8051282051282052,
+        "semif": 0.8256410256410256,
+        "uniform": 0.3384615384615385,
+        "winnow": 0.8666666666666667
+      }
+    },
+    "SST-2": {
+      "n": 500,
+      "scores": {
+        "clm": 0.542,
+        "decider": 0.948,
+        "jev": 0.964,
+        "laya": 0.912,
+        "laya-multi": 0.86,
+        "laya-typed": 0.92,
+        "nimble": 0.938,
+        "nli": 0.958,
+        "plumb": 0.932,
+        "qwen": 0.886,
+        "semif": 0.898,
+        "uniform": 0.5,
+        "winnow": 0.962
+      }
+    },
+    "AG News": {
+      "n": 500,
+      "scores": {
+        "clm": 0.294,
+        "decider": 0.9,
+        "jev": 0.882,
+        "laya": 0.922,
+        "laya-multi": 0.906,
+        "laya-typed": 0.914,
+        "nimble": 0.898,
+        "nli": 0.836,
+        "plumb": 0.854,
+        "qwen": 0.848,
+        "semif": 0.844,
+        "uniform": 0.25,
+        "winnow": 0.864
+      }
+    },
+    "XNLI": {
+      "n": 500,
+      "scores": {
+        "clm": 0.334,
+        "decider": 0.84,
+        "jev": 0.814,
+        "laya": 0.588,
+        "laya-multi": 0.736,
+        "laya-typed": 0.6,
+        "nimble": 0.814,
+        "nli": 0.348,
+        "plumb": 0.732,
+        "qwen": 0.674,
+        "semif": 0.67,
+        "uniform": 0.34,
+        "winnow": 0.8
+      }
+    },
+    "SciFact": {
+      "n": 500,
+      "scores": {
+        "clm": 0.25,
+        "decider": 0.924,
+        "jev": 0.936,
+        "laya": 0.52,
+        "laya-multi": 0.214,
+        "laya-typed": 0.354,
+        "nimble": 0.89,
+        "nli": 0.214,
+        "plumb": 0.864,
+        "qwen": 0.792,
+        "semif": 0.79,
+        "uniform": 0.906,
+        "winnow": 0.926
+      }
+    },
+    "Arena Fresh": {
+      "n": 1440,
+      "scores": {
+        "clm": 0.38819444444444445,
+        "decider": 0.9875,
+        "jev": 1.0,
+        "laya": 0.5701388888888889,
+        "laya-multi": 0.4861111111111111,
+        "laya-typed": 0.60625,
+        "nimble": 0.9770833333333333,
+        "nli": 0.6020833333333333,
+        "plumb": 0.9409722222222222,
+        "qwen": 0.9118055555555555,
+        "semif": 0.8145833333333333,
+        "uniform": 0.41388888888888886,
+        "winnow": 1.0
+      }
+    },
+    "Robustness": {
+      "n": 1000,
+      "scores": {
+        "clm": 0.322,
+        "decider": 0.98,
+        "jev": 1.0,
+        "laya": 0.593,
+        "laya-multi": 0.449,
+        "laya-typed": 0.58,
+        "nimble": 0.95,
+        "nli": 0.569,
+        "plumb": 0.924,
+        "qwen": 0.906,
+        "semif": 0.852,
+        "uniform": 0.415,
+        "winnow": 1.0
+      }
+    }
+  }
+}

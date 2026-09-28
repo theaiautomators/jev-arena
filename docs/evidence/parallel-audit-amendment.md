@@ -1,0 +1,13 @@
+# Parallel audit scheduling — 27 September 2026
+
+During Full v2 run `20260927-205440-6350b9`, the user asked whether work could run in parallel. We retained one GPU candidate worker at a time and began the already-authorized Astra representative audit through Codex CLI while remaining candidates ran locally.
+
+The sidecar froze a snapshot of 637 distinct case/answer pairs from the nine entrants that had completed all 7,671 case records. It uses only the original 250 representative question IDs. The rubric, blindness, validation, eight-answer maximum and deduplication key are the same as the main judge. Model names, scores, probabilities, timing and reference labels are absent from judge prompts. The snapshot and script hash are stored under `overlap-audit/` in the run directory.
+
+There is one remote judge call at a time, alongside one GPU candidate. No additional audit questions or credit purchases were introduced. The candidate runner consumes completed, verified grades by their existing case/answer/rubric IDs; it subsequently judges newly observed answers and the frozen-rule disagreement sample. Batch composition and scheduling differ from an entirely sequential audit, which should be disclosed when discussing reproducibility. The remote judge does not use the RTX 5090, although its CLI process uses some host CPU, memory and network resources. The benchmark is not a claim of performance on an otherwise idle machine.
+
+Only complete, validated grades enter the shared store. Imports are transactional and are rejected after the main runner enters judging; a completed grade is never overwritten. Final analysis joins each cached grade to every later model that selected the same answer, preserving both the original attribution and an amendment trail. It asserts that all grade values remain unchanged and that the resulting model lists match the final predictions.
+
+Four targeted tests cover frozen-question selection, blindness, the transition to main judging, avoiding grade overwrites, and correct attribution to later matching answers. Candidate adapters, scoring and frozen case data were not changed by this scheduling amendment.
+
+Separately, checking the live processes revealed that the original runner had exited around 22:01:33 UTC. No owned Arena worker remained active, but its database status had not updated. The cause was not established. We resumed the same run with its runtime fingerprint intact and all 71,421 saved records retained: nine complete entrants plus 2,382 Nimble records. No completed candidate predictions were repeated. Resume/load/warmup overhead must be included in the final runtime discussion.

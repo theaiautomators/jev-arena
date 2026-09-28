@@ -1,0 +1,309 @@
+{
+  "run_id": "20260927-205440-6350b9",
+  "followup_verification": {
+    "records": 1600,
+    "unique_pairs_per_model": 400,
+    "input_hashes_and_reversal_meanings_verified": true,
+    "cleanup_passed": true
+  },
+  "followup_comparability": {
+    "jev": {
+      "repeat": {
+        "n": 200,
+        "comparable_selected_labels": 200,
+        "same_selected_as_main": 199,
+        "changed_case_ids": [
+          "jevbench-hard-opus-c-temporal_numeric-03"
+        ],
+        "statuses": {
+          "ok": 199,
+          "invalid": 1
+        }
+      },
+      "reversed_options": {
+        "n": 200,
+        "comparable_selected_labels": 199,
+        "same_selected_as_main": 196,
+        "changed_case_ids": [
+          "xnli-40-de",
+          "massive-4973-ar",
+          "jevbench-hard-opus-c-temporal_numeric-03"
+        ],
+        "statuses": {
+          "ok": 195,
+          "invalid": 4,
+          "transport_error": 1
+        }
+      }
+    },
+    "winnow": {
+      "repeat": {
+        "n": 200,
+        "comparable_selected_labels": 187,
+        "same_selected_as_main": 187,
+        "changed_case_ids": [],
+        "statuses": {
+          "ok": 187,
+          "transport_error": 13
+        }
+      },
+      "reversed_options": {
+        "n": 200,
+        "comparable_selected_labels": 187,
+        "same_selected_as_main": 183,
+        "changed_case_ids": [
+          "massive-16983-de",
+          "massive-12070-hi",
+          "massive-3595-es",
+          "massive-4973-ar"
+        ],
+        "statuses": {
+          "ok": 187,
+          "transport_error": 13
+        }
+      }
+    },
+    "decider": {
+      "repeat": {
+        "n": 200,
+        "comparable_selected_labels": 200,
+        "same_selected_as_main": 200,
+        "changed_case_ids": [],
+        "statuses": {
+          "ok": 180,
+          "invalid": 20
+        }
+      },
+      "reversed_options": {
+        "n": 200,
+        "comparable_selected_labels": 200,
+        "same_selected_as_main": 196,
+        "changed_case_ids": [
+          "classification-banking77-2604",
+          "fresh-v2-test-04-048-choice",
+          "fresh-v2-test-04-019-choice-distractor",
+          "massive-4973-ar"
+        ],
+        "statuses": {
+          "ok": 186,
+          "invalid": 14
+        }
+      }
+    },
+    "nimble": {
+      "repeat": {
+        "n": 200,
+        "comparable_selected_labels": 200,
+        "same_selected_as_main": 200,
+        "changed_case_ids": [],
+        "statuses": {
+          "ok": 200
+        }
+      },
+      "reversed_options": {
+        "n": 200,
+        "comparable_selected_labels": 200,
+        "same_selected_as_main": 189,
+        "changed_case_ids": [
+          "jevbench-hard-sol-b-temporal_numeric-02",
+          "massive-16983-de",
+          "classification-banking77-2604",
+          "massive-12070-hi",
+          "jevbench-hard-opus-a-long_policy-17",
+          "classification-banking77-7",
+          "jevbench-hard-opus-c-temporal_numeric-04",
+          "xnli-3546-en",
+          "massive-4973-ar",
+          "jevbench-hard-opus-c-temporal_numeric-03",
+          "xnli-2686-de"
+        ],
+        "statuses": {
+          "ok": 200
+        }
+      }
+    }
+  },
+  "paired_intervals": [
+    {
+      "cohort": "all_entrant_shared_reference",
+      "model": "winnow",
+      "reference": "jev",
+      "metric": "strict",
+      "n": 4635,
+      "delta": -0.005825242718446602,
+      "ci": [
+        -0.012112849513851144,
+        -0.0002267264210352044
+      ]
+    },
+    {
+      "cohort": "all_entrant_shared_reference",
+      "model": "winnow",
+      "reference": "jev",
+      "metric": "selected_label",
+      "n": 4635,
+      "delta": -0.006256742179072276,
+      "ci": [
+        -0.012464604306058762,
+        -0.0007210418657429544
+      ]
+    },
+    {
+      "cohort": "all_entrant_shared_reference",
+      "model": "decider",
+      "reference": "jev",
+      "metric": "strict",
+      "n": 4635,
+      "delta": -0.008414239482200648,
+      "ci": [
+        -0.02222267984623833,
+        0.0031145219453668103
+      ]
+    },
+    {
+      "cohort": "all_entrant_shared_reference",
+      "model": "decider",
+      "reference": "jev",
+      "metric": "selected_label",
+      "n": 4635,
+      "delta": -0.007766990291262136,
+      "ci": [
+        -0.021691866100295616,
+        0.003841417616779771
+      ]
+    },
+    {
+      "cohort": "all_entrant_shared_reference",
+      "model": "nimble",
+      "reference": "jev",
+      "metric": "strict",
+      "n": 4635,
+      "delta": -0.0284789644012945,
+      "ci": [
+        -0.05508900131140803,
+        -0.010161203602780026
+      ]
+    },
+    {
+      "cohort": "all_entrant_shared_reference",
+      "model": "nimble",
+      "reference": "jev",
+      "metric": "selected_label",
+      "n": 4635,
+      "delta": -0.02891046386192017,
+      "ci": [
+        -0.05591467875339496,
+        -0.010324533796166465
+      ]
+    },
+    {
+      "cohort": "all_reference",
+      "model": "winnow",
+      "reference": "jev",
+      "metric": "strict",
+      "n": 5671,
+      "delta": -0.07123964027508375,
+      "ci": [
+        -0.09042563976462874,
+        -0.0561796130288403
+      ]
+    },
+    {
+      "cohort": "all_reference",
+      "model": "winnow",
+      "reference": "jev",
+      "metric": "selected_label",
+      "n": 5671,
+      "delta": -0.07935108446482102,
+      "ci": [
+        -0.09965958324250453,
+        -0.06347579316638319
+      ]
+    },
+    {
+      "cohort": "all_reference",
+      "model": "decider",
+      "reference": "jev",
+      "metric": "strict",
+      "n": 5671,
+      "delta": -0.08199612061364839,
+      "ci": [
+        -0.10184666690127578,
+        -0.06518730553053867
+      ]
+    },
+    {
+      "cohort": "all_reference",
+      "model": "decider",
+      "reference": "jev",
+      "metric": "selected_label",
+      "n": 5671,
+      "delta": -0.004937400811144419,
+      "ci": [
+        -0.01719318461484372,
+        0.00609527916901629
+      ]
+    },
+    {
+      "cohort": "all_reference",
+      "model": "nimble",
+      "reference": "jev",
+      "metric": "strict",
+      "n": 5671,
+      "delta": -0.01692823135249515,
+      "ci": [
+        -0.03920876635199194,
+        -0.0008329602682188027
+      ]
+    },
+    {
+      "cohort": "all_reference",
+      "model": "nimble",
+      "reference": "jev",
+      "metric": "selected_label",
+      "n": 5671,
+      "delta": -0.02503967554223241,
+      "ci": [
+        -0.0476695442510944,
+        -0.00898248345466167
+      ]
+    }
+  ],
+  "interval_note": "Descriptive unadjusted cluster-bootstrap intervals on the stated fixed cohort; not equivalence tests or population guarantees. Repeated variants share clusters.",
+  "winnow_retrospective_capacity_sensitivity": {
+    "basis": "Post-hoc exclude all 77-label cases based on pinned native 64-label limit. Frozen errors remain unchanged.",
+    "models": {
+      "jev": {
+        "n": 5171,
+        "strict_correct": 4818,
+        "selected_label_correct": 4852
+      },
+      "winnow": {
+        "n": 5171,
+        "strict_correct": 4813,
+        "selected_label_correct": 4813
+      }
+    }
+  },
+  "runtime": {
+    "main_elapsed_minutes": 264.9175556778908,
+    "through_followups_minutes": 273.4081922491392,
+    "main_started_utc_timestamp": 1790538881.206912,
+    "main_finished_utc_timestamp": 1790554776.2602527,
+    "followups_finished_utc_timestamp": 1790555285.698447,
+    "note": "Includes interruption/resume and overlapping judge work; excludes preflight/Support Lab wait and subsequent analysis/review."
+  },
+  "jev_cost": {
+    "main": {
+      "actual_usd": 0.23630430599999386,
+      "reserved_usd": 0.23899230599996954
+    },
+    "followups": {
+      "actual_usd": 0.011838540000000005,
+      "reserved_usd": 0.014526539999999935
+    },
+    "combined_actual_usd": 0.24814284599999387,
+    "combined_reserved_usd": 0.2535188459999695,
+    "note": "Application ledger from reported input usage, including warmup/timing/workflows; not reconciled to provider invoice. One follow-up persistence error leaves billing uncertainty covered by reservation."
+  }
+}

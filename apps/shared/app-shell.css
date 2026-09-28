@@ -1,0 +1,153 @@
+/* Canonical TAIA micro-app tokens and layout. App styles own the working surface. */
+:root {
+  color-scheme: dark;
+  font-family: Poppins, 'Segoe UI', Arial, sans-serif;
+  font-size: 14px;
+  font-synthesis: none;
+  --ink: #fff;
+  --muted: #a8a8ad;
+  --faint: #8e8e96;
+  --canvas: #101010;
+  --surface: #181818;
+  --surface-deep: #141414;
+  --surface-hover: #202024;
+  --line: #323236;
+  --line-strong: #44444a;
+  --accent: #25a4ef;
+  --accent-hover: #4cb7f5;
+  --accent-soft: rgba(37, 164, 239, .12);
+  --on-accent: #06131b;
+  --success: #55d69e;
+  --danger: #ff716c;
+  --display: Poppins, 'Segoe UI', Arial, sans-serif;
+  --taia-header-height: 76px;
+  --taia-sidebar-width: 240px;
+  --taia-gutter: 40px;
+  --taia-content-width: 1680px;
+}
+body { margin: 0; }
+.taia-shell, .taia-shell * { box-sizing: border-box; }
+.taia-shell button { font-family: inherit; }
+.taia-shell { min-height: 100vh; color: var(--ink); background: var(--canvas); }
+.taia-shell--collapsed { --taia-sidebar-width: 76px; }
+.taia-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: var(--taia-header-height);
+  display: flex;
+  background: var(--surface-deep);
+  border-bottom: 1px solid var(--line);
+}
+.taia-brand {
+  width: var(--taia-sidebar-width);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--line);
+  text-decoration: none;
+}
+.taia-logo-crop { display: block; width: 192px; overflow: hidden; }
+.taia-logo-crop img { display: block; width: 192px; max-width: none; height: auto; }
+.taia-shell--collapsed .taia-logo-crop { width: 55px; }
+.taia-header-content { display: flex; align-items: center; gap: 20px; min-width: 0; flex: 1; padding: 0 var(--taia-gutter); }
+.taia-location { display: flex; align-items: center; gap: 14px; min-width: 0; font-size: 12px; white-space: nowrap; }
+.taia-location strong { font-size: 13px; font-weight: 600; }
+.taia-location > span { color: var(--muted); overflow: hidden; text-overflow: ellipsis; }
+.taia-location > svg { color: var(--faint); flex-shrink: 0; }
+.taia-header-actions { margin-left: auto; display: flex; align-items: center; gap: 22px; flex-shrink: 0; }
+.taia-status { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--muted); white-space: nowrap; }
+.taia-status i, .taia-workspace-label i { width: 5px; height: 5px; border-radius: 50%; background: var(--faint); flex-shrink: 0; }
+.taia-status--success i { background: var(--success); }
+.taia-icon-button, .taia-presenter-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-height: 36px;
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  transition: background .16s, color .16s, border-color .16s;
+}
+.taia-presenter-button { gap: 8px; padding: 8px 11px; font-size: 11px; border-color: var(--line); }
+.taia-icon-button:hover, .taia-presenter-button:hover { color: var(--ink); background: var(--surface-hover); }
+.taia-presenter-button[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+.taia-sidebar { position: fixed; top: var(--taia-header-height); bottom: 0; left: 0; width: var(--taia-sidebar-width); display: flex; flex-direction: column; border-right: 1px solid var(--line); background: var(--surface-deep); padding: 30px 16px 20px; z-index: 20; overflow-y: auto; }
+.taia-sidebar-intro { padding: 0 12px 23px; }
+.taia-sidebar-intro > span { font-size: 9px; font-weight: 500; letter-spacing: 1.5px; color: var(--faint); }
+.taia-sidebar-intro p { margin: 7px 0 0; font-size: 11px; line-height: 1.6; color: var(--muted); }
+.taia-navigation { display: flex; flex-direction: column; gap: 6px; }
+.taia-navigation button { display: flex; align-items: center; gap: 12px; min-height: 44px; width: 100%; padding: 11px 12px; border: 1px solid transparent; border-radius: 7px; font-size: 12px; font-weight: 400; text-align: left; color: var(--muted); background: transparent; cursor: pointer; transition: background .16s, color .16s, border-color .16s; }
+.taia-navigation button svg { flex-shrink: 0; }
+.taia-navigation button:hover { color: var(--ink); background: var(--surface-hover); }
+.taia-navigation button[aria-current="page"] { color: var(--accent); border-color: rgba(37, 164, 239, .22); background: var(--accent-soft); }
+.taia-sidebar-footer { margin-top: auto; padding: 32px 12px 0; color: var(--muted); font-size: 11px; line-height: 1.8; }
+.taia-sidebar-footer p { margin: 0 0 16px; font-size: 11px; }
+.taia-sidebar-footer a { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 16px 0; color: var(--muted); text-decoration: none; }
+.taia-sidebar-footer a:hover { color: var(--accent); }
+.taia-workspace-label { display: flex; align-items: center; gap: 8px; border-top: 1px solid var(--line); padding-top: 16px; font-size: 10px; }
+.taia-shell--collapsed .taia-sidebar { padding-left: 15px; padding-right: 15px; }
+.taia-shell--collapsed .taia-sidebar-intro, .taia-shell--collapsed .taia-sidebar-footer, .taia-shell--collapsed .taia-navigation button > span { display: none; }
+.taia-shell--collapsed .taia-navigation button { padding: 11px; justify-content: center; }
+.taia-body { margin-left: var(--taia-sidebar-width); min-width: 0; min-height: calc(100vh - var(--taia-header-height)); display: flex; flex-direction: column; }
+.taia-shell .taia-content { flex: 1; min-width: 0; width: 100%; max-width: var(--taia-content-width); margin: 0 auto; padding: 38px var(--taia-gutter) 32px; scroll-margin-top: calc(var(--taia-header-height) + 20px); }
+.taia-shell .taia-content > .page { width: 100%; max-width: none; margin: 0; padding: 0; }
+.taia-shell .page-heading { min-width: 0; display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 32px; }
+.taia-shell .page-heading h1 { font-family: var(--display); font-size: clamp(28px, 2.8vw, 40px); font-weight: 600; line-height: 1.2; letter-spacing: -.045em; }
+.taia-shell .page-heading .eyebrow { color: var(--accent); font-size: 9px; line-height: 1.5; letter-spacing: 1.5px; font-weight: 600; margin: 0 0 12px; }
+.taia-shell .page-heading p:not(.eyebrow) { font-size: 12px; line-height: 1.7; color: var(--muted); margin-top: 12px; }
+.taia-shell .taia-footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px 24px; margin: 0; padding: 18px var(--taia-gutter); border-top: 1px solid var(--line); color: var(--faint); font-size: 10px; line-height: 1.7; }
+.taia-footer > span:first-child > span { padding: 0 8px; color: var(--line-strong); }
+.taia-footer > span:last-child { overflow-wrap: anywhere; }
+.taia-shell--presenter { --taia-sidebar-width: 240px; }
+.taia-shell--presenter .taia-sidebar, .taia-shell--presenter .taia-footer { display: none; }
+.taia-shell--presenter .taia-body { margin-left: 0; }
+.taia-shell--presenter .taia-logo-crop { width: 192px; }
+.taia-shell--presenter .taia-content { max-width: 1600px; }
+.taia-shell :is(.taia-header, .taia-sidebar) :is(button, a):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.taia-skip-link { position: fixed; left: 16px; top: -70px; z-index: 100; padding: 12px 18px; background: var(--accent); color: var(--on-accent); border-radius: 6px; text-decoration: none; font-size: 12px; }
+.taia-skip-link:focus { top: 12px; }
+@media (max-width: 1150px) {
+  .taia-shell { --taia-sidebar-width: 220px; --taia-gutter: 28px; }
+  .taia-shell--collapsed { --taia-sidebar-width: 76px; }
+  .taia-header-content { gap: 14px; }
+  .taia-header-actions { gap: 14px; }
+  .taia-status { display: none; }
+  .taia-shell .page-heading { align-items: flex-start; }
+}
+@media (max-width: 850px) {
+  .taia-shell { --taia-header-height: 70px; --taia-sidebar-width: 210px; --taia-gutter: 24px; }
+  .taia-brand { border-right: 0; }
+  .taia-logo-crop, .taia-shell--collapsed .taia-logo-crop, .taia-shell--presenter .taia-logo-crop { width: 174px; }
+  .taia-logo-crop img { width: 174px; }
+  .taia-nav-toggle, .taia-location > svg, .taia-location > span { display: none; }
+  .taia-header-content { padding-left: 0; }
+  .taia-sidebar, .taia-shell--collapsed .taia-sidebar { position: sticky; top: var(--taia-header-height); width: 100%; bottom: auto; padding: 8px var(--taia-gutter); border-right: 0; border-bottom: 1px solid var(--line); overflow: visible; }
+  .taia-sidebar-intro, .taia-sidebar-footer { display: none; }
+  .taia-navigation { position: relative; flex-direction: row; gap: 6px; overflow-x: auto; scrollbar-width: thin; scroll-padding-inline: 3px; padding: 3px; }
+  .taia-navigation button, .taia-shell--collapsed .taia-navigation button { width: auto; padding: 10px 12px; white-space: nowrap; flex-shrink: 0; }
+  .taia-shell--collapsed .taia-navigation button > span { display: inline; }
+  .taia-body { margin-left: 0; min-height: calc(100vh - var(--taia-header-height) - 68px); }
+  .taia-shell .taia-content { padding-top: 28px; scroll-margin-top: 156px; }
+  .taia-shell .page-heading { flex-wrap: wrap; }
+  .taia-shell--presenter .taia-body { min-height: calc(100vh - var(--taia-header-height)); }
+}
+@media (max-width: 580px) {
+  .taia-shell { --taia-gutter: 18px; --taia-sidebar-width: 66px; --taia-header-height: 64px; }
+  .taia-logo-crop, .taia-shell--collapsed .taia-logo-crop, .taia-shell--presenter .taia-logo-crop { width: 46px; }
+  .taia-logo-crop img { width: 160px; }
+  .taia-header-content { gap: 8px; }
+  .taia-location strong { font-size: 12px; }
+  .taia-presenter-button { min-height: 40px; font-size: 10px; gap: 6px; padding: 8px; }
+  .taia-navigation button { font-size: 11px; gap: 8px; }
+  .taia-shell .page-heading { margin-bottom: 26px; gap: 18px; }
+  .taia-shell .taia-footer { flex-direction: column; font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .taia-shell *, .taia-shell *::before, .taia-shell *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

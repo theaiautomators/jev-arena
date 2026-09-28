@@ -1,0 +1,17 @@
+**
+!workers/
+!workers/**
+!arena/
+!arena/wire.py
+!.arena/
+!.arena/sources/
+!.arena/sources/jevk5/
+!.arena/sources/jevk5/**
+!.arena/sources/semif/
+!.arena/sources/semif/**
+!.arena/sources/nimble/
+!.arena/sources/nimble/**
+!.arena/sources/clm/
+!.arena/sources/clm/**
+!.arena/sources/laya/
+!.arena/sources/laya/**

@@ -1,0 +1,224 @@
+{
+  "EldanRing/Winnow-12B": {
+    "createdAt": "2026-09-20T22:58:54.000Z",
+    "lastModified": "2026-09-21T16:54:18.000Z",
+    "cardData": {
+      "base_model": "google/gemma-4-12B-it",
+      "base_model_relation": "finetune",
+      "license": "apache-2.0",
+      "library_name": "gguf",
+      "pipeline_tag": "image-text-to-text",
+      "tags": [
+        "winnow",
+        "gemma4",
+        "typed-decisions",
+        "local-inference",
+        "vision",
+        "gguf"
+      ]
+    },
+    "safetensors": null,
+    "sha": "b6ac22b0d51b69b18200acacb3fbdd98073fffe8"
+  },
+  "Mapika/decider-4b": {
+    "createdAt": "2026-09-22T14:50:07.000Z",
+    "lastModified": "2026-09-24T21:03:57.000Z",
+    "cardData": {
+      "license": "apache-2.0",
+      "base_model": "Qwen/Qwen3.5-4B-Base",
+      "language": [
+        "en"
+      ],
+      "pipeline_tag": "text-classification",
+      "tags": [
+        "decision-model",
+        "calibrated",
+        "structured-output",
+        "multi-task",
+        "system-one",
+        "one-pass"
+      ]
+    },
+    "safetensors": {
+      "parameters": {
+        "BF16": 4205751296
+      },
+      "total": 4205751296
+    },
+    "sha": "eb5fbdfc9448473ec25e399882912863afbdb70e"
+  },
+  "MoritzLaurer/ModernBERT-large-zeroshot-v2.0": {
+    "createdAt": "2024-12-27T23:13:55.000Z",
+    "lastModified": "2025-01-16T10:27:34.000Z",
+    "cardData": {
+      "library_name": "transformers",
+      "license": "apache-2.0",
+      "base_model": "answerdotai/ModernBERT-large",
+      "tags": [
+        "generated_from_trainer"
+      ],
+      "metrics": [
+        "accuracy"
+      ],
+      "model-index": [
+        {
+          "name": "ModernBERT-large-zeroshot-v2.0",
+          "results": []
+        }
+      ]
+    },
+    "safetensors": {
+      "parameters": {
+        "BF16": 395833346
+      },
+      "total": 395833346
+    },
+    "sha": "a51e07b524299e309dd2b88d48b0cfa2bd9ec598"
+  },
+  "Qwen/Qwen3-8B": {
+    "createdAt": "2025-04-27T03:42:21.000Z",
+    "lastModified": "2025-07-26T03:49:13.000Z",
+    "cardData": {
+      "library_name": "transformers",
+      "license": "apache-2.0",
+      "license_link": "https://huggingface.co/Qwen/Qwen3-8B/blob/main/LICENSE",
+      "pipeline_tag": "text-generation",
+      "base_model": [
+        "Qwen/Qwen3-8B-Base"
+      ]
+    },
+    "safetensors": {
+      "parameters": {
+        "BF16": 8190735360
+      },
+      "total": 8190735360
+    },
+    "sha": "b968826d9c46dd6066d109eabc6255188de91218"
+  },
+  "Qwen/Qwen3.5-4B": {
+    "createdAt": "2026-02-27T14:45:03.000Z",
+    "lastModified": "2026-03-02T00:52:52.000Z",
+    "cardData": {
+      "library_name": "transformers",
+      "license": "apache-2.0",
+      "license_link": "https://huggingface.co/Qwen/Qwen3.5-4B/blob/main/LICENSE",
+      "pipeline_tag": "image-text-to-text",
+      "base_model": [
+        "Qwen/Qwen3.5-4B-Base"
+      ]
+    },
+    "safetensors": {
+      "parameters": {
+        "BF16": 4659861248,
+        "F32": 3840
+      },
+      "total": 4659865088
+    },
+    "sha": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
+  },
+  "bespokelabs/Bespoke-Nimble-9B": {
+    "createdAt": "2026-09-18T01:18:02.000Z",
+    "lastModified": "2026-09-24T06:05:07.000Z",
+    "cardData": {
+      "license": "apache-2.0",
+      "library_name": "peft",
+      "base_model": "Qwen/Qwen3.5-9B",
+      "base_model_relation": "adapter",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "lora",
+        "qwen3.5",
+        "text-classification",
+        "structured-prediction",
+        "evidence-grounding"
+      ]
+    },
+    "safetensors": null,
+    "sha": "bd792f44ec8e265be861bfcdf4e05967ffe0e858"
+  },
+  "convaiinnovations/laya": {
+    "createdAt": "2026-09-18T05:05:55.000Z",
+    "lastModified": "2026-09-24T05:39:22.000Z",
+    "cardData": {
+      "license": "apache-2.0",
+      "library_name": "transformers",
+      "pipeline_tag": "text-classification",
+      "tags": [
+        "laya",
+        "system-one",
+        "calibrated-decisions",
+        "rlcd",
+        "classification",
+        "routing",
+        "scoring",
+        "guardrails",
+        "moderation",
+        "reinforcement-learning",
+        "commercial-use"
+      ]
+    },
+    "safetensors": {
+      "parameters": {
+        "F32": 3,
+        "F16": 421293827
+      },
+      "total": 421293830
+    },
+    "sha": "55cf4c4ebb4ebe31b2550e8bdf3bd21b99753851"
+  },
+  "crh225/plumb-4b": {
+    "createdAt": "2026-09-24T22:37:05.000Z",
+    "lastModified": "2026-09-25T01:13:56.000Z",
+    "cardData": {
+      "license": "apache-2.0",
+      "language": [
+        "en"
+      ],
+      "library_name": "transformers",
+      "base_model": "alibiserikbay/JevK5",
+      "datasets": [
+        "crh225/plumb-decisions"
+      ],
+      "tags": [
+        "decision-model",
+        "decision-making",
+        "multiple-choice",
+        "classification",
+        "calibration",
+        "jevbench",
+        "qwen3.5"
+      ]
+    },
+    "safetensors": {
+      "parameters": {
+        "BF16": 4205751296
+      },
+      "total": 4205751296
+    },
+    "sha": "1c5f4483addb049476ac33107796d217a1dc089d"
+  },
+  "Contrastive-LM/CLM-v0.1-8B": {
+    "createdAt": "2026-09-21T20:09:04.000Z",
+    "lastModified": "2026-09-24T21:37:19.000Z",
+    "cardData": {
+      "license": "apache-2.0",
+      "base_model": "Qwen/Qwen3-8B",
+      "pipeline_tag": "text-ranking",
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "contrastive-learning",
+        "verifier",
+        "reranker",
+        "agents",
+        "clm"
+      ],
+      "library_name": "contrastive-lm"
+    },
+    "safetensors": null,
+    "sha": "e939398d4556fcd9400c76fa8c5a513202f42b0a"
+  }
+}

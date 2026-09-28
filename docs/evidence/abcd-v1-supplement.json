@@ -1,0 +1,1403 @@
+{
+  "id": "abcd-test-v1",
+  "frozen_source_and_journal_hashes_unchanged": true,
+  "independent_combined_reconstruction_passed": true,
+  "capacity": {
+    "jev": {
+      "statuses": {
+        "ok": 2507,
+        "invalid": 36,
+        "transport_error": 1
+      },
+      "max_reported_input_tokens": 28493,
+      "capacity_checks_passed": true,
+      "warmup_records": 4
+    },
+    "decider": {
+      "statuses": {
+        "ok": 2255,
+        "invalid": 289
+      },
+      "max_reported_input_tokens": 28996,
+      "capacity_checks_passed": true,
+      "warmup_records": 2
+    },
+    "winnow": {
+      "statuses": {
+        "ok": 2544
+      },
+      "max_reported_input_tokens": 29128,
+      "capacity_checks_passed": true,
+      "warmup_records": 2
+    },
+    "nimble": {
+      "statuses": {
+        "unsupported": 1308,
+        "ok": 1236
+      },
+      "max_reported_input_tokens": 29206,
+      "capacity_checks_passed": true,
+      "warmup_records": 2
+    },
+    "qwen": {
+      "statuses": {
+        "ok": 2544
+      },
+      "max_reported_input_tokens": 28892,
+      "capacity_checks_passed": true,
+      "warmup_records": 2
+    }
+  },
+  "combined_pairwise": {
+    "full_handbook": {
+      "jev -> decider": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 566,
+          "b_correct": 414,
+          "difference": -0.1688888888888889,
+          "ci": [
+            -0.19666666666666666,
+            -0.1411111111111111
+          ]
+        },
+        "label": {
+          "a_correct": 574,
+          "b_correct": 489,
+          "difference": -0.09444444444444444,
+          "ci": [
+            -0.12,
+            -0.06888888888888889
+          ]
+        }
+      },
+      "jev -> winnow": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 566,
+          "b_correct": 616,
+          "difference": 0.05555555555555555,
+          "ci": [
+            0.02666666666666667,
+            0.08444444444444445
+          ]
+        },
+        "label": {
+          "a_correct": 574,
+          "b_correct": 616,
+          "difference": 0.04666666666666667,
+          "ci": [
+            0.01888888888888889,
+            0.07444444444444444
+          ]
+        }
+      },
+      "jev -> nimble": {
+        "shared_supported": 0,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 0,
+          "b_correct": 0,
+          "difference": null,
+          "ci": null
+        },
+        "label": {
+          "a_correct": 0,
+          "b_correct": 0,
+          "difference": null,
+          "ci": null
+        }
+      },
+      "jev -> qwen": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 566,
+          "b_correct": 504,
+          "difference": -0.06888888888888889,
+          "ci": [
+            -0.09888888888888889,
+            -0.03777777777777778
+          ]
+        },
+        "label": {
+          "a_correct": 574,
+          "b_correct": 504,
+          "difference": -0.07777777777777778,
+          "ci": [
+            -0.10777777777777778,
+            -0.04666666666666667
+          ]
+        }
+      },
+      "decider -> winnow": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 414,
+          "b_correct": 616,
+          "difference": 0.22444444444444445,
+          "ci": [
+            0.19333333333333333,
+            0.2544444444444444
+          ]
+        },
+        "label": {
+          "a_correct": 489,
+          "b_correct": 616,
+          "difference": 0.1411111111111111,
+          "ci": [
+            0.11222222222222222,
+            0.1688888888888889
+          ]
+        }
+      },
+      "decider -> nimble": {
+        "shared_supported": 0,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 0,
+          "b_correct": 0,
+          "difference": null,
+          "ci": null
+        },
+        "label": {
+          "a_correct": 0,
+          "b_correct": 0,
+          "difference": null,
+          "ci": null
+        }
+      },
+      "decider -> qwen": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 414,
+          "b_correct": 504,
+          "difference": 0.1,
+          "ci": [
+            0.07,
+            0.13111111111111112
+          ]
+        },
+        "label": {
+          "a_correct": 489,
+          "b_correct": 504,
+          "difference": 0.016666666666666666,
+          "ci": [
+            -0.012222222222222223,
+            0.04666666666666667
+          ]
+        }
+      },
+      "winnow -> nimble": {
+        "shared_supported": 0,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 0,
+          "b_correct": 0,
+          "difference": null,
+          "ci": null
+        },
+        "label": {
+          "a_correct": 0,
+          "b_correct": 0,
+          "difference": null,
+          "ci": null
+        }
+      },
+      "winnow -> qwen": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 616,
+          "b_correct": 504,
+          "difference": -0.12444444444444444,
+          "ci": [
+            -0.15444444444444444,
+            -0.09444444444444444
+          ]
+        },
+        "label": {
+          "a_correct": 616,
+          "b_correct": 504,
+          "difference": -0.12444444444444444,
+          "ci": [
+            -0.15444444444444444,
+            -0.09444444444444444
+          ]
+        }
+      },
+      "nimble -> qwen": {
+        "shared_supported": 0,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 0,
+          "b_correct": 0,
+          "difference": null,
+          "ci": null
+        },
+        "label": {
+          "a_correct": 0,
+          "b_correct": 0,
+          "difference": null,
+          "ci": null
+        }
+      }
+    },
+    "retrieved_policy": {
+      "jev -> decider": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 584,
+          "b_correct": 479,
+          "difference": -0.11666666666666667,
+          "ci": [
+            -0.14555555555555555,
+            -0.08777777777777777
+          ]
+        },
+        "label": {
+          "a_correct": 592,
+          "b_correct": 531,
+          "difference": -0.06777777777777778,
+          "ci": [
+            -0.09444444444444444,
+            -0.04
+          ]
+        }
+      },
+      "jev -> winnow": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 584,
+          "b_correct": 626,
+          "difference": 0.04666666666666667,
+          "ci": [
+            0.016666666666666666,
+            0.07666666666666666
+          ]
+        },
+        "label": {
+          "a_correct": 592,
+          "b_correct": 626,
+          "difference": 0.03777777777777778,
+          "ci": [
+            0.0077777777777777776,
+            0.06777777777777778
+          ]
+        }
+      },
+      "jev -> nimble": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 584,
+          "b_correct": 541,
+          "difference": -0.04777777777777778,
+          "ci": [
+            -0.07222222222222222,
+            -0.023333333333333334
+          ]
+        },
+        "label": {
+          "a_correct": 592,
+          "b_correct": 541,
+          "difference": -0.056666666666666664,
+          "ci": [
+            -0.08,
+            -0.03222222222222222
+          ]
+        }
+      },
+      "jev -> qwen": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 584,
+          "b_correct": 518,
+          "difference": -0.07333333333333333,
+          "ci": [
+            -0.10222222222222223,
+            -0.044444444444444446
+          ]
+        },
+        "label": {
+          "a_correct": 592,
+          "b_correct": 518,
+          "difference": -0.08222222222222222,
+          "ci": [
+            -0.1111111111111111,
+            -0.05333333333333334
+          ]
+        }
+      },
+      "decider -> winnow": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 479,
+          "b_correct": 626,
+          "difference": 0.16333333333333333,
+          "ci": [
+            0.1322222222222222,
+            0.19444444444444445
+          ]
+        },
+        "label": {
+          "a_correct": 531,
+          "b_correct": 626,
+          "difference": 0.10555555555555556,
+          "ci": [
+            0.07666666666666666,
+            0.13444444444444445
+          ]
+        }
+      },
+      "decider -> nimble": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 479,
+          "b_correct": 541,
+          "difference": 0.06888888888888889,
+          "ci": [
+            0.044444444444444446,
+            0.09333333333333334
+          ]
+        },
+        "label": {
+          "a_correct": 531,
+          "b_correct": 541,
+          "difference": 0.011111111111111112,
+          "ci": [
+            -0.011111111111111112,
+            0.03333333333333333
+          ]
+        }
+      },
+      "decider -> qwen": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 479,
+          "b_correct": 518,
+          "difference": 0.043333333333333335,
+          "ci": [
+            0.015555555555555555,
+            0.07111111111111111
+          ]
+        },
+        "label": {
+          "a_correct": 531,
+          "b_correct": 518,
+          "difference": -0.014444444444444444,
+          "ci": [
+            -0.042222222222222223,
+            0.013333333333333334
+          ]
+        }
+      },
+      "winnow -> nimble": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 626,
+          "b_correct": 541,
+          "difference": -0.09444444444444444,
+          "ci": [
+            -0.12444444444444444,
+            -0.06444444444444444
+          ]
+        },
+        "label": {
+          "a_correct": 626,
+          "b_correct": 541,
+          "difference": -0.09444444444444444,
+          "ci": [
+            -0.12444444444444444,
+            -0.06444444444444444
+          ]
+        }
+      },
+      "winnow -> qwen": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 626,
+          "b_correct": 518,
+          "difference": -0.12,
+          "ci": [
+            -0.14444444444444443,
+            -0.09555555555555556
+          ]
+        },
+        "label": {
+          "a_correct": 626,
+          "b_correct": 518,
+          "difference": -0.12,
+          "ci": [
+            -0.14444444444444443,
+            -0.09555555555555556
+          ]
+        }
+      },
+      "nimble -> qwen": {
+        "shared_supported": 900,
+        "direction": "b minus a",
+        "strict": {
+          "a_correct": 541,
+          "b_correct": 518,
+          "difference": -0.025555555555555557,
+          "ci": [
+            -0.05555555555555555,
+            0.0044444444444444444
+          ]
+        },
+        "label": {
+          "a_correct": 541,
+          "b_correct": 518,
+          "difference": -0.025555555555555557,
+          "ci": [
+            -0.05555555555555555,
+            0.0044444444444444444
+          ]
+        }
+      }
+    }
+  },
+  "combined_by_true_route": {
+    "jev": {
+      "full_handbook": {
+        "take_action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 214,
+          "strict_accuracy_supported": 0.7133333333333334,
+          "strict_correct_yield_planned": 0.7133333333333334,
+          "strict_ci_supported": [
+            0.66,
+            0.7633333333333333
+          ],
+          "label_correct": 221,
+          "label_accuracy_supported": 0.7366666666666667,
+          "label_correct_yield_planned": 0.7366666666666667,
+          "label_ci_supported": [
+            0.6866666666666666,
+            0.7833333333333333
+          ]
+        },
+        "retrieve_utterance": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 69,
+          "strict_accuracy_supported": 0.23,
+          "strict_correct_yield_planned": 0.23,
+          "strict_ci_supported": [
+            0.18333333333333332,
+            0.27666666666666667
+          ],
+          "label_correct": 69,
+          "label_accuracy_supported": 0.23,
+          "label_correct_yield_planned": 0.23,
+          "label_ci_supported": [
+            0.18333333333333332,
+            0.27666666666666667
+          ]
+        },
+        "end_conversation": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 283,
+          "strict_accuracy_supported": 0.9433333333333334,
+          "strict_correct_yield_planned": 0.9433333333333334,
+          "strict_ci_supported": [
+            0.9166666666666666,
+            0.9666666666666667
+          ],
+          "label_correct": 284,
+          "label_accuracy_supported": 0.9466666666666667,
+          "label_correct_yield_planned": 0.9466666666666667,
+          "label_ci_supported": [
+            0.92,
+            0.97
+          ]
+        },
+        "nonterminal": {
+          "planned": 600,
+          "supported": 600,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 600
+          },
+          "strict_correct": 283,
+          "strict_accuracy_supported": 0.4716666666666667,
+          "strict_correct_yield_planned": 0.4716666666666667,
+          "strict_ci_supported": [
+            0.43833333333333335,
+            0.505
+          ],
+          "label_correct": 290,
+          "label_accuracy_supported": 0.48333333333333334,
+          "label_correct_yield_planned": 0.48333333333333334,
+          "label_ci_supported": [
+            0.45166666666666666,
+            0.515
+          ]
+        }
+      },
+      "retrieved_policy": {
+        "take_action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 208,
+          "strict_accuracy_supported": 0.6933333333333334,
+          "strict_correct_yield_planned": 0.6933333333333334,
+          "strict_ci_supported": [
+            0.64,
+            0.7433333333333333
+          ],
+          "label_correct": 213,
+          "label_accuracy_supported": 0.71,
+          "label_correct_yield_planned": 0.71,
+          "label_ci_supported": [
+            0.6566666666666666,
+            0.76
+          ]
+        },
+        "retrieve_utterance": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 94,
+          "strict_accuracy_supported": 0.31333333333333335,
+          "strict_correct_yield_planned": 0.31333333333333335,
+          "strict_ci_supported": [
+            0.2633333333333333,
+            0.36666666666666664
+          ],
+          "label_correct": 95,
+          "label_accuracy_supported": 0.31666666666666665,
+          "label_correct_yield_planned": 0.31666666666666665,
+          "label_ci_supported": [
+            0.2633333333333333,
+            0.37
+          ]
+        },
+        "end_conversation": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 282,
+          "strict_accuracy_supported": 0.94,
+          "strict_correct_yield_planned": 0.94,
+          "strict_ci_supported": [
+            0.9133333333333333,
+            0.9666666666666667
+          ],
+          "label_correct": 284,
+          "label_accuracy_supported": 0.9466666666666667,
+          "label_correct_yield_planned": 0.9466666666666667,
+          "label_ci_supported": [
+            0.92,
+            0.97
+          ]
+        },
+        "nonterminal": {
+          "planned": 600,
+          "supported": 600,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 600
+          },
+          "strict_correct": 302,
+          "strict_accuracy_supported": 0.5033333333333333,
+          "strict_correct_yield_planned": 0.5033333333333333,
+          "strict_ci_supported": [
+            0.4666666666666667,
+            0.54
+          ],
+          "label_correct": 308,
+          "label_accuracy_supported": 0.5133333333333333,
+          "label_correct_yield_planned": 0.5133333333333333,
+          "label_ci_supported": [
+            0.4766666666666667,
+            0.5483333333333333
+          ]
+        }
+      }
+    },
+    "decider": {
+      "full_handbook": {
+        "take_action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 87,
+          "strict_accuracy_supported": 0.29,
+          "strict_correct_yield_planned": 0.29,
+          "strict_ci_supported": [
+            0.24,
+            0.34
+          ],
+          "label_correct": 162,
+          "label_accuracy_supported": 0.54,
+          "label_correct_yield_planned": 0.54,
+          "label_ci_supported": [
+            0.48333333333333334,
+            0.5966666666666667
+          ]
+        },
+        "retrieve_utterance": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 39,
+          "strict_accuracy_supported": 0.13,
+          "strict_correct_yield_planned": 0.13,
+          "strict_ci_supported": [
+            0.09333333333333334,
+            0.17
+          ],
+          "label_correct": 39,
+          "label_accuracy_supported": 0.13,
+          "label_correct_yield_planned": 0.13,
+          "label_ci_supported": [
+            0.09333333333333334,
+            0.17
+          ]
+        },
+        "end_conversation": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 288,
+          "strict_accuracy_supported": 0.96,
+          "strict_correct_yield_planned": 0.96,
+          "strict_ci_supported": [
+            0.9366666666666666,
+            0.98
+          ],
+          "label_correct": 288,
+          "label_accuracy_supported": 0.96,
+          "label_correct_yield_planned": 0.96,
+          "label_ci_supported": [
+            0.9366666666666666,
+            0.98
+          ]
+        },
+        "nonterminal": {
+          "planned": 600,
+          "supported": 600,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 600
+          },
+          "strict_correct": 126,
+          "strict_accuracy_supported": 0.21,
+          "strict_correct_yield_planned": 0.21,
+          "strict_ci_supported": [
+            0.18,
+            0.24
+          ],
+          "label_correct": 201,
+          "label_accuracy_supported": 0.335,
+          "label_correct_yield_planned": 0.335,
+          "label_ci_supported": [
+            0.30333333333333334,
+            0.36666666666666664
+          ]
+        }
+      },
+      "retrieved_policy": {
+        "take_action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 105,
+          "strict_accuracy_supported": 0.35,
+          "strict_correct_yield_planned": 0.35,
+          "strict_ci_supported": [
+            0.2966666666666667,
+            0.4066666666666667
+          ],
+          "label_correct": 157,
+          "label_accuracy_supported": 0.5233333333333333,
+          "label_correct_yield_planned": 0.5233333333333333,
+          "label_ci_supported": [
+            0.4666666666666667,
+            0.58
+          ]
+        },
+        "retrieve_utterance": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 85,
+          "strict_accuracy_supported": 0.2833333333333333,
+          "strict_correct_yield_planned": 0.2833333333333333,
+          "strict_ci_supported": [
+            0.23333333333333334,
+            0.33666666666666667
+          ],
+          "label_correct": 85,
+          "label_accuracy_supported": 0.2833333333333333,
+          "label_correct_yield_planned": 0.2833333333333333,
+          "label_ci_supported": [
+            0.23333333333333334,
+            0.33666666666666667
+          ]
+        },
+        "end_conversation": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 289,
+          "strict_accuracy_supported": 0.9633333333333334,
+          "strict_correct_yield_planned": 0.9633333333333334,
+          "strict_ci_supported": [
+            0.94,
+            0.9833333333333333
+          ],
+          "label_correct": 289,
+          "label_accuracy_supported": 0.9633333333333334,
+          "label_correct_yield_planned": 0.9633333333333334,
+          "label_ci_supported": [
+            0.94,
+            0.9833333333333333
+          ]
+        },
+        "nonterminal": {
+          "planned": 600,
+          "supported": 600,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 600
+          },
+          "strict_correct": 190,
+          "strict_accuracy_supported": 0.31666666666666665,
+          "strict_correct_yield_planned": 0.31666666666666665,
+          "strict_ci_supported": [
+            0.2816666666666667,
+            0.35333333333333333
+          ],
+          "label_correct": 242,
+          "label_accuracy_supported": 0.4033333333333333,
+          "label_correct_yield_planned": 0.4033333333333333,
+          "label_ci_supported": [
+            0.36829166666666674,
+            0.44
+          ]
+        }
+      }
+    },
+    "winnow": {
+      "full_handbook": {
+        "take_action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 141,
+          "strict_accuracy_supported": 0.47,
+          "strict_correct_yield_planned": 0.47,
+          "strict_ci_supported": [
+            0.41333333333333333,
+            0.5266666666666666
+          ],
+          "label_correct": 141,
+          "label_accuracy_supported": 0.47,
+          "label_correct_yield_planned": 0.47,
+          "label_ci_supported": [
+            0.41333333333333333,
+            0.5266666666666666
+          ]
+        },
+        "retrieve_utterance": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 185,
+          "strict_accuracy_supported": 0.6166666666666667,
+          "strict_correct_yield_planned": 0.6166666666666667,
+          "strict_ci_supported": [
+            0.5633333333333334,
+            0.67
+          ],
+          "label_correct": 185,
+          "label_accuracy_supported": 0.6166666666666667,
+          "label_correct_yield_planned": 0.6166666666666667,
+          "label_ci_supported": [
+            0.5633333333333334,
+            0.67
+          ]
+        },
+        "end_conversation": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 290,
+          "strict_accuracy_supported": 0.9666666666666667,
+          "strict_correct_yield_planned": 0.9666666666666667,
+          "strict_ci_supported": [
+            0.9433333333333334,
+            0.9866666666666667
+          ],
+          "label_correct": 290,
+          "label_accuracy_supported": 0.9666666666666667,
+          "label_correct_yield_planned": 0.9666666666666667,
+          "label_ci_supported": [
+            0.9433333333333334,
+            0.9866666666666667
+          ]
+        },
+        "nonterminal": {
+          "planned": 600,
+          "supported": 600,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 600
+          },
+          "strict_correct": 326,
+          "strict_accuracy_supported": 0.5433333333333333,
+          "strict_correct_yield_planned": 0.5433333333333333,
+          "strict_ci_supported": [
+            0.505,
+            0.58
+          ],
+          "label_correct": 326,
+          "label_accuracy_supported": 0.5433333333333333,
+          "label_correct_yield_planned": 0.5433333333333333,
+          "label_ci_supported": [
+            0.505,
+            0.58
+          ]
+        }
+      },
+      "retrieved_policy": {
+        "take_action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 139,
+          "strict_accuracy_supported": 0.4633333333333333,
+          "strict_correct_yield_planned": 0.4633333333333333,
+          "strict_ci_supported": [
+            0.4066666666666667,
+            0.52
+          ],
+          "label_correct": 139,
+          "label_accuracy_supported": 0.4633333333333333,
+          "label_correct_yield_planned": 0.4633333333333333,
+          "label_ci_supported": [
+            0.4066666666666667,
+            0.52
+          ]
+        },
+        "retrieve_utterance": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 197,
+          "strict_accuracy_supported": 0.6566666666666666,
+          "strict_correct_yield_planned": 0.6566666666666666,
+          "strict_ci_supported": [
+            0.6033333333333334,
+            0.71
+          ],
+          "label_correct": 197,
+          "label_accuracy_supported": 0.6566666666666666,
+          "label_correct_yield_planned": 0.6566666666666666,
+          "label_ci_supported": [
+            0.6033333333333334,
+            0.71
+          ]
+        },
+        "end_conversation": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 290,
+          "strict_accuracy_supported": 0.9666666666666667,
+          "strict_correct_yield_planned": 0.9666666666666667,
+          "strict_ci_supported": [
+            0.9433333333333334,
+            0.9866666666666667
+          ],
+          "label_correct": 290,
+          "label_accuracy_supported": 0.9666666666666667,
+          "label_correct_yield_planned": 0.9666666666666667,
+          "label_ci_supported": [
+            0.9433333333333334,
+            0.9866666666666667
+          ]
+        },
+        "nonterminal": {
+          "planned": 600,
+          "supported": 600,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 600
+          },
+          "strict_correct": 336,
+          "strict_accuracy_supported": 0.56,
+          "strict_correct_yield_planned": 0.56,
+          "strict_ci_supported": [
+            0.5216666666666666,
+            0.5966666666666667
+          ],
+          "label_correct": 336,
+          "label_accuracy_supported": 0.56,
+          "label_correct_yield_planned": 0.56,
+          "label_ci_supported": [
+            0.5216666666666666,
+            0.5966666666666667
+          ]
+        }
+      }
+    },
+    "nimble": {
+      "full_handbook": {
+        "take_action": {
+          "planned": 300,
+          "supported": 0,
+          "unsupported": 300,
+          "status_counts": {
+            "unsupported": 300
+          },
+          "strict_correct": 0,
+          "strict_accuracy_supported": null,
+          "strict_correct_yield_planned": 0.0,
+          "strict_ci_supported": null,
+          "label_correct": 0,
+          "label_accuracy_supported": null,
+          "label_correct_yield_planned": 0.0,
+          "label_ci_supported": null
+        },
+        "retrieve_utterance": {
+          "planned": 300,
+          "supported": 0,
+          "unsupported": 300,
+          "status_counts": {
+            "unsupported": 300
+          },
+          "strict_correct": 0,
+          "strict_accuracy_supported": null,
+          "strict_correct_yield_planned": 0.0,
+          "strict_ci_supported": null,
+          "label_correct": 0,
+          "label_accuracy_supported": null,
+          "label_correct_yield_planned": 0.0,
+          "label_ci_supported": null
+        },
+        "end_conversation": {
+          "planned": 300,
+          "supported": 0,
+          "unsupported": 300,
+          "status_counts": {
+            "unsupported": 300
+          },
+          "strict_correct": 0,
+          "strict_accuracy_supported": null,
+          "strict_correct_yield_planned": 0.0,
+          "strict_ci_supported": null,
+          "label_correct": 0,
+          "label_accuracy_supported": null,
+          "label_correct_yield_planned": 0.0,
+          "label_ci_supported": null
+        },
+        "nonterminal": {
+          "planned": 600,
+          "supported": 0,
+          "unsupported": 600,
+          "status_counts": {
+            "unsupported": 600
+          },
+          "strict_correct": 0,
+          "strict_accuracy_supported": null,
+          "strict_correct_yield_planned": 0.0,
+          "strict_ci_supported": null,
+          "label_correct": 0,
+          "label_accuracy_supported": null,
+          "label_correct_yield_planned": 0.0,
+          "label_ci_supported": null
+        }
+      },
+      "retrieved_policy": {
+        "take_action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 181,
+          "strict_accuracy_supported": 0.6033333333333334,
+          "strict_correct_yield_planned": 0.6033333333333334,
+          "strict_ci_supported": [
+            0.5466666666666666,
+            0.6566666666666666
+          ],
+          "label_correct": 181,
+          "label_accuracy_supported": 0.6033333333333334,
+          "label_correct_yield_planned": 0.6033333333333334,
+          "label_ci_supported": [
+            0.5466666666666666,
+            0.6566666666666666
+          ]
+        },
+        "retrieve_utterance": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 75,
+          "strict_accuracy_supported": 0.25,
+          "strict_correct_yield_planned": 0.25,
+          "strict_ci_supported": [
+            0.20333333333333334,
+            0.3
+          ],
+          "label_correct": 75,
+          "label_accuracy_supported": 0.25,
+          "label_correct_yield_planned": 0.25,
+          "label_ci_supported": [
+            0.20333333333333334,
+            0.3
+          ]
+        },
+        "end_conversation": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 285,
+          "strict_accuracy_supported": 0.95,
+          "strict_correct_yield_planned": 0.95,
+          "strict_ci_supported": [
+            0.9233333333333333,
+            0.9733333333333334
+          ],
+          "label_correct": 285,
+          "label_accuracy_supported": 0.95,
+          "label_correct_yield_planned": 0.95,
+          "label_ci_supported": [
+            0.9233333333333333,
+            0.9733333333333334
+          ]
+        },
+        "nonterminal": {
+          "planned": 600,
+          "supported": 600,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 600
+          },
+          "strict_correct": 256,
+          "strict_accuracy_supported": 0.4266666666666667,
+          "strict_correct_yield_planned": 0.4266666666666667,
+          "strict_ci_supported": [
+            0.39,
+            0.46166666666666667
+          ],
+          "label_correct": 256,
+          "label_accuracy_supported": 0.4266666666666667,
+          "label_correct_yield_planned": 0.4266666666666667,
+          "label_ci_supported": [
+            0.39,
+            0.46166666666666667
+          ]
+        }
+      }
+    },
+    "qwen": {
+      "full_handbook": {
+        "take_action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 62,
+          "strict_accuracy_supported": 0.20666666666666667,
+          "strict_correct_yield_planned": 0.20666666666666667,
+          "strict_ci_supported": [
+            0.16333333333333333,
+            0.25333333333333335
+          ],
+          "label_correct": 62,
+          "label_accuracy_supported": 0.20666666666666667,
+          "label_correct_yield_planned": 0.20666666666666667,
+          "label_ci_supported": [
+            0.16333333333333333,
+            0.25333333333333335
+          ]
+        },
+        "retrieve_utterance": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 158,
+          "strict_accuracy_supported": 0.5266666666666666,
+          "strict_correct_yield_planned": 0.5266666666666666,
+          "strict_ci_supported": [
+            0.47,
+            0.5833333333333334
+          ],
+          "label_correct": 158,
+          "label_accuracy_supported": 0.5266666666666666,
+          "label_correct_yield_planned": 0.5266666666666666,
+          "label_ci_supported": [
+            0.47,
+            0.5833333333333334
+          ]
+        },
+        "end_conversation": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 284,
+          "strict_accuracy_supported": 0.9466666666666667,
+          "strict_correct_yield_planned": 0.9466666666666667,
+          "strict_ci_supported": [
+            0.92,
+            0.97
+          ],
+          "label_correct": 284,
+          "label_accuracy_supported": 0.9466666666666667,
+          "label_correct_yield_planned": 0.9466666666666667,
+          "label_ci_supported": [
+            0.92,
+            0.97
+          ]
+        },
+        "nonterminal": {
+          "planned": 600,
+          "supported": 600,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 600
+          },
+          "strict_correct": 220,
+          "strict_accuracy_supported": 0.36666666666666664,
+          "strict_correct_yield_planned": 0.36666666666666664,
+          "strict_ci_supported": [
+            0.3333333333333333,
+            0.4
+          ],
+          "label_correct": 220,
+          "label_accuracy_supported": 0.36666666666666664,
+          "label_correct_yield_planned": 0.36666666666666664,
+          "label_ci_supported": [
+            0.3333333333333333,
+            0.4
+          ]
+        }
+      },
+      "retrieved_policy": {
+        "take_action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 24,
+          "strict_accuracy_supported": 0.08,
+          "strict_correct_yield_planned": 0.08,
+          "strict_ci_supported": [
+            0.05,
+            0.11333333333333333
+          ],
+          "label_correct": 24,
+          "label_accuracy_supported": 0.08,
+          "label_correct_yield_planned": 0.08,
+          "label_ci_supported": [
+            0.05,
+            0.11333333333333333
+          ]
+        },
+        "retrieve_utterance": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 205,
+          "strict_accuracy_supported": 0.6833333333333333,
+          "strict_correct_yield_planned": 0.6833333333333333,
+          "strict_ci_supported": [
+            0.63,
+            0.7366666666666667
+          ],
+          "label_correct": 205,
+          "label_accuracy_supported": 0.6833333333333333,
+          "label_correct_yield_planned": 0.6833333333333333,
+          "label_ci_supported": [
+            0.63,
+            0.7366666666666667
+          ]
+        },
+        "end_conversation": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 300
+          },
+          "strict_correct": 289,
+          "strict_accuracy_supported": 0.9633333333333334,
+          "strict_correct_yield_planned": 0.9633333333333334,
+          "strict_ci_supported": [
+            0.94,
+            0.9833333333333333
+          ],
+          "label_correct": 289,
+          "label_accuracy_supported": 0.9633333333333334,
+          "label_correct_yield_planned": 0.9633333333333334,
+          "label_ci_supported": [
+            0.94,
+            0.9833333333333333
+          ]
+        },
+        "nonterminal": {
+          "planned": 600,
+          "supported": 600,
+          "unsupported": 0,
+          "status_counts": {
+            "ok": 600
+          },
+          "strict_correct": 229,
+          "strict_accuracy_supported": 0.38166666666666665,
+          "strict_correct_yield_planned": 0.38166666666666665,
+          "strict_ci_supported": [
+            0.35333333333333333,
+            0.41
+          ],
+          "label_correct": 229,
+          "label_accuracy_supported": 0.38166666666666665,
+          "label_correct_yield_planned": 0.38166666666666665,
+          "label_ci_supported": [
+            0.35333333333333333,
+            0.41
+          ]
+        }
+      }
+    }
+  },
+  "action_support": {
+    "ask-the-oracle": 18,
+    "enter-details": 19,
+    "instructions": 4,
+    "log-out-in": 14,
+    "make-password": 8,
+    "make-purchase": 4,
+    "membership": 7,
+    "notify-team": 4,
+    "offer-refund": 9,
+    "promo-code": 5,
+    "pull-up-account": 55,
+    "record-reason": 7,
+    "search-boots": 2,
+    "search-faq": 31,
+    "search-jacket": 4,
+    "search-jeans": 2,
+    "search-membership": 2,
+    "search-policy": 1,
+    "search-pricing": 3,
+    "search-shirt": 1,
+    "search-timing": 2,
+    "select-faq": 12,
+    "send-link": 8,
+    "shipping-status": 6,
+    "subscription-status": 4,
+    "try-again": 8,
+    "update-account": 7,
+    "update-order": 9,
+    "validate-purchase": 12,
+    "verify-identity": 32
+  },
+  "constant_baselines": {
+    "balanced_route": 0.3333333333333333,
+    "always_end_combined": 0.3333333333333333,
+    "largest_action_share": 0.18333333333333332,
+    "note": "Descriptive constant-label baselines on the selected test distribution, not trained predictors."
+  },
+  "limitations": [
+    "Terminal checkpoint is synthesized after the observed dialogue; separately show nonterminal performance.",
+    "Pairwise intervals resample the same 300 conversation clusters, 10,000 times; unadjusted descriptive comparisons."
+  ]
+}

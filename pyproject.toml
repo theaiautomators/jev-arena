@@ -1,0 +1,15 @@
+[project]
+name = "jev-arena"
+version = "0.1.0"
+description = "Reproducible decision-model evaluation with local workers and Codex CLI judging"
+requires-python = ">=3.11"
+dependencies = ["fastapi>=0.115,<1", "uvicorn>=0.34,<1", "pydantic>=2.10,<3", "httpx>=0.28,<1", "numpy>=2.2,<3", "python-dotenv>=1.0,<2", "huggingface-hub>=0.30,<2", "pyarrow>=19,<24", "jsonschema>=4.23,<5", "filelock>=3.20,<4"]
+[project.optional-dependencies]
+abcd = ["tokenizers==0.23.2"]
+dev = ["pytest>=8,<10", "pytest-asyncio>=0.25,<2"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+asyncio_mode = "auto"
+[tool.setuptools.packages.find]
+include = ["arena*"]

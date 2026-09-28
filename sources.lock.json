@@ -1,0 +1,10 @@
+{
+  "laya": {"repo":"NandhaKishorM/laya","revision":"4066d5d5fbf08b66c6757ddeedbd797bd7655bc0"},
+  "jevk5": {"repo":"allebee/jevk5","revision":"85238d7be5527370c43206fe54cd752eb3134c1b"},
+  "decider": {"repo":"Mapika/decider","revision":"a5120cce45b9ff70964fac54ea6e8c1ac5b08c7f"},
+  "semif": {"repo":"TheoLeeCJ/SemIf-OpenJev","revision":"23cf1f39fc9534fe81437200959b6dfc7106e45a"},
+  "nimble": {"repo":"bespokelabsai/nimble","revision":"62076b4f2d365b5879dafcf7f6dd072a1fe76df7"},
+  "clm": {"repo":"Contrastive-LM/CLM","revision":"bb42c6c5bf914fd449bed2f6ca65be80602cb1f7"},
+  "winnow": {"repo":"EldanRing/winnow-inference","revision":"77d14580c6732ca2f3745750c1dc1fd446d8bcee"},
+  "jevbench": {"repo":"fstandhartinger/jevbench","revision":"d06ee95988da1350eb8ae5511daa0e06bfffe911"}
+}

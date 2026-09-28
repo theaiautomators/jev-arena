@@ -1,0 +1,147 @@
+I've put the new Jev decision model head to head against Laya, Winnow, Decider and a whole lineup of alternatives, to see which ones are worth using when an AI actually has to make a decision.
+
+And this is the arena I built to find out.
+
+Watch the warehouse. These models receive the state, the rules and the same four possible moves. Some reach the destination. Others hit the boundary and keep choosing the blocked move.
+
+These are recorded runs, aligned for playback. My RTX 5090 ran the local models one at a time. Jev used its hosted service. The playback speed is shown on screen.
+
+There's one button: Impress. It loads a model, warms it up, runs the tests, unloads it and checks cleanup before moving on. The results feed this dashboard, with the original decisions behind the numbers.
+
+Here's the interesting part. On the same four thousand, six hundred and thirty-five reference questions, Jev matched ninety-five point two percent of the labels. Winnow matched ninety-four point six. Decider, ninety-four point five.
+
+That's close enough to investigate seriously. And these local contenders answered a serial request in roughly fifty to sixty milliseconds in our repeated timing blocks. Jev was around two hundred and forty-five, including the network trip.
+
+Before you replace anything, though, there are three things to understand: what these models do, what we actually tested, and where a leaderboard can mislead you.
+
+Imagine a support message arrives about a duplicate charge. Your system needs to choose Billing, Engineering, Customer Success or Review. It might also need a yes-or-no urgency decision, or a score on a defined scale.
+
+A generative language model can write those answers. A decision model focuses on choosing among outcomes you supply, often returning scores or probabilities directly. That can make it useful inside a larger workflow. It can still be confidently wrong.
+
+Jev is TypeSafe's hosted service. This run uses a pinned version, Jev one point thirteen. TypeSafe is the company behind Jev, not another competitor in this table.
+
+Laya is the small local option. Its main English checkpoint is around four hundred and twenty-one million parameters. I also tested its typed-decision and multilingual versions as separate entries. Those related checkpoints have different intended uses; their results aren't interchangeable.
+
+Plumb and Decider are four-billion-parameter decision models. Decider here is the pinned version-two checkpoint, not a claim about every later release.
+
+Winnow is a twelve-billion-parameter model running through its own runtime with eight-bit quantized weights. Nimble uses a decision adapter with a nine-billion-parameter backbone.
+
+SemIf takes another approach: it reads candidate-answer scores from a base model without adding a new decision fine-tune. That lets us compare it with the same Qwen backbone generating a JSON answer. Our Qwen baseline uses greedy decoding, thinking disabled and a small response budget. We didn't test every possible Qwen prompt or decoding setup.
+
+CLM compares representations of the state and possible actions using a learned scoring head. ModernBERT provides an entailment-based classification control. And the uniform control assigns equal probability to every option, then picks the first label when tied. That's deterministic, not random guessing.
+
+Thirteen entries therefore means several approaches, related checkpoints and controls. It doesn't mean thirteen independent architectures.
+
+For the main run, each entry received seven thousand, six hundred and seventy-one static cases. Across the roster, that's just under a hundred thousand saved records, including failed and unsupported attempts.
+
+Two thousand cases per model use another model's target. I keep teacher agreement separate. Agreeing with a teacher doesn't prove an answer is correct.
+
+The remaining five thousand, six hundred and seventy-one reference cases combine public decision questions, classification, multilingual data, evidence relevance and generated policy fixtures with executable rules. Related variations share templates, so they aren't all independent real-world scenarios. Public training exposure is unknown.
+
+Now, coverage. Some interfaces only accept sixteen choices. A banking test here has seventy-seven. Removing sixty-one labels would make that a different test.
+
+The shared leaderboard uses the four thousand, six hundred and thirty-five reference cases supported by every recorded profile. That's a useful comparison, but it leaves out some demanding inputs. The full-coverage table is available beside it.
+
+We also found a mistake in our harness. Winnow's native server accepts up to sixty-four choices. Arena had incorrectly declared two hundred and fifty-five. Five hundred banking requests therefore failed before Winnow could answer.
+
+Those aren't five hundred reasoning mistakes. I've fixed the capability declaration for future runs, added a boundary test, and preserved the original evidence. The shared leaderboard already excludes those banking cases, so its result doesn't change.
+
+As a separate, after-the-fact check, remove those five hundred cases from both Jev and Winnow. On the remaining five thousand, one hundred and seventy-one, Jev gets four thousand, eight hundred and eighteen strict answers correct. Winnow gets four thousand, eight hundred and thirteen. Five answers apart. That's a sensitivity check, not a new winning score.
+
+The second trap is mixing decision quality with output formatting.
+
+Arena's strict score requires the correct label and a valid output. We chose a fixed tolerance for probabilities adding up to one. Some outputs choose the right label but fail that numerical rule.
+
+Across all five thousand, six hundred and seventy-one references, Jev scores about ninety-two percent strict, or ninety-two point eight when we count selected labels regardless of probability formatting.
+
+Decider scores eighty-three point eight percent strict, but ninety-two point three on selected labels. That's only twenty-eight labels behind Jev. Describing that whole strict-score gap as bad reasoning would be wrong.
+
+Nimble scores ninety point three percent under both measures and has the strongest local strict result on the full reference denominator.
+
+On the shared cohort, Jev's lead over Winnow is twenty-nine labels. The descriptive uncertainty interval for Decider versus Jev includes either side ahead. That doesn't establish equivalence. These are results on this suite, with shared templates and unadjusted comparisons.
+
+Speed matters too. Laya's serial medians are around the mid-teens of milliseconds in the repeated blocks. That's fast, but its main English profile matches about sixty-five percent of labels on the shared cohort, versus Jev's ninety-five percent. Its other checkpoints were tested across the full suite too, and neither closes that gap here.
+
+SemIf's shared label agreement is about eighty-two percent, compared with roughly eighty-six for our Qwen JSON baseline. Its serial requests are much faster, but that isn't equal quality at a guaranteed speedup.
+
+These are deployment measurements. Sizes, precision and software differ. Hosted timing includes network travel. We used one request at a time, so this doesn't measure maximum server throughput.
+
+CLM performed poorly in this profile. Before the run, we checked its native path on thirty-six short development probes. A batch-invariant runtime mode brought probabilities into agreement, but changed its speed. That limited parity check does not prove every long input is correct, or that the architecture can never work well.
+
+Let's return to the arena.
+
+Across twenty seeds, Jev completed all ticket and warehouse episodes, both untimed and with our five-hundred-millisecond action deadline. Winnow completed all ticket episodes and nineteen warehouse episodes in each mode. Nimble completed all tickets and seventeen warehouses. Decider completed all tickets and nine warehouses.
+
+Some zeroes need explaining. Plumb, Qwen and all three Laya profiles sent every untimed ticket to Review. That avoids the restricted-account violations here, but unnecessarily defers one hundred and seventy-eight of the two hundred and forty tickets.
+
+CLM instead sent everything to Billing, including restricted accounts.
+
+And repeated blocked moves in the warehouse are often the same bad decision against an unchanged state. We aren't counting those as independent reasoning mistakes.
+
+These are small workflow tests. A normal pathfinder can solve the warehouse. Production systems could mask impossible actions, add retries or use different prompts. This replay shows what these tested interfaces did under the supplied rules. It doesn't prove general agent intelligence or live customer-resolution success.
+
+I also wanted to know whether the results were stable.
+
+We took two hundred Choice cases and tested Jev plus the three leading eligible local contenders again. Then we reversed the options while preserving what each option meant.
+
+For exact repeats, Decider and Nimble kept all two hundred labels. Winnow kept all one hundred and eighty-seven labels it could return; thirteen requests hit that banking option limit. Jev kept one hundred and ninety-nine of two hundred.
+
+The reversed-order runs also differed from the original run. Nimble changed eleven out of two hundred. Decider changed four. Winnow changed four out of one hundred and eighty-seven comparable answers. Jev changed three out of one hundred and ninety-nine; one further result was unavailable because of a local cost-ledger write error.
+
+Some changed answers improved, some got worse. Those differences can reflect option order or run-to-run variation; this check doesn't isolate the cause. Stable labels also don't guarantee valid probability vectors. The dashboard evidence keeps those counts separate.
+
+For independent scrutiny, I requested GPT-6 Astra through Codex CLI, using the existing login rather than an OpenAI or Claude judge API.
+
+We batched up to eight distinct question-and-answer reviews per call. The audit made one hundred and eleven CLI calls, covering eight hundred and seventy-nine answers across three hundred questions. Models choosing the same answer could share a blinded review.
+
+Two hundred and fifty questions were selected under a frozen, balanced sampling rule. Another fifty targeted disagreements. Those samples don't estimate the whole suite's error rate.
+
+The review flagged twenty-six distinct reference questions. Some involve overlapping categories, translated text or the difference between relevant evidence and direct proof. The judge also made debatable calls itself. An ambiguous question doesn't automatically make an unsupported answer right.
+
+We kept the original labels and had a separate Astra adversarial reviewer inspect the evidence and claims. This remains automated scrutiny; it is not a human semantic audit. The CLI requested Astra but didn't expose an observed model identifier, so that limitation is recorded too.
+
+What did this cost?
+
+The main run and targeted follow-ups took about four hours and thirty-three minutes, including an interruption and recovery. That excludes earlier waiting, preflight work and this final review.
+
+Jev's application ledger recorded about twenty-five US cents for that run and its follow-ups. That's not the cost of the whole project. Electricity, hardware, earlier development and Codex subscription usage are separate. The ledger hasn't been reconciled to a provider invoice.
+
+The judge calls consumed roughly one point four-six million input tokens, including cached input, and seventy-seven thousand output tokens. The report shows a standard-credit equivalent, not an invented cash bill. We bought no credits and redeemed no resets.
+
+The first arena left an important question open: long context.
+
+Jev's largest measured main input there was only about four thousand, three hundred tokens. So we ran a separate assessment using ABCD support conversations and the company handbook.
+
+We selected three hundred held-out conversations, kept all thirty possible tool actions, and compared the complete handbook with five retrieved policy sections. The full inputs were around twenty thousand tokens. Most of that length came from the handbook, not unusually long customer conversations. No model was fine-tuned.
+
+This changed the story.
+
+Winnow led the combined task: deciding whether to act, speak or finish, and choosing the correct tool when an action was due. With the full handbook, its strict agreement was sixty-eight point four percent, compared with Jev's sixty-two point nine. With retrieval, those became sixty-nine point six and sixty-four point nine.
+
+But if we told the models that an action was already due, Jev led full-handbook action selection: seventy-six percent strict, or seventy-eight point seven percent on selected labels. Winnow scored sixty-six point seven percent. Retrieval improved Winnow's action score to seventy-six point three.
+
+So who wins depends on which decision you're asking it to make.
+
+Our test deliberately balanced action, message and ending checkpoints. The ending was synthesized after each recorded conversation and was relatively easy. Excluding endings, Winnow's full-handbook combined label score was fifty-four point three percent and Jev's was forty-eight point three. These are different denominators, not live customer-resolution rates.
+
+Nimble could handle the retrieved-policy inputs, but its pinned eight-thousand-token release couldn't fit the full handbook. Those cases are unavailable capacity, not wrong answers.
+
+Decider again had probability-contract problems. With retrieval, its action labels matched about sixty-one percent, but only forty-one percent passed both correctness and our strict output contract. Qwen's general-purpose JSON baseline was weaker on this natural task, despite returning valid outputs.
+
+We also added an easy controlled context test, with twelve synthetic bases and an explicit procedure placed early, in the middle or late among irrelevant records. Jev, Winnow, Decider and Qwen all chose every constructed label correctly at the lengths they supported. Decider still failed our probability contract on some of those answers. Nimble only supported the shortest length.
+
+That does not show a unique long-context advantage for Jev. It shows that this particular extraction control was too easy to separate those four profiles.
+
+The blinded Astra audit covered seventy-six questions and one hundred and eighteen distinct answers. We inspected all thirty-three flagged answer reviews across twenty-one questions. Some conversations contain an optional final farewell; some allow several troubleshooting orders; some hide the identity of earlier tool actions. A policy-compliant next step isn't always the next step the human actually recorded.
+
+We also corrected a reporting diagnostic: some scenario names didn't match the handbook section names. Using the actual step annotations, retrieval included the relevant annotated procedure for about seventy-nine percent of action checkpoints. That correction changed no prompts, predictions or accuracy scores.
+
+We kept the original reference labels. This measures recorded-next-step agreement, not the full published ABCD benchmark or successful customer support.
+
+The ABCD candidate window took three hours and sixteen minutes. Its recorded Jev API usage was about one dollar twenty-one, including preflight and warmups. Combined with the first arena, that's about one dollar forty-six. Codex auditing, hardware and electricity are separate, and the application ledger is not a reconciled invoice.
+
+My shortlist now depends on the workload. Jev led our original arena and full-handbook conditional action selection. Winnow led this balanced support routing-and-action adaptation. Decider is compact and quick with retrieved context, but its output contract needs attention. Nimble needs the shorter context here. Laya remains a speed option with a substantial quality tradeoff in the first arena.
+
+Choose based on the actions, inputs and failure costs your application actually has. Then test the complete system you'll deploy.
+
+I'm preparing the Arena repository under The AI Automators so you'll be able to run the experiment and add your own cases once it's published. The report preserves the model revisions, limitations and failed attempts alongside the successful ones.

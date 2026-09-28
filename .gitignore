@@ -1,0 +1,25 @@
+# Local research material, third-party captions, and future run credentials
+.research-cache/
+.env
+.env.*
+!.env.example
+credentials/
+models/
+artifacts/private/
+node_modules/
+.arena/
+.venv/
+*.tsbuildinfo
+.venv/
+__pycache__/
+dist/
+playwright-report/
+test-results/
+*.egg-info/
+.pytest_cache/
+pytest-cache-files-*/
+.ruff_cache/
+*.log
+
+# Separate local experiments are not part of the Arena publication.
+/subprojects/

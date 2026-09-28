@@ -1,0 +1,7 @@
+FROM vllm/vllm-openai:nightly@sha256:ce3c3c81a19e6a4beddf398a6c93e0bf84c067c4f5ddef7f9a22f0ac2a74e457
+USER root
+COPY .arena/sources/clm /opt/clm
+RUN python3 -m pip install --no-deps /opt/clm
+COPY workers/runner.py workers/clm_runner.py /opt/arena/
+COPY arena/wire.py /opt/arena/wire.py
+ENTRYPOINT ["python3", "-u", "/opt/arena/clm_runner.py"]

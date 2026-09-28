@@ -1,0 +1,71 @@
+{
+  "measured_date": "2026-09-28",
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "method": "Median whole-device NVIDIA memory.used after server readiness minus median before loading; five loaded and three baseline samples. Other desktop allocations can fluctuate. Not a process allocator measurement, peak VRAM, or system RAM. No inference requests sent.",
+  "profiles": [
+    {
+      "profile": "v2",
+      "context_tokens": 8192,
+      "before_load_mib": [
+        1255.0,
+        1255.0,
+        1255.0
+      ],
+      "requests_sent": 0,
+      "metadata": {
+        "ready": true,
+        "runtime": "winnow",
+        "load_ms": 106093.21042599913,
+        "device": "cuda",
+        "precision": "Q8_0",
+        "context": 8192,
+        "server": "native Winnow llama.cpp",
+        "revision": "b6ac22b0d51b69b18200acacb3fbdd98073fffe8",
+        "weights_manifest_hash": "1d4fa8c06b54138db31d21e838bd37dc4f5a41474eac18e664d2d00e818d1412",
+        "image_id": "sha256:288b64ed7d2e33b58af7a15a24c750fc22f728fe9752f01ace021391c524d87d",
+        "isolation": "networkless read-only container; weight mount only"
+      },
+      "loaded_device_mib": [
+        14464.0,
+        14464.0,
+        14464.0,
+        14464.0,
+        14464.0
+      ],
+      "idle_device_delta_mib": 13209.0,
+      "measured_at": 1790594953.2236178
+    },
+    {
+      "profile": "abcd",
+      "context_tokens": 65536,
+      "before_load_mib": [
+        1184.0,
+        1184.0,
+        1184.0
+      ],
+      "requests_sent": 0,
+      "metadata": {
+        "ready": true,
+        "runtime": "winnow",
+        "load_ms": 96103.73688199616,
+        "device": "cuda",
+        "precision": "Q8_0",
+        "context": 65536,
+        "server": "native Winnow llama.cpp",
+        "revision": "b6ac22b0d51b69b18200acacb3fbdd98073fffe8",
+        "weights_manifest_hash": "1d4fa8c06b54138db31d21e838bd37dc4f5a41474eac18e664d2d00e818d1412",
+        "image_id": "sha256:2dd121b8aeae08b10d7600347fcf31ff506a62dea605e18e7336301155d1d089",
+        "isolation": "networkless read-only container; weight mount only"
+      },
+      "loaded_device_mib": [
+        15126.0,
+        15126.0,
+        15125.0,
+        15107.0,
+        15096.0
+      ],
+      "idle_device_delta_mib": 13941.0,
+      "measured_at": 1790595061.6243646
+    }
+  ]
+}

@@ -1,0 +1,5890 @@
+{
+  "run_id": "20260927-142204-8262c6",
+  "status": "complete",
+  "preset": "demo",
+  "created": 1790515325.0698664,
+  "case_count": 120,
+  "scored_reference_cases": 120,
+  "statistical_clusters": 60,
+  "case_sha256": "380312d8e7b5854c89428aa4ee8778ea2c0c7807351e81750818b6d7cf995d5a",
+  "runtime_fingerprint": {
+    "implementation": "8c159b7c7df3d1410041a4910a033cbad13e2343a572f9aeb98c9274bfc446cc",
+    "models": {
+      "jev": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "plumb": "82d670e0df91b88d822d40e698179343006e7b3cc362b3553995c550f1a2bac5",
+      "decider": "e4b35069f084340bb2f3eef1aef700ee25332eca03a23b1da62c0c1efe9e3688",
+      "winnow": "1d4fa8c06b54138db31d21e838bd37dc4f5a41474eac18e664d2d00e818d1412",
+      "semif": "206d3facc992b8554643497cad1fb394b603b1958493fedaaac441c7a26eaa35",
+      "clm": "8003614bad6bdf5bcfa6c9f730c3056df2c10155845d643d3a3b7ee83d2dba1e",
+      "nimble": "ab2187b228fe04f4c44206eab7e04163bc9a60b46bdb40580c9a9ec665970276",
+      "laya": "c434d61471e8f7e692a30b27d882bab4050c34fdc704e80d27ed0efed907bf10",
+      "laya-typed": "5ee241b3ba466c1a4c15a1ea2edf157b2467b7a2e2ef90899f41584c6aa54739",
+      "laya-multi": "c582328e252ebf78ca121498a29274ed824775d0c0ce328a8bbf5673eb7c39c7",
+      "qwen": "9f7f30880751156328adc4e7a87d1fa61f7ebb53d01704bbb56e98bb2fe5edd9",
+      "nli": "06a4479b06e9c409cc76c2ed53ca7a8fadcd50bb0ae47b66f737d604b1a35c7f",
+      "uniform": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    "images": {
+      "jev-arena-worker:0.1": "sha256:ea7aabe78401a9bfae1bd4808c6bd4f81889b0ca385c51bc43ff951404a5ac7c",
+      "jev-arena-winnow-bridge:0.1": "sha256:288b64ed7d2e33b58af7a15a24c750fc22f728fe9752f01ace021391c524d87d",
+      "jev-arena-clm:0.1": "sha256:696fbd3fb730abd4f3bababe1347abb26de00b871c44c3e0a61abb2f9a1ea945"
+    }
+  },
+  "models": [
+    {
+      "id": "jev",
+      "name": "Jev 1.13",
+      "metrics": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 115,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.9583333333333334,
+        "selected_label_accuracy": 0.9583333333333334,
+        "selected_label_correct": 115,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.9464285714285714,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.9581845238095238,
+        "accuracy_ci": [
+          0.9217391304347826,
+          0.9913793103448276
+        ],
+        "p50_ms": 267.5525000086054,
+        "p95_ms": 428.17283995682374,
+        "brier_binary": 0.035991666666666665,
+        "brier_multiclass": 0.054392857142857146,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.11815087812850453,
+        "ece": 0.027416666666666572,
+        "ordinal_mae": 0.02729166666666667,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 1,
+            "confidence": 0.48,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 2,
+            "confidence": 0.5,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 1,
+            "confidence": 0.69,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 3,
+            "confidence": 0.7433333333333333,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 7,
+            "confidence": 0.8442857142857144,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 106,
+            "confidence": 0.9835849056603773,
+            "accuracy": 0.9811320754716981
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 33,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 82,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 1.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 1.0,
+            "JevBench public:policy": 1.0
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.041666666666666664
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 119,
+              "coverage": 0.9916666666666667,
+              "error": 0.03361344537815126
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 117,
+              "coverage": 0.975,
+              "error": 0.02564102564102564
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 116,
+              "coverage": 0.9666666666666667,
+              "error": 0.017241379310344827
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 113,
+              "coverage": 0.9416666666666667,
+              "error": 0.017699115044247787
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 106,
+              "coverage": 0.8833333333333333,
+              "error": 0.018867924528301886
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 96,
+              "coverage": 0.8,
+              "error": 0.020833333333333332
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 68,
+              "coverage": 0.5666666666666667,
+              "error": 0.0
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "matched": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 115,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.9583333333333334,
+        "selected_label_accuracy": 0.9583333333333334,
+        "selected_label_correct": 115,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.9464285714285714,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.9581845238095238,
+        "accuracy_ci": null,
+        "p50_ms": 267.5525000086054,
+        "p95_ms": 428.17283995682374,
+        "brier_binary": 0.035991666666666665,
+        "brier_multiclass": 0.054392857142857146,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.11815087812850453,
+        "ece": 0.027416666666666572,
+        "ordinal_mae": 0.02729166666666667,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 1,
+            "confidence": 0.48,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 2,
+            "confidence": 0.5,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 1,
+            "confidence": 0.69,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 3,
+            "confidence": 0.7433333333333333,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 7,
+            "confidence": 0.8442857142857144,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 106,
+            "confidence": 0.9835849056603773,
+            "accuracy": 0.9811320754716981
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 33,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 82,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 1.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 1.0,
+            "JevBench public:policy": 1.0
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.041666666666666664
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 119,
+              "coverage": 0.9916666666666667,
+              "error": 0.03361344537815126
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 117,
+              "coverage": 0.975,
+              "error": 0.02564102564102564
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 116,
+              "coverage": 0.9666666666666667,
+              "error": 0.017241379310344827
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 113,
+              "coverage": 0.9416666666666667,
+              "error": 0.017699115044247787
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 106,
+              "coverage": 0.8833333333333333,
+              "error": 0.018867924528301886
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 96,
+              "coverage": 0.8,
+              "error": 0.020833333333333332
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 68,
+              "coverage": 0.5666666666666667,
+              "error": 0.0
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "by_kind": {
+        "choice": {
+          "n": 60,
+          "correct": 58
+        },
+        "noul": {
+          "n": 36,
+          "correct": 34
+        },
+        "score": {
+          "n": 24,
+          "correct": 23
+        }
+      },
+      "raw_label_diagnostic": {
+        "n": 120,
+        "correct": 115,
+        "note": "Sensitivity check only: selected-label correctness ignores probability-contract validity; never substitutes for the frozen main metric."
+      },
+      "failures": {},
+      "unsupported": {},
+      "episodes": {
+        "tickets/untimed_quality": {
+          "n": 2,
+          "success": 2,
+          "violations": 0,
+          "deadline_misses": 0,
+          "steps": 24,
+          "correct_steps": 24,
+          "unrestricted_steps": 16,
+          "unnecessary_review": 0,
+          "selected_actions": {
+            "Success": 7,
+            "Engineering": 3,
+            "Review": 8,
+            "Billing": 6
+          }
+        },
+        "warehouse/untimed_quality": {
+          "n": 2,
+          "success": 2,
+          "violations": 0,
+          "deadline_misses": 0,
+          "steps": 20,
+          "selected_actions": {
+            "east": 10,
+            "south": 10
+          }
+        }
+      },
+      "performance": []
+    },
+    {
+      "id": "plumb",
+      "name": "Plumb 4B",
+      "metrics": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 113,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.9416666666666667,
+        "selected_label_accuracy": 0.9416666666666667,
+        "selected_label_correct": 113,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.9186507936507937,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.9156249999999999,
+        "accuracy_ci": [
+          0.8934426229508197,
+          0.9830508474576272
+        ],
+        "p50_ms": 34.28605000954121,
+        "p95_ms": 196.58171003975437,
+        "brier_binary": 0.048511696385380665,
+        "brier_multiclass": 0.1316267417779372,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.2695703481575211,
+        "ece": 0.12716688890032624,
+        "ordinal_mae": 0.10117493427154926,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 2,
+            "confidence": 0.4814810292955618,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 7,
+            "confidence": 0.5436002767739841,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 8,
+            "confidence": 0.6554393133181167,
+            "accuracy": 0.75
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 22,
+            "confidence": 0.7533554125976828,
+            "accuracy": 0.9545454545454546
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 35,
+            "confidence": 0.8510763165125973,
+            "accuracy": 0.9428571428571428
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 46,
+            "confidence": 0.9411462780760701,
+            "accuracy": 1.0
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 31,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 82,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 1.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 1.0,
+            "JevBench public:policy": 1.0
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.058333333333333334
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 118,
+              "coverage": 0.9833333333333333,
+              "error": 0.0423728813559322
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 111,
+              "coverage": 0.925,
+              "error": 0.04504504504504504
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 103,
+              "coverage": 0.8583333333333333,
+              "error": 0.02912621359223301
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 81,
+              "coverage": 0.675,
+              "error": 0.024691358024691357
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 46,
+              "coverage": 0.38333333333333336,
+              "error": 0.0
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 17,
+              "coverage": 0.14166666666666666,
+              "error": 0.0
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "matched": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 113,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.9416666666666667,
+        "selected_label_accuracy": 0.9416666666666667,
+        "selected_label_correct": 113,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.9186507936507937,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.9156249999999999,
+        "accuracy_ci": null,
+        "p50_ms": 34.28605000954121,
+        "p95_ms": 196.58171003975437,
+        "brier_binary": 0.048511696385380665,
+        "brier_multiclass": 0.1316267417779372,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.2695703481575211,
+        "ece": 0.12716688890032624,
+        "ordinal_mae": 0.10117493427154926,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 2,
+            "confidence": 0.4814810292955618,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 7,
+            "confidence": 0.5436002767739841,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 8,
+            "confidence": 0.6554393133181167,
+            "accuracy": 0.75
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 22,
+            "confidence": 0.7533554125976828,
+            "accuracy": 0.9545454545454546
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 35,
+            "confidence": 0.8510763165125973,
+            "accuracy": 0.9428571428571428
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 46,
+            "confidence": 0.9411462780760701,
+            "accuracy": 1.0
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 31,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 82,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 1.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 1.0,
+            "JevBench public:policy": 1.0
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.058333333333333334
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 118,
+              "coverage": 0.9833333333333333,
+              "error": 0.0423728813559322
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 111,
+              "coverage": 0.925,
+              "error": 0.04504504504504504
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 103,
+              "coverage": 0.8583333333333333,
+              "error": 0.02912621359223301
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 81,
+              "coverage": 0.675,
+              "error": 0.024691358024691357
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 46,
+              "coverage": 0.38333333333333336,
+              "error": 0.0
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 17,
+              "coverage": 0.14166666666666666,
+              "error": 0.0
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "by_kind": {
+        "choice": {
+          "n": 60,
+          "correct": 55
+        },
+        "noul": {
+          "n": 36,
+          "correct": 35
+        },
+        "score": {
+          "n": 24,
+          "correct": 23
+        }
+      },
+      "raw_label_diagnostic": {
+        "n": 120,
+        "correct": 113,
+        "note": "Sensitivity check only: selected-label correctness ignores probability-contract validity; never substitutes for the frozen main metric."
+      },
+      "failures": {},
+      "unsupported": {},
+      "episodes": {
+        "tickets/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 0,
+          "deadline_misses": 0,
+          "steps": 24,
+          "correct_steps": 8,
+          "unrestricted_steps": 16,
+          "unnecessary_review": 16,
+          "selected_actions": {
+            "Review": 24
+          }
+        },
+        "warehouse/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 69,
+          "deadline_misses": 0,
+          "steps": 80,
+          "selected_actions": {
+            "south": 8,
+            "east": 72
+          }
+        }
+      },
+      "performance": []
+    },
+    {
+      "id": "decider",
+      "name": "Decider 4B · v2",
+      "metrics": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 115,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.9583333333333334,
+        "selected_label_accuracy": 0.9583333333333334,
+        "selected_label_correct": 115,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.9384920634920635,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.929669289044289,
+        "accuracy_ci": [
+          0.9137931034482759,
+          0.9917355371900827
+        ],
+        "p50_ms": 43.7289499968756,
+        "p95_ms": 225.28661999094766,
+        "brier_binary": 0.049373629166666676,
+        "brier_multiclass": 0.06574990161366674,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.1636593417834651,
+        "ece": 0.0692694366915527,
+        "ordinal_mae": 0.07533412747770586,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 1,
+            "confidence": 0.4557,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 4,
+            "confidence": 0.564964498949895,
+            "accuracy": 0.75
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 2,
+            "confidence": 0.681,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 14,
+            "confidence": 0.7559735502073783,
+            "accuracy": 0.8571428571428571
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 24,
+            "confidence": 0.8587329960636215,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 75,
+            "confidence": 0.9643771732371185,
+            "accuracy": 0.9866666666666667
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 32,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 83,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 1.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 0.9722222222222222,
+            "JevBench public:policy": 1.0
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.041666666666666664
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 119,
+              "coverage": 0.9916666666666667,
+              "error": 0.03361344537815126
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 115,
+              "coverage": 0.9583333333333334,
+              "error": 0.02608695652173913
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 113,
+              "coverage": 0.9416666666666667,
+              "error": 0.02654867256637168
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 99,
+              "coverage": 0.825,
+              "error": 0.010101010101010102
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 75,
+              "coverage": 0.625,
+              "error": 0.013333333333333334
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 52,
+              "coverage": 0.43333333333333335,
+              "error": 0.0
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 20,
+              "coverage": 0.16666666666666666,
+              "error": 0.0
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "matched": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 115,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.9583333333333334,
+        "selected_label_accuracy": 0.9583333333333334,
+        "selected_label_correct": 115,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.9384920634920635,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.929669289044289,
+        "accuracy_ci": null,
+        "p50_ms": 43.7289499968756,
+        "p95_ms": 225.28661999094766,
+        "brier_binary": 0.049373629166666676,
+        "brier_multiclass": 0.06574990161366674,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.1636593417834651,
+        "ece": 0.0692694366915527,
+        "ordinal_mae": 0.07533412747770586,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 1,
+            "confidence": 0.4557,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 4,
+            "confidence": 0.564964498949895,
+            "accuracy": 0.75
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 2,
+            "confidence": 0.681,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 14,
+            "confidence": 0.7559735502073783,
+            "accuracy": 0.8571428571428571
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 24,
+            "confidence": 0.8587329960636215,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 75,
+            "confidence": 0.9643771732371185,
+            "accuracy": 0.9866666666666667
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 32,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 83,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 1.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 0.9722222222222222,
+            "JevBench public:policy": 1.0
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.041666666666666664
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 119,
+              "coverage": 0.9916666666666667,
+              "error": 0.03361344537815126
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 115,
+              "coverage": 0.9583333333333334,
+              "error": 0.02608695652173913
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 113,
+              "coverage": 0.9416666666666667,
+              "error": 0.02654867256637168
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 99,
+              "coverage": 0.825,
+              "error": 0.010101010101010102
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 75,
+              "coverage": 0.625,
+              "error": 0.013333333333333334
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 52,
+              "coverage": 0.43333333333333335,
+              "error": 0.0
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 20,
+              "coverage": 0.16666666666666666,
+              "error": 0.0
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "by_kind": {
+        "choice": {
+          "n": 60,
+          "correct": 58
+        },
+        "noul": {
+          "n": 36,
+          "correct": 34
+        },
+        "score": {
+          "n": 24,
+          "correct": 23
+        }
+      },
+      "raw_label_diagnostic": {
+        "n": 120,
+        "correct": 115,
+        "note": "Sensitivity check only: selected-label correctness ignores probability-contract validity; never substitutes for the frozen main metric."
+      },
+      "failures": {},
+      "unsupported": {},
+      "episodes": {
+        "tickets/untimed_quality": {
+          "n": 2,
+          "success": 2,
+          "violations": 0,
+          "deadline_misses": 0,
+          "steps": 24,
+          "correct_steps": 24,
+          "unrestricted_steps": 16,
+          "unnecessary_review": 0,
+          "selected_actions": {
+            "Success": 7,
+            "Engineering": 3,
+            "Review": 8,
+            "Billing": 6
+          }
+        },
+        "warehouse/untimed_quality": {
+          "n": 2,
+          "success": 2,
+          "violations": 0,
+          "deadline_misses": 0,
+          "steps": 20,
+          "selected_actions": {
+            "east": 10,
+            "south": 10
+          }
+        }
+      },
+      "performance": []
+    },
+    {
+      "id": "winnow",
+      "name": "Winnow 12B",
+      "metrics": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 117,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.975,
+        "selected_label_accuracy": 0.975,
+        "selected_label_correct": 117,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.9821428571428572,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.9920204795204796,
+        "accuracy_ci": [
+          0.9322033898305084,
+          1.0
+        ],
+        "p50_ms": 52.567249978892505,
+        "p95_ms": 195.9633799473522,
+        "brier_binary": 0.06020001505764838,
+        "brier_multiclass": 0.0024016659472009113,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.07130819151404459,
+        "ece": 0.015390253528822544,
+        "ordinal_mae": 0.0021814317198536122,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 1,
+            "confidence": 0.6502989875532776,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 1,
+            "confidence": 0.704605344395419,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 2,
+            "confidence": 0.8803159243673355,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 116,
+            "confidence": 0.9925905597548809,
+            "accuracy": 0.9913793103448276
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 36,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 81,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 1.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 0.8888888888888888,
+            "JevBench public:policy": 1.0
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.025
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.025
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.025
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 119,
+              "coverage": 0.9916666666666667,
+              "error": 0.01680672268907563
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 118,
+              "coverage": 0.9833333333333333,
+              "error": 0.01694915254237288
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 116,
+              "coverage": 0.9666666666666667,
+              "error": 0.008620689655172414
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 115,
+              "coverage": 0.9583333333333334,
+              "error": 0.008695652173913044
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 87,
+              "coverage": 0.725,
+              "error": 0.0
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "matched": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 117,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.975,
+        "selected_label_accuracy": 0.975,
+        "selected_label_correct": 117,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.9821428571428572,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.9920204795204796,
+        "accuracy_ci": null,
+        "p50_ms": 52.567249978892505,
+        "p95_ms": 195.9633799473522,
+        "brier_binary": 0.06020001505764838,
+        "brier_multiclass": 0.0024016659472009113,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.07130819151404459,
+        "ece": 0.015390253528822544,
+        "ordinal_mae": 0.0021814317198536122,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 1,
+            "confidence": 0.6502989875532776,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 1,
+            "confidence": 0.704605344395419,
+            "accuracy": 1.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 2,
+            "confidence": 0.8803159243673355,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 116,
+            "confidence": 0.9925905597548809,
+            "accuracy": 0.9913793103448276
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 36,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 81,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 1.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 0.8888888888888888,
+            "JevBench public:policy": 1.0
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.025
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.025
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.025
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 119,
+              "coverage": 0.9916666666666667,
+              "error": 0.01680672268907563
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 118,
+              "coverage": 0.9833333333333333,
+              "error": 0.01694915254237288
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 116,
+              "coverage": 0.9666666666666667,
+              "error": 0.008620689655172414
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 115,
+              "coverage": 0.9583333333333334,
+              "error": 0.008695652173913044
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 87,
+              "coverage": 0.725,
+              "error": 0.0
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "by_kind": {
+        "choice": {
+          "n": 60,
+          "correct": 60
+        },
+        "noul": {
+          "n": 36,
+          "correct": 33
+        },
+        "score": {
+          "n": 24,
+          "correct": 24
+        }
+      },
+      "raw_label_diagnostic": {
+        "n": 120,
+        "correct": 117,
+        "note": "Sensitivity check only: selected-label correctness ignores probability-contract validity; never substitutes for the frozen main metric."
+      },
+      "failures": {},
+      "unsupported": {},
+      "episodes": {
+        "tickets/untimed_quality": {
+          "n": 2,
+          "success": 2,
+          "violations": 0,
+          "deadline_misses": 0,
+          "steps": 24,
+          "correct_steps": 24,
+          "unrestricted_steps": 16,
+          "unnecessary_review": 0,
+          "selected_actions": {
+            "Success": 7,
+            "Engineering": 3,
+            "Review": 8,
+            "Billing": 6
+          }
+        },
+        "warehouse/untimed_quality": {
+          "n": 2,
+          "success": 2,
+          "violations": 0,
+          "deadline_misses": 0,
+          "steps": 20,
+          "selected_actions": {
+            "east": 10,
+            "south": 10
+          }
+        }
+      },
+      "performance": []
+    },
+    {
+      "id": "semif",
+      "name": "SemIf 4B",
+      "metrics": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 109,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.9083333333333333,
+        "selected_label_accuracy": 0.9083333333333333,
+        "selected_label_correct": 109,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.8630952380952381,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.8697552447552448,
+        "accuracy_ci": [
+          0.856,
+          0.9568965517241379
+        ],
+        "p50_ms": 36.717350012622774,
+        "p95_ms": 170.93654998752754,
+        "brier_binary": 0.08696096853476154,
+        "brier_multiclass": 0.10938290926816727,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.21181586374769376,
+        "ece": 0.0600228986401731,
+        "ordinal_mae": 0.10150124363713335,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 4,
+            "confidence": 0.469648262253636,
+            "accuracy": 0.75
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 6,
+            "confidence": 0.5591157102449403,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 8,
+            "confidence": 0.6664633139949947,
+            "accuracy": 0.875
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 7,
+            "confidence": 0.7521288986656495,
+            "accuracy": 0.7142857142857143
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 12,
+            "confidence": 0.857618889721015,
+            "accuracy": 0.75
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 83,
+            "confidence": 0.9819033232648927,
+            "accuracy": 1.0
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 27,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 82,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 1.0,
+            "Arena Fresh:Evidence review": 0.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 1.0,
+            "JevBench public:policy": 1.0
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.09166666666666666
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 116,
+              "coverage": 0.9666666666666667,
+              "error": 0.08620689655172414
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 110,
+              "coverage": 0.9166666666666666,
+              "error": 0.05454545454545454
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 102,
+              "coverage": 0.85,
+              "error": 0.049019607843137254
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 95,
+              "coverage": 0.7916666666666666,
+              "error": 0.031578947368421054
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 83,
+              "coverage": 0.6916666666666667,
+              "error": 0.0
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 73,
+              "coverage": 0.6083333333333333,
+              "error": 0.0
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 51,
+              "coverage": 0.425,
+              "error": 0.0
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "matched": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 109,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.9083333333333333,
+        "selected_label_accuracy": 0.9083333333333333,
+        "selected_label_correct": 109,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.8630952380952381,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.8697552447552448,
+        "accuracy_ci": null,
+        "p50_ms": 36.717350012622774,
+        "p95_ms": 170.93654998752754,
+        "brier_binary": 0.08696096853476154,
+        "brier_multiclass": 0.10938290926816727,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.21181586374769376,
+        "ece": 0.0600228986401731,
+        "ordinal_mae": 0.10150124363713335,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 4,
+            "confidence": 0.469648262253636,
+            "accuracy": 0.75
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 6,
+            "confidence": 0.5591157102449403,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 8,
+            "confidence": 0.6664633139949947,
+            "accuracy": 0.875
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 7,
+            "confidence": 0.7521288986656495,
+            "accuracy": 0.7142857142857143
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 12,
+            "confidence": 0.857618889721015,
+            "accuracy": 0.75
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 83,
+            "confidence": 0.9819033232648927,
+            "accuracy": 1.0
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 27,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 82,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 1.0,
+            "Arena Fresh:Evidence review": 0.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 1.0,
+            "JevBench public:policy": 1.0
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.09166666666666666
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 116,
+              "coverage": 0.9666666666666667,
+              "error": 0.08620689655172414
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 110,
+              "coverage": 0.9166666666666666,
+              "error": 0.05454545454545454
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 102,
+              "coverage": 0.85,
+              "error": 0.049019607843137254
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 95,
+              "coverage": 0.7916666666666666,
+              "error": 0.031578947368421054
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 83,
+              "coverage": 0.6916666666666667,
+              "error": 0.0
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 73,
+              "coverage": 0.6083333333333333,
+              "error": 0.0
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 51,
+              "coverage": 0.425,
+              "error": 0.0
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "by_kind": {
+        "choice": {
+          "n": 60,
+          "correct": 55
+        },
+        "noul": {
+          "n": 36,
+          "correct": 31
+        },
+        "score": {
+          "n": 24,
+          "correct": 23
+        }
+      },
+      "raw_label_diagnostic": {
+        "n": 120,
+        "correct": 109,
+        "note": "Sensitivity check only: selected-label correctness ignores probability-contract validity; never substitutes for the frozen main metric."
+      },
+      "failures": {},
+      "unsupported": {},
+      "episodes": {
+        "tickets/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 0,
+          "deadline_misses": 0,
+          "steps": 24,
+          "correct_steps": 10,
+          "unrestricted_steps": 16,
+          "unnecessary_review": 14,
+          "selected_actions": {
+            "Review": 22,
+            "Engineering": 2
+          }
+        },
+        "warehouse/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 71,
+          "deadline_misses": 0,
+          "steps": 80,
+          "selected_actions": {
+            "east": 9,
+            "north": 71
+          }
+        }
+      },
+      "performance": []
+    },
+    {
+      "id": "clm",
+      "name": "CLM 8B",
+      "metrics": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 43,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.35833333333333334,
+        "selected_label_accuracy": 0.35833333333333334,
+        "selected_label_correct": 43,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.35119047619047616,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.27304988720429896,
+        "accuracy_ci": [
+          0.26229508196721313,
+          0.45689655172413796
+        ],
+        "p50_ms": 50.7375999877695,
+        "p95_ms": 184.98231996200045,
+        "brier_binary": 0.31251457958640466,
+        "brier_multiclass": 1.0210790792514937,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 2.0288235006953395,
+        "ece": 0.40859389530974877,
+        "ordinal_mae": 0.41983737762472845,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 5,
+            "confidence": 0.4665495953785218,
+            "accuracy": 0.6
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 24,
+            "confidence": 0.5449871789739992,
+            "accuracy": 0.20833333333333334
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 22,
+            "confidence": 0.6557231622859895,
+            "accuracy": 0.3181818181818182
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 18,
+            "confidence": 0.7579713819904447,
+            "accuracy": 0.2777777777777778
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 17,
+            "confidence": 0.8509564487349768,
+            "accuracy": 0.35294117647058826
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 34,
+            "confidence": 0.9631961483550621,
+            "accuracy": 0.5
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 12,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 31,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 0.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 0.4166666666666667,
+            "JevBench public:policy": 0.6944444444444444
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.6416666666666667
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 115,
+              "coverage": 0.9583333333333334,
+              "error": 0.6521739130434783
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 91,
+              "coverage": 0.7583333333333333,
+              "error": 0.6153846153846154
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 69,
+              "coverage": 0.575,
+              "error": 0.5942028985507246
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 51,
+              "coverage": 0.425,
+              "error": 0.5490196078431373
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 34,
+              "coverage": 0.2833333333333333,
+              "error": 0.5
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 25,
+              "coverage": 0.20833333333333334,
+              "error": 0.36
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 8,
+              "coverage": 0.06666666666666667,
+              "error": 0.375
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "matched": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 43,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.35833333333333334,
+        "selected_label_accuracy": 0.35833333333333334,
+        "selected_label_correct": 43,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.35119047619047616,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.27304988720429896,
+        "accuracy_ci": null,
+        "p50_ms": 50.7375999877695,
+        "p95_ms": 184.98231996200045,
+        "brier_binary": 0.31251457958640466,
+        "brier_multiclass": 1.0210790792514937,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 2.0288235006953395,
+        "ece": 0.40859389530974877,
+        "ordinal_mae": 0.41983737762472845,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 5,
+            "confidence": 0.4665495953785218,
+            "accuracy": 0.6
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 24,
+            "confidence": 0.5449871789739992,
+            "accuracy": 0.20833333333333334
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 22,
+            "confidence": 0.6557231622859895,
+            "accuracy": 0.3181818181818182
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 18,
+            "confidence": 0.7579713819904447,
+            "accuracy": 0.2777777777777778
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 17,
+            "confidence": 0.8509564487349768,
+            "accuracy": 0.35294117647058826
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 34,
+            "confidence": 0.9631961483550621,
+            "accuracy": 0.5
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 12,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 31,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 0.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 0.4166666666666667,
+            "JevBench public:policy": 0.6944444444444444
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.6416666666666667
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 115,
+              "coverage": 0.9583333333333334,
+              "error": 0.6521739130434783
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 91,
+              "coverage": 0.7583333333333333,
+              "error": 0.6153846153846154
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 69,
+              "coverage": 0.575,
+              "error": 0.5942028985507246
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 51,
+              "coverage": 0.425,
+              "error": 0.5490196078431373
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 34,
+              "coverage": 0.2833333333333333,
+              "error": 0.5
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 25,
+              "coverage": 0.20833333333333334,
+              "error": 0.36
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 8,
+              "coverage": 0.06666666666666667,
+              "error": 0.375
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "by_kind": {
+        "choice": {
+          "n": 60,
+          "correct": 20
+        },
+        "noul": {
+          "n": 36,
+          "correct": 17
+        },
+        "score": {
+          "n": 24,
+          "correct": 6
+        }
+      },
+      "raw_label_diagnostic": {
+        "n": 120,
+        "correct": 43,
+        "note": "Sensitivity check only: selected-label correctness ignores probability-contract validity; never substitutes for the frozen main metric."
+      },
+      "failures": {},
+      "unsupported": {},
+      "episodes": {
+        "tickets/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 8,
+          "deadline_misses": 0,
+          "steps": 24,
+          "correct_steps": 6,
+          "unrestricted_steps": 16,
+          "unnecessary_review": 0,
+          "selected_actions": {
+            "Billing": 24
+          }
+        },
+        "warehouse/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 70,
+          "deadline_misses": 0,
+          "steps": 80,
+          "selected_actions": {
+            "south": 80
+          }
+        }
+      },
+      "performance": []
+    },
+    {
+      "id": "nimble",
+      "name": "Nimble 9B",
+      "metrics": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 112,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.9333333333333333,
+        "selected_label_accuracy": 0.9333333333333333,
+        "selected_label_correct": 112,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.9285714285714286,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.9464657738095238,
+        "accuracy_ci": [
+          0.875,
+          0.9823008849557522
+        ],
+        "p50_ms": 45.43509997893125,
+        "p95_ms": 213.7590849830303,
+        "brier_binary": 0.09163262500911629,
+        "brier_multiclass": 0.08588297036313593,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.21173350783368566,
+        "ece": 0.04454930779513385,
+        "ordinal_mae": 0.009050938346762115,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 1,
+            "confidence": 0.7581390255412315,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 8,
+            "confidence": 0.8594398358695057,
+            "accuracy": 0.875
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 111,
+            "confidence": 0.9861558251966746,
+            "accuracy": 0.9459459459459459
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 33,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 79,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 1.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 0.9722222222222222,
+            "JevBench public:policy": 1.0
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.06666666666666667
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.06666666666666667
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.06666666666666667
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.06666666666666667
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 119,
+              "coverage": 0.9916666666666667,
+              "error": 0.058823529411764705
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 111,
+              "coverage": 0.925,
+              "error": 0.05405405405405406
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 102,
+              "coverage": 0.85,
+              "error": 0.0392156862745098
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 72,
+              "coverage": 0.6,
+              "error": 0.0
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "matched": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 112,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.9333333333333333,
+        "selected_label_accuracy": 0.9333333333333333,
+        "selected_label_correct": 112,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.9285714285714286,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.9464657738095238,
+        "accuracy_ci": null,
+        "p50_ms": 45.43509997893125,
+        "p95_ms": 213.7590849830303,
+        "brier_binary": 0.09163262500911629,
+        "brier_multiclass": 0.08588297036313593,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.21173350783368566,
+        "ece": 0.04454930779513385,
+        "ordinal_mae": 0.009050938346762115,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 1,
+            "confidence": 0.7581390255412315,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 8,
+            "confidence": 0.8594398358695057,
+            "accuracy": 0.875
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 111,
+            "confidence": 0.9861558251966746,
+            "accuracy": 0.9459459459459459
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 33,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 79,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 1.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 0.9722222222222222,
+            "JevBench public:policy": 1.0
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.06666666666666667
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.06666666666666667
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.06666666666666667
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.06666666666666667
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 119,
+              "coverage": 0.9916666666666667,
+              "error": 0.058823529411764705
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 111,
+              "coverage": 0.925,
+              "error": 0.05405405405405406
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 102,
+              "coverage": 0.85,
+              "error": 0.0392156862745098
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 72,
+              "coverage": 0.6,
+              "error": 0.0
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "by_kind": {
+        "choice": {
+          "n": 60,
+          "correct": 56
+        },
+        "noul": {
+          "n": 36,
+          "correct": 32
+        },
+        "score": {
+          "n": 24,
+          "correct": 24
+        }
+      },
+      "raw_label_diagnostic": {
+        "n": 120,
+        "correct": 112,
+        "note": "Sensitivity check only: selected-label correctness ignores probability-contract validity; never substitutes for the frozen main metric."
+      },
+      "failures": {},
+      "unsupported": {},
+      "episodes": {
+        "tickets/untimed_quality": {
+          "n": 2,
+          "success": 2,
+          "violations": 0,
+          "deadline_misses": 0,
+          "steps": 24,
+          "correct_steps": 24,
+          "unrestricted_steps": 16,
+          "unnecessary_review": 0,
+          "selected_actions": {
+            "Success": 7,
+            "Engineering": 3,
+            "Review": 8,
+            "Billing": 6
+          }
+        },
+        "warehouse/untimed_quality": {
+          "n": 2,
+          "success": 2,
+          "violations": 0,
+          "deadline_misses": 0,
+          "steps": 20,
+          "selected_actions": {
+            "east": 10,
+            "south": 10
+          }
+        }
+      },
+      "performance": []
+    },
+    {
+      "id": "laya",
+      "name": "Laya",
+      "metrics": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 119,
+        "verified_count": 120,
+        "correct": 86,
+        "failed": 1,
+        "unsupported": 0,
+        "accuracy": 0.7166666666666667,
+        "selected_label_accuracy": 0.725,
+        "selected_label_correct": 87,
+        "output_contract_failures": 1,
+        "pack_macro_accuracy": 0.7023809523809523,
+        "coverage": 0.9916666666666667,
+        "valid_rate": 0.9916666666666667,
+        "macro_f1": 0.6684647817460316,
+        "accuracy_ci": [
+          0.6218430615489439,
+          0.808
+        ],
+        "p50_ms": 16.77985000424087,
+        "p95_ms": 76.17731499776708,
+        "brier_binary": 0.20770825694444447,
+        "brier_multiclass": 0.39991248649239475,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.7447129427860938,
+        "ece": 0.046608747439314306,
+        "ordinal_mae": 0.24067596681063466,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 10,
+            "confidence": 0.368166593810566,
+            "accuracy": 0.4
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 8,
+            "confidence": 0.4662189718154397,
+            "accuracy": 0.375
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 17,
+            "confidence": 0.551261417387673,
+            "accuracy": 0.5882352941176471
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 15,
+            "confidence": 0.65095533931602,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 22,
+            "confidence": 0.754041176379139,
+            "accuracy": 0.8181818181818182
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 22,
+            "confidence": 0.8476719728027201,
+            "accuracy": 0.8636363636363636
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 25,
+            "confidence": 0.9548727430476874,
+            "accuracy": 0.88
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 24,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 62,
+            "failed": 1
+          }
+        },
+        "probability_count": 119,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 0.0,
+            "Arena Fresh:Evidence review": 0.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 0.0,
+            "JevBench public:adequacy": 0.6111111111111112,
+            "JevBench public:policy": 0.8888888888888888
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 119,
+              "coverage": 0.9916666666666667,
+              "error": 0.2773109243697479
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 101,
+              "coverage": 0.8416666666666667,
+              "error": 0.21782178217821782
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 84,
+              "coverage": 0.7,
+              "error": 0.17857142857142858
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 69,
+              "coverage": 0.575,
+              "error": 0.14492753623188406
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 47,
+              "coverage": 0.39166666666666666,
+              "error": 0.1276595744680851
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 25,
+              "coverage": 0.20833333333333334,
+              "error": 0.12
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 14,
+              "coverage": 0.11666666666666667,
+              "error": 0.07142857142857142
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 4,
+              "coverage": 0.03333333333333333,
+              "error": 0.0
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "matched": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 119,
+        "verified_count": 120,
+        "correct": 86,
+        "failed": 1,
+        "unsupported": 0,
+        "accuracy": 0.7166666666666667,
+        "selected_label_accuracy": 0.725,
+        "selected_label_correct": 87,
+        "output_contract_failures": 1,
+        "pack_macro_accuracy": 0.7023809523809523,
+        "coverage": 0.9916666666666667,
+        "valid_rate": 0.9916666666666667,
+        "macro_f1": 0.6684647817460316,
+        "accuracy_ci": null,
+        "p50_ms": 16.77985000424087,
+        "p95_ms": 76.17731499776708,
+        "brier_binary": 0.20770825694444447,
+        "brier_multiclass": 0.39991248649239475,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.7447129427860938,
+        "ece": 0.046608747439314306,
+        "ordinal_mae": 0.24067596681063466,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 10,
+            "confidence": 0.368166593810566,
+            "accuracy": 0.4
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 8,
+            "confidence": 0.4662189718154397,
+            "accuracy": 0.375
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 17,
+            "confidence": 0.551261417387673,
+            "accuracy": 0.5882352941176471
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 15,
+            "confidence": 0.65095533931602,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 22,
+            "confidence": 0.754041176379139,
+            "accuracy": 0.8181818181818182
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 22,
+            "confidence": 0.8476719728027201,
+            "accuracy": 0.8636363636363636
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 25,
+            "confidence": 0.9548727430476874,
+            "accuracy": 0.88
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 24,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 62,
+            "failed": 1
+          }
+        },
+        "probability_count": 119,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 0.0,
+            "Arena Fresh:Evidence review": 0.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 0.0,
+            "JevBench public:adequacy": 0.6111111111111112,
+            "JevBench public:policy": 0.8888888888888888
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 119,
+              "coverage": 0.9916666666666667,
+              "error": 0.2773109243697479
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 101,
+              "coverage": 0.8416666666666667,
+              "error": 0.21782178217821782
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 84,
+              "coverage": 0.7,
+              "error": 0.17857142857142858
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 69,
+              "coverage": 0.575,
+              "error": 0.14492753623188406
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 47,
+              "coverage": 0.39166666666666666,
+              "error": 0.1276595744680851
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 25,
+              "coverage": 0.20833333333333334,
+              "error": 0.12
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 14,
+              "coverage": 0.11666666666666667,
+              "error": 0.07142857142857142
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 4,
+              "coverage": 0.03333333333333333,
+              "error": 0.0
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "by_kind": {
+        "choice": {
+          "n": 60,
+          "correct": 41
+        },
+        "noul": {
+          "n": 36,
+          "correct": 27
+        },
+        "score": {
+          "n": 24,
+          "correct": 18
+        }
+      },
+      "raw_label_diagnostic": {
+        "n": 120,
+        "correct": 87,
+        "note": "Sensitivity check only: selected-label correctness ignores probability-contract validity; never substitutes for the frozen main metric."
+      },
+      "failures": {
+        "Probabilities do not sum to one": 1
+      },
+      "unsupported": {},
+      "episodes": {
+        "tickets/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 0,
+          "deadline_misses": 0,
+          "steps": 24,
+          "correct_steps": 8,
+          "unrestricted_steps": 16,
+          "unnecessary_review": 16,
+          "selected_actions": {
+            "Review": 24
+          }
+        },
+        "warehouse/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 70,
+          "deadline_misses": 0,
+          "steps": 80,
+          "selected_actions": {
+            "east": 80
+          }
+        }
+      },
+      "performance": []
+    },
+    {
+      "id": "laya-typed",
+      "name": "Laya · typed",
+      "metrics": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 82,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.6833333333333333,
+        "selected_label_accuracy": 0.6833333333333333,
+        "selected_label_correct": 82,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.6706349206349206,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.6406149406149406,
+        "accuracy_ci": [
+          0.5839833333333333,
+          0.7807017543859649
+        ],
+        "p50_ms": 17.541200009873137,
+        "p95_ms": 75.56539499782957,
+        "brier_binary": 0.19177299500000003,
+        "brier_multiclass": 0.4495685794327348,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.783452658857141,
+        "ece": 0.161009568389129,
+        "ordinal_mae": 0.2646312796493232,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 6,
+            "confidence": 0.279416399282164,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 13,
+            "confidence": 0.36055694780180025,
+            "accuracy": 0.23076923076923078
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 17,
+            "confidence": 0.44548916985283293,
+            "accuracy": 0.6470588235294118
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 31,
+            "confidence": 0.5552475008144749,
+            "accuracy": 0.6774193548387096
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 25,
+            "confidence": 0.649852100525121,
+            "accuracy": 0.88
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 14,
+            "confidence": 0.738964071042998,
+            "accuracy": 0.8571428571428571
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 14,
+            "confidence": 0.8332001849960019,
+            "accuracy": 0.9285714285714286
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 23,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 59,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 0.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 0.0,
+            "JevBench public:adequacy": 0.6111111111111112,
+            "JevBench public:policy": 0.9444444444444444
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.31666666666666665
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 84,
+              "coverage": 0.7,
+              "error": 0.19047619047619047
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 53,
+              "coverage": 0.44166666666666665,
+              "error": 0.11320754716981132
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 28,
+              "coverage": 0.23333333333333334,
+              "error": 0.10714285714285714
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 14,
+              "coverage": 0.11666666666666667,
+              "error": 0.07142857142857142
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "matched": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 82,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.6833333333333333,
+        "selected_label_accuracy": 0.6833333333333333,
+        "selected_label_correct": 82,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.6706349206349206,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.6406149406149406,
+        "accuracy_ci": null,
+        "p50_ms": 17.541200009873137,
+        "p95_ms": 75.56539499782957,
+        "brier_binary": 0.19177299500000003,
+        "brier_multiclass": 0.4495685794327348,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 0.783452658857141,
+        "ece": 0.161009568389129,
+        "ordinal_mae": 0.2646312796493232,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 6,
+            "confidence": 0.279416399282164,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 13,
+            "confidence": 0.36055694780180025,
+            "accuracy": 0.23076923076923078
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 17,
+            "confidence": 0.44548916985283293,
+            "accuracy": 0.6470588235294118
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 31,
+            "confidence": 0.5552475008144749,
+            "accuracy": 0.6774193548387096
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 25,
+            "confidence": 0.649852100525121,
+            "accuracy": 0.88
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 14,
+            "confidence": 0.738964071042998,
+            "accuracy": 0.8571428571428571
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 14,
+            "confidence": 0.8332001849960019,
+            "accuracy": 0.9285714285714286
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 23,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 59,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 0.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 0.0,
+            "JevBench public:adequacy": 0.6111111111111112,
+            "JevBench public:policy": 0.9444444444444444
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.31666666666666665
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 84,
+              "coverage": 0.7,
+              "error": 0.19047619047619047
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 53,
+              "coverage": 0.44166666666666665,
+              "error": 0.11320754716981132
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 28,
+              "coverage": 0.23333333333333334,
+              "error": 0.10714285714285714
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 14,
+              "coverage": 0.11666666666666667,
+              "error": 0.07142857142857142
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "by_kind": {
+        "choice": {
+          "n": 60,
+          "correct": 40
+        },
+        "noul": {
+          "n": 36,
+          "correct": 28
+        },
+        "score": {
+          "n": 24,
+          "correct": 14
+        }
+      },
+      "raw_label_diagnostic": {
+        "n": 120,
+        "correct": 82,
+        "note": "Sensitivity check only: selected-label correctness ignores probability-contract validity; never substitutes for the frozen main metric."
+      },
+      "failures": {},
+      "unsupported": {},
+      "episodes": {
+        "tickets/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 0,
+          "deadline_misses": 0,
+          "steps": 24,
+          "correct_steps": 8,
+          "unrestricted_steps": 16,
+          "unnecessary_review": 16,
+          "selected_actions": {
+            "Review": 24
+          }
+        },
+        "warehouse/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 70,
+          "deadline_misses": 0,
+          "steps": 80,
+          "selected_actions": {
+            "east": 80
+          }
+        }
+      },
+      "performance": []
+    },
+    {
+      "id": "laya-multi",
+      "name": "Laya · multilingual",
+      "metrics": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 61,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.5083333333333333,
+        "selected_label_accuracy": 0.5083333333333333,
+        "selected_label_correct": 61,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.5297619047619048,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.5657587204462204,
+        "accuracy_ci": [
+          0.4214876033057851,
+          0.5932203389830508
+        ],
+        "p50_ms": 13.746850017923862,
+        "p95_ms": 60.68591500807088,
+        "brier_binary": 0.37195570472222217,
+        "brier_multiclass": 0.6191083777110679,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 1.1789435291294172,
+        "ece": 0.2685217860874761,
+        "ordinal_mae": 0.36019303294563865,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 3,
+            "confidence": 0.25844055738907223,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 12,
+            "confidence": 0.36597144425313105,
+            "accuracy": 0.16666666666666666
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 8,
+            "confidence": 0.45882218096809674,
+            "accuracy": 0.625
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 16,
+            "confidence": 0.5414508020046955,
+            "accuracy": 0.375
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 10,
+            "confidence": 0.6504432556744325,
+            "accuracy": 0.3
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 14,
+            "confidence": 0.7594288682122887,
+            "accuracy": 0.35714285714285715
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 16,
+            "confidence": 0.8552190904525657,
+            "accuracy": 0.375
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 41,
+            "confidence": 0.9705780763009515,
+            "accuracy": 0.7804878048780488
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 21,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 40,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 1.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 0.0,
+            "JevBench public:adequacy": 0.2222222222222222,
+            "JevBench public:policy": 0.3611111111111111
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.49166666666666664
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 97,
+              "coverage": 0.8083333333333333,
+              "error": 0.4639175257731959
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 81,
+              "coverage": 0.675,
+              "error": 0.43209876543209874
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 71,
+              "coverage": 0.5916666666666667,
+              "error": 0.39436619718309857
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 57,
+              "coverage": 0.475,
+              "error": 0.3333333333333333
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 41,
+              "coverage": 0.3416666666666667,
+              "error": 0.21951219512195122
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 31,
+              "coverage": 0.25833333333333336,
+              "error": 0.12903225806451613
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 18,
+              "coverage": 0.15,
+              "error": 0.0
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "matched": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 61,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.5083333333333333,
+        "selected_label_accuracy": 0.5083333333333333,
+        "selected_label_correct": 61,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.5297619047619048,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.5657587204462204,
+        "accuracy_ci": null,
+        "p50_ms": 13.746850017923862,
+        "p95_ms": 60.68591500807088,
+        "brier_binary": 0.37195570472222217,
+        "brier_multiclass": 0.6191083777110679,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 1.1789435291294172,
+        "ece": 0.2685217860874761,
+        "ordinal_mae": 0.36019303294563865,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 3,
+            "confidence": 0.25844055738907223,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 12,
+            "confidence": 0.36597144425313105,
+            "accuracy": 0.16666666666666666
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 8,
+            "confidence": 0.45882218096809674,
+            "accuracy": 0.625
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 16,
+            "confidence": 0.5414508020046955,
+            "accuracy": 0.375
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 10,
+            "confidence": 0.6504432556744325,
+            "accuracy": 0.3
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 14,
+            "confidence": 0.7594288682122887,
+            "accuracy": 0.35714285714285715
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 16,
+            "confidence": 0.8552190904525657,
+            "accuracy": 0.375
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 41,
+            "confidence": 0.9705780763009515,
+            "accuracy": 0.7804878048780488
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 21,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 40,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 1.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 0.0,
+            "JevBench public:adequacy": 0.2222222222222222,
+            "JevBench public:policy": 0.3611111111111111
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.49166666666666664
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 97,
+              "coverage": 0.8083333333333333,
+              "error": 0.4639175257731959
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 81,
+              "coverage": 0.675,
+              "error": 0.43209876543209874
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 71,
+              "coverage": 0.5916666666666667,
+              "error": 0.39436619718309857
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 57,
+              "coverage": 0.475,
+              "error": 0.3333333333333333
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 41,
+              "coverage": 0.3416666666666667,
+              "error": 0.21951219512195122
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 31,
+              "coverage": 0.25833333333333336,
+              "error": 0.12903225806451613
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 18,
+              "coverage": 0.15,
+              "error": 0.0
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "by_kind": {
+        "choice": {
+          "n": 60,
+          "correct": 37
+        },
+        "noul": {
+          "n": 36,
+          "correct": 15
+        },
+        "score": {
+          "n": 24,
+          "correct": 9
+        }
+      },
+      "raw_label_diagnostic": {
+        "n": 120,
+        "correct": 61,
+        "note": "Sensitivity check only: selected-label correctness ignores probability-contract validity; never substitutes for the frozen main metric."
+      },
+      "failures": {},
+      "unsupported": {},
+      "episodes": {
+        "tickets/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 0,
+          "deadline_misses": 0,
+          "steps": 24,
+          "correct_steps": 8,
+          "unrestricted_steps": 16,
+          "unnecessary_review": 16,
+          "selected_actions": {
+            "Review": 24
+          }
+        },
+        "warehouse/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 70,
+          "deadline_misses": 0,
+          "steps": 80,
+          "selected_actions": {
+            "east": 80
+          }
+        }
+      },
+      "performance": []
+    },
+    {
+      "id": "qwen",
+      "name": "Qwen 3.5 · JSON",
+      "metrics": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 111,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.925,
+        "selected_label_accuracy": 0.925,
+        "selected_label_correct": 111,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.9146825396825397,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.8973776223776223,
+        "accuracy_ci": [
+          0.8717948717948718,
+          0.9727272727272728
+        ],
+        "p50_ms": 285.19444999983534,
+        "p95_ms": 497.3492499848362,
+        "brier_binary": null,
+        "brier_multiclass": null,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": null,
+        "ece": null,
+        "ordinal_mae": null,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 32,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 79,
+            "failed": 0
+          }
+        },
+        "probability_count": 0,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {},
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "matched": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 111,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.925,
+        "selected_label_accuracy": 0.925,
+        "selected_label_correct": 111,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.9146825396825397,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.8973776223776223,
+        "accuracy_ci": null,
+        "p50_ms": 285.19444999983534,
+        "p95_ms": 497.3492499848362,
+        "brier_binary": null,
+        "brier_multiclass": null,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": null,
+        "ece": null,
+        "ordinal_mae": null,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 32,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 79,
+            "failed": 0
+          }
+        },
+        "probability_count": 0,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {},
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "by_kind": {
+        "choice": {
+          "n": 60,
+          "correct": 58
+        },
+        "noul": {
+          "n": 36,
+          "correct": 31
+        },
+        "score": {
+          "n": 24,
+          "correct": 22
+        }
+      },
+      "raw_label_diagnostic": {
+        "n": 120,
+        "correct": 111,
+        "note": "Sensitivity check only: selected-label correctness ignores probability-contract validity; never substitutes for the frozen main metric."
+      },
+      "failures": {},
+      "unsupported": {},
+      "episodes": {
+        "tickets/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 0,
+          "deadline_misses": 0,
+          "steps": 24,
+          "correct_steps": 8,
+          "unrestricted_steps": 16,
+          "unnecessary_review": 16,
+          "selected_actions": {
+            "Review": 24
+          }
+        },
+        "warehouse/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 70,
+          "deadline_misses": 0,
+          "steps": 80,
+          "selected_actions": {
+            "east": 10,
+            "north": 70
+          }
+        }
+      },
+      "performance": []
+    },
+    {
+      "id": "nli",
+      "name": "ModernBERT · NLI",
+      "metrics": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 74,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.6166666666666667,
+        "selected_label_accuracy": 0.6166666666666667,
+        "selected_label_correct": 74,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.6547619047619048,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.5859744422244422,
+        "accuracy_ci": [
+          0.5086206896551724,
+          0.7203389830508474
+        ],
+        "p50_ms": 17.63400001800619,
+        "p95_ms": 42.60049498989246,
+        "brier_binary": 0.2888589671184148,
+        "brier_multiclass": 0.566235480098358,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 1.0655700780085449,
+        "ece": 0.12836571822597223,
+        "ordinal_mae": 0.29263536756427694,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 8,
+            "confidence": 0.267780361733957,
+            "accuracy": 0.375
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 22,
+            "confidence": 0.34408808386237344,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 15,
+            "confidence": 0.4552628600077988,
+            "accuracy": 0.5333333333333333
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 23,
+            "confidence": 0.5357869931087192,
+            "accuracy": 0.6956521739130435
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 24,
+            "confidence": 0.6402578998707457,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 6,
+            "confidence": 0.7670814174543384,
+            "accuracy": 0.8333333333333334
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 8,
+            "confidence": 0.8666987975389198,
+            "accuracy": 0.75
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 14,
+            "confidence": 0.9502284563493311,
+            "accuracy": 0.6428571428571429
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 27,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 47,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 0.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 0.2777777777777778,
+            "JevBench public:policy": 0.6388888888888888
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.38333333333333336
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 75,
+              "coverage": 0.625,
+              "error": 0.30666666666666664
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 52,
+              "coverage": 0.43333333333333335,
+              "error": 0.3076923076923077
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 28,
+              "coverage": 0.23333333333333334,
+              "error": 0.2857142857142857
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 22,
+              "coverage": 0.18333333333333332,
+              "error": 0.3181818181818182
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 14,
+              "coverage": 0.11666666666666667,
+              "error": 0.35714285714285715
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 8,
+              "coverage": 0.06666666666666667,
+              "error": 0.375
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "matched": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 74,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.6166666666666667,
+        "selected_label_accuracy": 0.6166666666666667,
+        "selected_label_correct": 74,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.6547619047619048,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.5859744422244422,
+        "accuracy_ci": null,
+        "p50_ms": 17.63400001800619,
+        "p95_ms": 42.60049498989246,
+        "brier_binary": 0.2888589671184148,
+        "brier_multiclass": 0.566235480098358,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 1.0655700780085449,
+        "ece": 0.12836571822597223,
+        "ordinal_mae": 0.29263536756427694,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 8,
+            "confidence": 0.267780361733957,
+            "accuracy": 0.375
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 22,
+            "confidence": 0.34408808386237344,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 15,
+            "confidence": 0.4552628600077988,
+            "accuracy": 0.5333333333333333
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 23,
+            "confidence": 0.5357869931087192,
+            "accuracy": 0.6956521739130435
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 24,
+            "confidence": 0.6402578998707457,
+            "accuracy": 0.6666666666666666
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 6,
+            "confidence": 0.7670814174543384,
+            "accuracy": 0.8333333333333334
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 8,
+            "confidence": 0.8666987975389198,
+            "accuracy": 0.75
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 14,
+            "confidence": 0.9502284563493311,
+            "accuracy": 0.6428571428571429
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 27,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 47,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 0.0,
+            "Arena Fresh:Evidence review": 1.0,
+            "Arena Fresh:Relevance": 1.0,
+            "Arena Fresh:Tool selection": 1.0,
+            "JevBench public:adequacy": 0.2777777777777778,
+            "JevBench public:policy": 0.6388888888888888
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.38333333333333336
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 75,
+              "coverage": 0.625,
+              "error": 0.30666666666666664
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 52,
+              "coverage": 0.43333333333333335,
+              "error": 0.3076923076923077
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 28,
+              "coverage": 0.23333333333333334,
+              "error": 0.2857142857142857
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 22,
+              "coverage": 0.18333333333333332,
+              "error": 0.3181818181818182
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 14,
+              "coverage": 0.11666666666666667,
+              "error": 0.35714285714285715
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 8,
+              "coverage": 0.06666666666666667,
+              "error": 0.375
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "by_kind": {
+        "choice": {
+          "n": 60,
+          "correct": 38
+        },
+        "noul": {
+          "n": 36,
+          "correct": 22
+        },
+        "score": {
+          "n": 24,
+          "correct": 14
+        }
+      },
+      "raw_label_diagnostic": {
+        "n": 120,
+        "correct": 74,
+        "note": "Sensitivity check only: selected-label correctness ignores probability-contract validity; never substitutes for the frozen main metric."
+      },
+      "failures": {},
+      "unsupported": {},
+      "episodes": {
+        "tickets/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 2,
+          "deadline_misses": 0,
+          "steps": 24,
+          "correct_steps": 12,
+          "unrestricted_steps": 16,
+          "unnecessary_review": 10,
+          "selected_actions": {
+            "Review": 16,
+            "Billing": 8
+          }
+        },
+        "warehouse/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 70,
+          "deadline_misses": 0,
+          "steps": 80,
+          "selected_actions": {
+            "south": 80
+          }
+        }
+      },
+      "performance": []
+    },
+    {
+      "id": "uniform",
+      "name": "Uniform baseline",
+      "metrics": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 41,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.3416666666666667,
+        "selected_label_accuracy": 0.3416666666666667,
+        "selected_label_correct": 41,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.3472222222222222,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.19122023809523808,
+        "accuracy_ci": [
+          0.24166666666666667,
+          0.44715447154471544
+        ],
+        "p50_ms": 0.003600027412176132,
+        "p95_ms": 0.007099995855242014,
+        "brier_binary": 0.25,
+        "brier_multiclass": 0.7674603174603176,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 1.2503138241100056,
+        "ece": 0.062222222222222276,
+        "ordinal_mae": 0.3854166666666667,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 12,
+            "confidence": 0.1666666666666667,
+            "accuracy": 0.16666666666666666
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 60,
+            "confidence": 0.2199999999999999,
+            "accuracy": 0.2833333333333333
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 10,
+            "confidence": 0.33333333333333337,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 38,
+            "confidence": 0.5,
+            "accuracy": 0.4473684210526316
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 13,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 28,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 0.5,
+            "Arena Fresh:Evidence review": 0.5,
+            "Arena Fresh:Relevance": 0.5,
+            "Arena Fresh:Tool selection": 0.5,
+            "JevBench public:adequacy": 0.5,
+            "JevBench public:policy": 0.5
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.6583333333333333
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 38,
+              "coverage": 0.31666666666666665,
+              "error": 0.5526315789473685
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "matched": {
+        "planned": 120,
+        "completed": 120,
+        "supported": 120,
+        "valid": 120,
+        "verified_count": 120,
+        "correct": 41,
+        "failed": 0,
+        "unsupported": 0,
+        "accuracy": 0.3416666666666667,
+        "selected_label_accuracy": 0.3416666666666667,
+        "selected_label_correct": 41,
+        "output_contract_failures": 0,
+        "pack_macro_accuracy": 0.3472222222222222,
+        "coverage": 1.0,
+        "valid_rate": 1.0,
+        "macro_f1": 0.19122023809523808,
+        "accuracy_ci": null,
+        "p50_ms": 0.003600027412176132,
+        "p95_ms": 0.007099995855242014,
+        "brier_binary": 0.25,
+        "brier_multiclass": 0.7674603174603176,
+        "teacher_agreement": null,
+        "teacher_brier": null,
+        "nll": 1.2503138241100056,
+        "ece": 0.062222222222222276,
+        "ordinal_mae": 0.3854166666666667,
+        "reliability": [
+          {
+            "lo": 0.0,
+            "hi": 0.1,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.1,
+            "hi": 0.2,
+            "count": 12,
+            "confidence": 0.1666666666666667,
+            "accuracy": 0.16666666666666666
+          },
+          {
+            "lo": 0.2,
+            "hi": 0.3,
+            "count": 60,
+            "confidence": 0.2199999999999999,
+            "accuracy": 0.2833333333333333
+          },
+          {
+            "lo": 0.3,
+            "hi": 0.4,
+            "count": 10,
+            "confidence": 0.33333333333333337,
+            "accuracy": 0.5
+          },
+          {
+            "lo": 0.4,
+            "hi": 0.5,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.5,
+            "hi": 0.6,
+            "count": 38,
+            "confidence": 0.5,
+            "accuracy": 0.4473684210526316
+          },
+          {
+            "lo": 0.6,
+            "hi": 0.7,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.7,
+            "hi": 0.8,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.8,
+            "hi": 0.9,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          },
+          {
+            "lo": 0.9,
+            "hi": 1.0,
+            "count": 0,
+            "confidence": 0.0,
+            "accuracy": 0.0
+          }
+        ],
+        "families": {
+          "Arena Fresh": {
+            "total": 36,
+            "correct": 13,
+            "failed": 0
+          },
+          "JevBench public": {
+            "total": 84,
+            "correct": 28,
+            "failed": 0
+          }
+        },
+        "probability_count": 120,
+        "teacher_count": 0,
+        "latency_scope": "all attempted quality requests, including failures; excludes warmup",
+        "diagnostics": {
+          "binary_auroc_by_task": {
+            "Arena Fresh:Document triage": 0.5,
+            "Arena Fresh:Evidence review": 0.5,
+            "Arena Fresh:Relevance": 0.5,
+            "Arena Fresh:Tool selection": 0.5,
+            "JevBench public:adequacy": 0.5,
+            "JevBench public:policy": 0.5
+          },
+          "coverage_error": [
+            {
+              "threshold": 0,
+              "accepted": 120,
+              "coverage": 1.0,
+              "error": 0.6583333333333333
+            },
+            {
+              "threshold": 0.5,
+              "accepted": 38,
+              "coverage": 0.31666666666666665,
+              "error": 0.5526315789473685
+            },
+            {
+              "threshold": 0.6,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.7,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.8,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.9,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.95,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            },
+            {
+              "threshold": 0.99,
+              "accepted": 0,
+              "coverage": 0.0,
+              "error": null
+            }
+          ],
+          "coverage_error_note": "Descriptive test-set thresholds, not calibrated deployment operating points.",
+          "robustness": {},
+          "rag": {
+            "queries": 0,
+            "ndcg_at_10": null,
+            "mrr": null,
+            "note": "Reranking within fixed BM25 pools; zero-positive pools excluded from nDCG, included as zero in MRR.",
+            "per_query": []
+          }
+        }
+      },
+      "by_kind": {
+        "choice": {
+          "n": 60,
+          "correct": 18
+        },
+        "noul": {
+          "n": 36,
+          "correct": 16
+        },
+        "score": {
+          "n": 24,
+          "correct": 7
+        }
+      },
+      "raw_label_diagnostic": {
+        "n": 120,
+        "correct": 41,
+        "note": "Sensitivity check only: selected-label correctness ignores probability-contract validity; never substitutes for the frozen main metric."
+      },
+      "failures": {},
+      "unsupported": {},
+      "episodes": {
+        "tickets/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 8,
+          "deadline_misses": 0,
+          "steps": 24,
+          "correct_steps": 6,
+          "unrestricted_steps": 16,
+          "unnecessary_review": 0,
+          "selected_actions": {
+            "Billing": 24
+          }
+        },
+        "warehouse/untimed_quality": {
+          "n": 2,
+          "success": 0,
+          "violations": 80,
+          "deadline_misses": 0,
+          "steps": 80,
+          "selected_actions": {
+            "north": 80
+          }
+        }
+      },
+      "performance": []
+    }
+  ],
+  "comparisons": [
+    {
+      "model": "clm",
+      "reference": "jev",
+      "n": 120,
+      "delta": -0.6,
+      "ci": [
+        -0.7,
+        -0.5
+      ]
+    },
+    {
+      "model": "decider",
+      "reference": "jev",
+      "n": 120,
+      "delta": 0.0,
+      "ci": [
+        -0.05785123966942149,
+        0.05309734513274336
+      ]
+    },
+    {
+      "model": "laya",
+      "reference": "jev",
+      "n": 120,
+      "delta": -0.24166666666666667,
+      "ci": [
+        -0.344,
+        -0.14173228346456693
+      ]
+    },
+    {
+      "model": "laya-multi",
+      "reference": "jev",
+      "n": 120,
+      "delta": -0.45,
+      "ci": [
+        -0.5462184873949579,
+        -0.35294117647058826
+      ]
+    },
+    {
+      "model": "laya-typed",
+      "reference": "jev",
+      "n": 120,
+      "delta": -0.275,
+      "ci": [
+        -0.384,
+        -0.16535433070866143
+      ]
+    },
+    {
+      "model": "nimble",
+      "reference": "jev",
+      "n": 120,
+      "delta": -0.025,
+      "ci": [
+        -0.08695652173913043,
+        0.026785714285714284
+      ]
+    },
+    {
+      "model": "nli",
+      "reference": "jev",
+      "n": 120,
+      "delta": -0.3416666666666667,
+      "ci": [
+        -0.46218487394957986,
+        -0.22580038806694164
+      ]
+    },
+    {
+      "model": "plumb",
+      "reference": "jev",
+      "n": 120,
+      "delta": -0.016666666666666666,
+      "ci": [
+        -0.07017543859649122,
+        0.03333333333333333
+      ]
+    },
+    {
+      "model": "qwen",
+      "reference": "jev",
+      "n": 120,
+      "delta": -0.03333333333333333,
+      "ci": [
+        -0.09523809523809523,
+        0.025210084033613446
+      ]
+    },
+    {
+      "model": "semif",
+      "reference": "jev",
+      "n": 120,
+      "delta": -0.05,
+      "ci": [
+        -0.10744437380801017,
+        0.00847457627118644
+      ]
+    },
+    {
+      "model": "uniform",
+      "reference": "jev",
+      "n": 120,
+      "delta": -0.6166666666666667,
+      "ci": [
+        -0.72,
+        -0.5128151260504202
+      ]
+    },
+    {
+      "model": "winnow",
+      "reference": "jev",
+      "n": 120,
+      "delta": 0.016666666666666666,
+      "ci": [
+        -0.03333333333333333,
+        0.058823529411764705
+      ]
+    },
+    {
+      "model": "clm",
+      "reference": "qwen",
+      "n": 120,
+      "delta": -0.5666666666666667,
+      "ci": [
+        -0.6837606837606838,
+        -0.44627781309599496
+      ]
+    },
+    {
+      "model": "decider",
+      "reference": "qwen",
+      "n": 120,
+      "delta": 0.03333333333333333,
+      "ci": [
+        -0.008620689655172414,
+        0.07936507936507936
+      ]
+    },
+    {
+      "model": "jev",
+      "reference": "qwen",
+      "n": 120,
+      "delta": 0.03333333333333333,
+      "ci": [
+        -0.025210084033613446,
+        0.09523809523809523
+      ]
+    },
+    {
+      "model": "laya",
+      "reference": "qwen",
+      "n": 120,
+      "delta": -0.20833333333333334,
+      "ci": [
+        -0.3050847457627119,
+        -0.11206724137931037
+      ]
+    },
+    {
+      "model": "laya-multi",
+      "reference": "qwen",
+      "n": 120,
+      "delta": -0.4166666666666667,
+      "ci": [
+        -0.5040650406504065,
+        -0.3333333333333333
+      ]
+    },
+    {
+      "model": "laya-typed",
+      "reference": "qwen",
+      "n": 120,
+      "delta": -0.24166666666666667,
+      "ci": [
+        -0.3492063492063492,
+        -0.13114754098360656
+      ]
+    },
+    {
+      "model": "nimble",
+      "reference": "qwen",
+      "n": 120,
+      "delta": 0.008333333333333333,
+      "ci": [
+        -0.04587861679604798,
+        0.06087454364420836
+      ]
+    },
+    {
+      "model": "nli",
+      "reference": "qwen",
+      "n": 120,
+      "delta": -0.30833333333333335,
+      "ci": [
+        -0.4152542372881356,
+        -0.211864406779661
+      ]
+    },
+    {
+      "model": "plumb",
+      "reference": "qwen",
+      "n": 120,
+      "delta": 0.016666666666666666,
+      "ci": [
+        -0.03571428571428571,
+        0.07627118644067797
+      ]
+    },
+    {
+      "model": "semif",
+      "reference": "qwen",
+      "n": 120,
+      "delta": -0.016666666666666666,
+      "ci": [
+        -0.07142857142857142,
+        0.04065040650406504
+      ]
+    },
+    {
+      "model": "uniform",
+      "reference": "qwen",
+      "n": 120,
+      "delta": -0.5833333333333334,
+      "ci": [
+        -0.7027027027027027,
+        -0.46152343750000024
+      ]
+    },
+    {
+      "model": "winnow",
+      "reference": "qwen",
+      "n": 120,
+      "delta": 0.05,
+      "ci": [
+        -0.016129032258064516,
+        0.11304347826086956
+      ]
+    }
+  ],
+  "judge_answer_reviews": 161,
+  "judge_unique_case_count": 60,
+  "judge_reference_disagreements": [],
+  "publication_ready": false,
+  "routing_ambiguity_sensitivity": {
+    "basis": "Post-hoc exclusion on the shared supported reference cohort; never replaces primary results.",
+    "excluded_case_ids": [
+      "fresh-test-00-000-choice",
+      "fresh-test-00-001-choice"
+    ],
+    "models": {
+      "jev": {
+        "correct": 115,
+        "verified_count": 118,
+        "accuracy": 0.9745762711864406,
+        "selected_label_correct": 115,
+        "selected_label_accuracy": 0.9745762711864406
+      },
+      "plumb": {
+        "correct": 113,
+        "verified_count": 118,
+        "accuracy": 0.9576271186440678,
+        "selected_label_correct": 113,
+        "selected_label_accuracy": 0.9576271186440678
+      },
+      "decider": {
+        "correct": 113,
+        "verified_count": 118,
+        "accuracy": 0.9576271186440678,
+        "selected_label_correct": 113,
+        "selected_label_accuracy": 0.9576271186440678
+      },
+      "winnow": {
+        "correct": 115,
+        "verified_count": 118,
+        "accuracy": 0.9745762711864406,
+        "selected_label_correct": 115,
+        "selected_label_accuracy": 0.9745762711864406
+      },
+      "semif": {
+        "correct": 109,
+        "verified_count": 118,
+        "accuracy": 0.923728813559322,
+        "selected_label_correct": 109,
+        "selected_label_accuracy": 0.923728813559322
+      },
+      "clm": {
+        "correct": 41,
+        "verified_count": 118,
+        "accuracy": 0.3474576271186441,
+        "selected_label_correct": 41,
+        "selected_label_accuracy": 0.3474576271186441
+      },
+      "nimble": {
+        "correct": 112,
+        "verified_count": 118,
+        "accuracy": 0.9491525423728814,
+        "selected_label_correct": 112,
+        "selected_label_accuracy": 0.9491525423728814
+      },
+      "laya": {
+        "correct": 84,
+        "verified_count": 118,
+        "accuracy": 0.711864406779661,
+        "selected_label_correct": 85,
+        "selected_label_accuracy": 0.7203389830508474
+      },
+      "laya-typed": {
+        "correct": 80,
+        "verified_count": 118,
+        "accuracy": 0.6779661016949152,
+        "selected_label_correct": 80,
+        "selected_label_accuracy": 0.6779661016949152
+      },
+      "laya-multi": {
+        "correct": 61,
+        "verified_count": 118,
+        "accuracy": 0.5169491525423728,
+        "selected_label_correct": 61,
+        "selected_label_accuracy": 0.5169491525423728
+      },
+      "qwen": {
+        "correct": 109,
+        "verified_count": 118,
+        "accuracy": 0.923728813559322,
+        "selected_label_correct": 109,
+        "selected_label_accuracy": 0.923728813559322
+      },
+      "nli": {
+        "correct": 72,
+        "verified_count": 118,
+        "accuracy": 0.6101694915254238,
+        "selected_label_correct": 72,
+        "selected_label_accuracy": 0.6101694915254238
+      },
+      "uniform": {
+        "correct": 39,
+        "verified_count": 118,
+        "accuracy": 0.3305084745762712,
+        "selected_label_correct": 39,
+        "selected_label_accuracy": 0.3305084745762712
+      }
+    }
+  },
+  "summary_scope": "Measured configuration results; not a universal ranking or a human semantic audit.",
+  "matched_case_count": 120,
+  "matched_reference_count": 120,
+  "judge": {
+    "requested_model": "gpt-6-astra",
+    "observed_models": [],
+    "cli_versions": [
+      "codex-cli 0.157.1"
+    ],
+    "verdict_counts": {
+      "correct": 60,
+      "incorrect": 101
+    }
+  }
+}

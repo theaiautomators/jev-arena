@@ -1,0 +1,436 @@
+{
+  "purpose": "Post-hoc semantic sensitivity subset; frozen labels and primary scores remain unchanged.",
+  "selection_rule": {
+    "question_kind": "choice",
+    "family": "Support routing",
+    "state_contains": "service unavailable=yes",
+    "state_contains_any": [
+      "topic=payment",
+      "topic=onboarding"
+    ]
+  },
+  "rationale": "The executable oracle routes solely by topic, but the natural-language policy sends outages to Engineering without explicitly saying that service unavailability affects only urgency or giving routing precedence. An unavailable service can reasonably be read as an outage. These are potential ambiguities, not asserted wrong labels.",
+  "post_hoc_reason": "Identified after inspection of the completed corrected Demo, particularly Jev’s two payment/unavailability answers. The Full subset was selected using case text and metadata only, before reviewing Full results; no Full candidate predictions were used. It is a sensitivity analysis, not a preregistered exclusion or replacement main metric.",
+  "full_case_count": 7671,
+  "main_reference_case_count_before_capability_exclusions": 5671,
+  "selected_count": 50,
+  "distinct_state_strings": 31,
+  "case_ids": [
+    "fresh-test-00-000-choice",
+    "fresh-test-00-001-choice",
+    "fresh-test-00-013-choice",
+    "fresh-test-00-014-choice",
+    "fresh-test-00-017-choice",
+    "fresh-test-00-021-choice",
+    "fresh-test-00-026-choice",
+    "fresh-test-00-029-choice",
+    "fresh-test-00-034-choice",
+    "fresh-test-00-038-choice",
+    "fresh-test-00-044-choice",
+    "fresh-test-00-045-choice",
+    "fresh-test-00-050-choice",
+    "fresh-test-00-051-choice",
+    "fresh-test-00-053-choice",
+    "fresh-test-00-054-choice",
+    "fresh-test-00-055-choice",
+    "fresh-test-00-056-choice",
+    "fresh-test-00-059-choice",
+    "fresh-test-00-000-choice-reversed_options",
+    "fresh-test-00-000-choice-paraphrase",
+    "fresh-test-00-000-choice-distractor",
+    "fresh-test-00-000-choice-injection",
+    "fresh-test-00-001-choice-reversed_options",
+    "fresh-test-00-001-choice-paraphrase",
+    "fresh-test-00-001-choice-distractor",
+    "fresh-test-00-001-choice-injection",
+    "fresh-test-00-012-choice-counterfactual",
+    "fresh-test-00-013-choice-reversed_options",
+    "fresh-test-00-013-choice-paraphrase",
+    "fresh-test-00-013-choice-distractor",
+    "fresh-test-00-013-choice-injection",
+    "fresh-test-00-013-choice-counterfactual",
+    "fresh-test-00-014-choice-reversed_options",
+    "fresh-test-00-014-choice-paraphrase",
+    "fresh-test-00-014-choice-distractor",
+    "fresh-test-00-014-choice-injection",
+    "fresh-test-00-014-choice-counterfactual",
+    "fresh-test-00-015-choice-counterfactual",
+    "fresh-test-00-016-choice-counterfactual",
+    "fresh-test-00-017-choice-reversed_options",
+    "fresh-test-00-017-choice-paraphrase",
+    "fresh-test-00-017-choice-distractor",
+    "fresh-test-00-017-choice-injection",
+    "fresh-test-00-020-choice-counterfactual",
+    "fresh-test-00-021-choice-reversed_options",
+    "fresh-test-00-021-choice-paraphrase",
+    "fresh-test-00-021-choice-distractor",
+    "fresh-test-00-021-choice-injection",
+    "fresh-test-00-024-choice-counterfactual"
+  ],
+  "cases": [
+    {
+      "id": "fresh-test-00-000-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-000",
+      "frozen_gold": "Billing",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-001-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-001",
+      "frozen_gold": "Billing",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-013-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-013",
+      "frozen_gold": "Billing",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-014-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-014",
+      "frozen_gold": "Success",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-017-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-017",
+      "frozen_gold": "Billing",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-021-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-021",
+      "frozen_gold": "Billing",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-026-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-026",
+      "frozen_gold": "Billing",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-029-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-029",
+      "frozen_gold": "Success",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-034-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-034",
+      "frozen_gold": "Billing",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-038-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-038",
+      "frozen_gold": "Success",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-044-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-044",
+      "frozen_gold": "Billing",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-045-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-045",
+      "frozen_gold": "Billing",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-050-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-050",
+      "frozen_gold": "Success",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-051-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-051",
+      "frozen_gold": "Billing",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-053-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-053",
+      "frozen_gold": "Billing",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-054-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-054",
+      "frozen_gold": "Success",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-055-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-055",
+      "frozen_gold": "Success",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-056-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-056",
+      "frozen_gold": "Billing",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-059-choice",
+      "pack": "Arena Fresh",
+      "cluster": "fresh-test-00-059",
+      "frozen_gold": "Billing",
+      "variant": null
+    },
+    {
+      "id": "fresh-test-00-000-choice-reversed_options",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-000",
+      "frozen_gold": "Billing",
+      "variant": "reversed_options"
+    },
+    {
+      "id": "fresh-test-00-000-choice-paraphrase",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-000",
+      "frozen_gold": "Billing",
+      "variant": "paraphrase"
+    },
+    {
+      "id": "fresh-test-00-000-choice-distractor",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-000",
+      "frozen_gold": "Billing",
+      "variant": "distractor"
+    },
+    {
+      "id": "fresh-test-00-000-choice-injection",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-000",
+      "frozen_gold": "Billing",
+      "variant": "injection"
+    },
+    {
+      "id": "fresh-test-00-001-choice-reversed_options",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-001",
+      "frozen_gold": "Billing",
+      "variant": "reversed_options"
+    },
+    {
+      "id": "fresh-test-00-001-choice-paraphrase",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-001",
+      "frozen_gold": "Billing",
+      "variant": "paraphrase"
+    },
+    {
+      "id": "fresh-test-00-001-choice-distractor",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-001",
+      "frozen_gold": "Billing",
+      "variant": "distractor"
+    },
+    {
+      "id": "fresh-test-00-001-choice-injection",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-001",
+      "frozen_gold": "Billing",
+      "variant": "injection"
+    },
+    {
+      "id": "fresh-test-00-012-choice-counterfactual",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-012",
+      "frozen_gold": "Success",
+      "variant": "counterfactual"
+    },
+    {
+      "id": "fresh-test-00-013-choice-reversed_options",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-013",
+      "frozen_gold": "Billing",
+      "variant": "reversed_options"
+    },
+    {
+      "id": "fresh-test-00-013-choice-paraphrase",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-013",
+      "frozen_gold": "Billing",
+      "variant": "paraphrase"
+    },
+    {
+      "id": "fresh-test-00-013-choice-distractor",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-013",
+      "frozen_gold": "Billing",
+      "variant": "distractor"
+    },
+    {
+      "id": "fresh-test-00-013-choice-injection",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-013",
+      "frozen_gold": "Billing",
+      "variant": "injection"
+    },
+    {
+      "id": "fresh-test-00-013-choice-counterfactual",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-013",
+      "frozen_gold": "Success",
+      "variant": "counterfactual"
+    },
+    {
+      "id": "fresh-test-00-014-choice-reversed_options",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-014",
+      "frozen_gold": "Success",
+      "variant": "reversed_options"
+    },
+    {
+      "id": "fresh-test-00-014-choice-paraphrase",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-014",
+      "frozen_gold": "Success",
+      "variant": "paraphrase"
+    },
+    {
+      "id": "fresh-test-00-014-choice-distractor",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-014",
+      "frozen_gold": "Success",
+      "variant": "distractor"
+    },
+    {
+      "id": "fresh-test-00-014-choice-injection",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-014",
+      "frozen_gold": "Success",
+      "variant": "injection"
+    },
+    {
+      "id": "fresh-test-00-014-choice-counterfactual",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-014",
+      "frozen_gold": "Billing",
+      "variant": "counterfactual"
+    },
+    {
+      "id": "fresh-test-00-015-choice-counterfactual",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-015",
+      "frozen_gold": "Billing",
+      "variant": "counterfactual"
+    },
+    {
+      "id": "fresh-test-00-016-choice-counterfactual",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-016",
+      "frozen_gold": "Billing",
+      "variant": "counterfactual"
+    },
+    {
+      "id": "fresh-test-00-017-choice-reversed_options",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-017",
+      "frozen_gold": "Billing",
+      "variant": "reversed_options"
+    },
+    {
+      "id": "fresh-test-00-017-choice-paraphrase",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-017",
+      "frozen_gold": "Billing",
+      "variant": "paraphrase"
+    },
+    {
+      "id": "fresh-test-00-017-choice-distractor",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-017",
+      "frozen_gold": "Billing",
+      "variant": "distractor"
+    },
+    {
+      "id": "fresh-test-00-017-choice-injection",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-017",
+      "frozen_gold": "Billing",
+      "variant": "injection"
+    },
+    {
+      "id": "fresh-test-00-020-choice-counterfactual",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-020",
+      "frozen_gold": "Billing",
+      "variant": "counterfactual"
+    },
+    {
+      "id": "fresh-test-00-021-choice-reversed_options",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-021",
+      "frozen_gold": "Billing",
+      "variant": "reversed_options"
+    },
+    {
+      "id": "fresh-test-00-021-choice-paraphrase",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-021",
+      "frozen_gold": "Billing",
+      "variant": "paraphrase"
+    },
+    {
+      "id": "fresh-test-00-021-choice-distractor",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-021",
+      "frozen_gold": "Billing",
+      "variant": "distractor"
+    },
+    {
+      "id": "fresh-test-00-021-choice-injection",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-021",
+      "frozen_gold": "Billing",
+      "variant": "injection"
+    },
+    {
+      "id": "fresh-test-00-024-choice-counterfactual",
+      "pack": "Robustness",
+      "cluster": "fresh-test-00-024",
+      "frozen_gold": "Billing",
+      "variant": "counterfactual"
+    }
+  ],
+  "applicability": [
+    {
+      "case_sha256": "380312d8e7b5854c89428aa4ee8778ea2c0c7807351e81750818b6d7cf995d5a",
+      "affected_cases": 2
+    },
+    {
+      "case_sha256": "b77b3be716425adf270ff2dc48bc48bfbcddb6497d490bd802486bea6c876886",
+      "affected_cases": 50
+    },
+    {
+      "case_sha256": "bf99fcdf9ecb9caf3964803d9dd8fb8fc10dd23b99aba95fdee207e431f90052",
+      "affected_cases": 2
+    }
+  ]
+}

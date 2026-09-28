@@ -1,0 +1,155 @@
+I've put the new Jev decision model head to head with Laya, Winnow, Decider and a lineup of other alternatives, to see which ones are worth using in an actual workflow.
+
+And I built an arena to test them.
+
+This is Jev Arena. Each model gets the same decisions. We record its answer, measure the response time, and watch what happens when those answers control a small workflow.
+
+Look at this warehouse. Some models reach the destination. Others get to the edge and keep making the same blocked move.
+
+That is a useful distinction. A fast answer only helps if it moves the task forward.
+
+These are recordings of real runs, aligned at the start. The local neural models ran one at a time on my RTX 5090. Jev used its hosted API. The playback speed is shown here.
+
+There's one button for the experiment. Impress loads a model, warms it up, runs the selected tests, unloads it and checks the memory cleanup. Then it moves to the next model.
+
+At the end, GPT-6 Astra reviews a blinded sample through Codex CLI.
+
+Let me show you the first result, because it explains why I wanted more than a leaderboard.
+
+Against the short comparison's frozen references, Winnow scored one hundred and seventeen out of one hundred and twenty. Jev and Decider each scored one hundred and fifteen.
+
+That's a two-answer lead. Two of Jev's five misses also involve a payment topic alongside a flag saying the service is unavailable. Our reference applies the topic rule, but routing it to Engineering is a plausible reading. That wording needs a human review. The uncertainty interval includes either side coming out ahead. This does not establish that Winnow is better, or that these models are equivalent.
+
+But the response times are interesting. Winnow's median was about fifty-three milliseconds. Jev's was about two hundred and sixty-eight, including the network trip to its hosted service.
+
+Those are measurements from this machine and this short test. They give us a reason to investigate the alternatives.
+
+So what is a decision model?
+
+Imagine a customer sends a message about a duplicate charge. You need to send it to Billing, Engineering, Customer Success or Review.
+
+You might also need a yes-or-no judgment about urgency, or a score on a defined scale.
+
+A normal language model can generate those answers. A decision model is designed to choose among specified outcomes, often returning scores or probabilities directly.
+
+It can still choose the wrong outcome. And a high confidence number can still be wrong.
+
+Jev is TypeSafe's hosted service. I'm testing a pinned version through its API.
+
+The local alternatives take several approaches.
+
+Laya is the small option here. Its main English checkpoint is around four hundred and twenty-one million parameters. I also include its typed-decision and multilingual checkpoints as separate configurations.
+
+Those are related models, trained for different uses. Their names don't make their results interchangeable.
+
+Plumb and Decider are four-billion-parameter decision models. I'm using pinned versions with their reference inference paths.
+
+Nimble uses a decision adapter on top of a nine-billion-parameter Qwen model. Winnow is larger again, at twelve billion parameters. Here it runs with eight-bit quantized weights and its own runtime.
+
+These configurations differ in size, precision and software. The comparison tells us about these deployments, rather than isolating the effect of training alone.
+
+SemIf is a particularly useful comparison. It reads candidate-answer scores from a base model without adding another decision fine-tune.
+
+I compare that with the same Qwen backbone generating a JSON answer, using greedy decoding with thinking disabled.
+
+On the short test, SemIf got one hundred and nine answers right. JSON generation got one hundred and eleven. Their median response times were about thirty-seven and two hundred and eighty-five milliseconds respectively.
+
+That's a substantial difference in this setup. It is not evidence of equal quality, maximum server throughput, or an eight-times speedup for every task. SemIf's ordered-score questions also use an Arena extension, which is documented.
+
+CLM takes a contrastive approach: it represents the state and the possible actions, then uses a learned scoring head to compare them.
+
+I include ModernBERT as an entailment-based classification control, too. And there's a uniform control that gives every label equal probability and picks the first one when tied.
+
+That last row is not random guessing. The label order affects its accuracy.
+
+Now we need to separate the two experiments.
+
+All thirteen entries completed the short Demo: one hundred and twenty decisions each, plus two ticket episodes and two warehouse episodes.
+
+It includes seventy-two original and twelve easy public JevBench questions. There are no hard JevBench questions in that Demo. Thirty-six additional examples use generated policies with executable answer rules.
+
+The longer comparison uses Jev, Laya and the uniform control in the Full profile. That is seven thousand, six hundred and seventy-one records per entrant, before capability exclusions.
+
+It covers public decision questions, classification, multilingual examples, evidence relevance, policy fixtures and changed versions of those fixtures.
+
+Two thousand records have targets produced by another model. I report agreement with that teacher separately. They do not enter the main reference-accuracy score.
+
+Here are the longer-run results. All three entrants supported the same five thousand, six hundred and seventy-one reference cases.
+
+Under the strict output rules, Jev scored ninety point nine percent. English Laya scored fifty-five point five percent. The first-label control scored thirty-six point eight.
+
+When we count correct labels regardless of probability formatting, Jev rises to ninety-one point six percent and Laya to fifty-seven point one. The gap remains substantial on this suite. Excluding the fifty routing cases with potentially ambiguous wording doesn't remove it either.
+
+This Full run uses English Laya. Its multilingual checkpoint only ran the short Demo, so don't read this as a test of that checkpoint's language coverage. On the English formal policy fixtures alone, the strict scores were about ninety-seven percent for Jev and fifty-seven percent for Laya. Those fixtures reuse policy templates; they don't establish general ability.
+
+The trade-off is speed. Across the Full quality requests, Jev's median was about two hundred and sixty-four milliseconds, versus eighteen milliseconds for Laya. Those figures include the respective adapter and, for Jev, network overhead. The report also has separate repeated timing blocks.
+
+Coverage matters here. If a model supports sixteen choices and a banking task has seventy-seven, dropping most of the labels would change the task.
+
+Arena records that as unsupported. The dashboard shows coverage and a comparison on shared supported cases.
+
+I also separate decision mistakes from format failures.
+
+In the short run, Laya chose eighty-seven correct labels. One of those answers returned rounded probabilities totalling zero point nine nine nine eight. That falls outside this experiment's fixed tolerance. Some Jev vectors in the longer run also fail the chosen sum rule. That doesn't by itself mean the label is wrong, or that Jev broke an API guarantee.
+
+So Laya's Demo score is eighty-six out of one hundred and twenty, while the label-only diagnostic shows eighty-seven. You can see both. Strict accuracy includes the output rules; label-only accuracy isolates the selected answer. The latter is a post-hoc diagnostic. Qwen returns labels without probabilities, so it doesn't face the probability-sum check. The main rule stays fixed.
+
+Confidence gets its own view. If a model repeatedly reports ninety percent confidence, how often is it right?
+
+That's what this calibration chart checks. It only uses valid probability outputs, and the sample count is shown. A JSON label on its own does not become a probability distribution just because we want to draw a chart.
+
+Laya's own loader also warns that confidence for choice sets with eleven or more options is uncalibrated in this checkpoint. That's another reason to check the evidence before using a confidence threshold.
+
+Here's one concrete example. The source says the facility opened on Tuesday. The proposed answer repeats that exact statement. We ask whether the answer contains an unsupported status claim. Laya says yes, with about ninety-one percent probability. The expected answer is no. It's one case, not the whole result, but it shows why a confident score is something to test.
+
+Now let's go back to the workflows.
+
+The warehouse is deliberately small. Every seed still has an open route around the outside edge. This is a basic constraint test, not a difficult navigation benchmark.
+
+The model sees all four direction choices. Impossible actions are not masked out.
+
+When a deterministic model makes a blocked move, the state stays the same. It can keep returning that same bad answer. Seventy violation steps can therefore come from a couple of repeated mistakes, rather than seventy independent failures.
+
+In a production system, I would consider validating actions or removing impossible choices. That would be a different system to test.
+
+The ticket results have another trap.
+
+Several models sent every ticket to Review. That avoided violating the rule about restricted accounts, but it sent sixteen ordinary tickets to Review unnecessarily. They got eight of the twenty-four routes right.
+
+CLM instead sent every ticket to Billing in these two episodes. That got six routes right and violated the restricted-account rule eight times.
+
+Both patterns fail the task, for different reasons. That's why the dashboard shows individual decisions and unnecessary deferrals, alongside the stricter requirement to get every ticket in an episode right.
+
+The Full profile also applies a five-hundred-millisecond deadline. Jev succeeded in all forty untimed episodes, and thirty-nine of forty under that deadline. One late ticket decision cost it an episode. A late response uses a step without applying the action. The environment waits for the call, so this is a defined deadline simulation, not a continuously running physical world.
+
+And who judges the judge?
+
+The main scores come from code and frozen reference answers. Astra supplies a separate audit. It doesn't get the candidate's name, and identical answers to the same question share one judgment.
+
+For the Demo, it reviewed one hundred and sixty-one distinct answers across sixty questions. That covered all thirty-six formal fixtures and twenty-four public questions. It agreed with the references in that sample.
+
+That is useful evidence. It is not an audit of every answer, and it is not human validation.
+
+The Full audit disagreed with references on two cases and flagged ambiguous teacher examples. On one policy question, the judge accepted both yes and no under different readings. Those findings stay visible. The judge does not rewrite the scores.
+
+I also asked an independent Astra agent to attack the methodology and the results as a skeptical viewer would.
+
+That process caught real issues before this final comparison, including duplicated criterion text in native instructions and silent input-clipping risks. The corrected runs replaced the development results. The saved history makes that visible.
+
+There are still limits. Public benchmarks may have influenced training. The generated policy examples share templates. Independent numerical parity checks are still incomplete, and these runtimes aren't all tuned for peak speed.
+
+So I can report that CLM performed poorly on these questions in this profile. I can't use that to dismiss contrastive models as a category.
+
+For this suite, Jev gave me substantially better reference agreement than English Laya, at higher response latency. I wouldn't substitute Laya into these workflows just because its answers arrive faster. I'd first test it on the specific decisions I needed, particularly if small size mattered.
+
+For a local shortlist on this GPU, I'd investigate Decider and Winnow next. They did well in the short comparison and both completed its workflows. They still need the larger suite before I'd claim they match or beat Jev. Nimble also completed those workflows, and SemIf is worth examining if you already use the same Qwen backbone and want to compare direct scoring with JSON generation.
+
+I would investigate CLM's runtime parity and task fit before making a recommendation from its poor result here. One configuration in one harness doesn't settle the model family's value.
+
+The app saves the model revisions, cases, outputs and measurements. You can inspect failures or export this interactive report without loading the models again.
+
+Once the repository is public, I'll put the link in the description so you can run it and add your own cases.
+
+Before replacing a model in a workflow, take decisions from that workflow, freeze the expected answers and decide which mistakes matter. Then check whether the response-time advantage survives those mistakes.
+
+That's what I want this arena to help you do.

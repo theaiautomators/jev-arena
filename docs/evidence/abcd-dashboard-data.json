@@ -1,0 +1,306 @@
+{
+  "source": "abcd-v1-summary.json",
+  "run_id": "abcd-test-v1",
+  "models": {
+    "jev": {
+      "natural": {
+        "full_handbook/route": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 629,
+          "label_correct": 630,
+          "strict_accuracy_supported": 0.6988888888888889,
+          "label_accuracy_supported": 0.7
+        },
+        "full_handbook/action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "strict_correct": 228,
+          "label_correct": 236,
+          "strict_accuracy_supported": 0.76,
+          "label_accuracy_supported": 0.7866666666666666
+        },
+        "retrieved_policy/route": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 650,
+          "label_correct": 653,
+          "strict_accuracy_supported": 0.7222222222222222,
+          "label_accuracy_supported": 0.7255555555555555
+        },
+        "retrieved_policy/action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "strict_correct": 220,
+          "label_correct": 226,
+          "strict_accuracy_supported": 0.7333333333333333,
+          "label_accuracy_supported": 0.7533333333333333
+        }
+      },
+      "combined": {
+        "full_handbook": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 566,
+          "label_correct": 574,
+          "strict_accuracy_supported": 0.6288888888888889,
+          "label_accuracy_supported": 0.6377777777777778
+        },
+        "retrieved_policy": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 584,
+          "label_correct": 592,
+          "strict_accuracy_supported": 0.6488888888888888,
+          "label_accuracy_supported": 0.6577777777777778
+        }
+      }
+    },
+    "decider": {
+      "natural": {
+        "full_handbook/route": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 595,
+          "label_correct": 595,
+          "strict_accuracy_supported": 0.6611111111111111,
+          "label_accuracy_supported": 0.6611111111111111
+        },
+        "full_handbook/action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "strict_correct": 97,
+          "label_correct": 176,
+          "strict_accuracy_supported": 0.3233333333333333,
+          "label_accuracy_supported": 0.5866666666666667
+        },
+        "retrieved_policy/route": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 620,
+          "label_correct": 620,
+          "strict_accuracy_supported": 0.6888888888888889,
+          "label_accuracy_supported": 0.6888888888888889
+        },
+        "retrieved_policy/action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "strict_correct": 123,
+          "label_correct": 184,
+          "strict_accuracy_supported": 0.41,
+          "label_accuracy_supported": 0.6133333333333333
+        }
+      },
+      "combined": {
+        "full_handbook": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 414,
+          "label_correct": 489,
+          "strict_accuracy_supported": 0.46,
+          "label_accuracy_supported": 0.5433333333333333
+        },
+        "retrieved_policy": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 479,
+          "label_correct": 531,
+          "strict_accuracy_supported": 0.5322222222222223,
+          "label_accuracy_supported": 0.59
+        }
+      }
+    },
+    "winnow": {
+      "natural": {
+        "full_handbook/route": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 659,
+          "label_correct": 659,
+          "strict_accuracy_supported": 0.7322222222222222,
+          "label_accuracy_supported": 0.7322222222222222
+        },
+        "full_handbook/action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "strict_correct": 200,
+          "label_correct": 200,
+          "strict_accuracy_supported": 0.6666666666666666,
+          "label_accuracy_supported": 0.6666666666666666
+        },
+        "retrieved_policy/route": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 654,
+          "label_correct": 654,
+          "strict_accuracy_supported": 0.7266666666666667,
+          "label_accuracy_supported": 0.7266666666666667
+        },
+        "retrieved_policy/action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "strict_correct": 229,
+          "label_correct": 229,
+          "strict_accuracy_supported": 0.7633333333333333,
+          "label_accuracy_supported": 0.7633333333333333
+        }
+      },
+      "combined": {
+        "full_handbook": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 616,
+          "label_correct": 616,
+          "strict_accuracy_supported": 0.6844444444444444,
+          "label_accuracy_supported": 0.6844444444444444
+        },
+        "retrieved_policy": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 626,
+          "label_correct": 626,
+          "strict_accuracy_supported": 0.6955555555555556,
+          "label_accuracy_supported": 0.6955555555555556
+        }
+      }
+    },
+    "nimble": {
+      "natural": {
+        "full_handbook/route": {
+          "planned": 900,
+          "supported": 0,
+          "unsupported": 900,
+          "strict_correct": 0,
+          "label_correct": 0,
+          "strict_accuracy_supported": null,
+          "label_accuracy_supported": null
+        },
+        "full_handbook/action": {
+          "planned": 300,
+          "supported": 0,
+          "unsupported": 300,
+          "strict_correct": 0,
+          "label_correct": 0,
+          "strict_accuracy_supported": null,
+          "label_accuracy_supported": null
+        },
+        "retrieved_policy/route": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 632,
+          "label_correct": 632,
+          "strict_accuracy_supported": 0.7022222222222222,
+          "label_accuracy_supported": 0.7022222222222222
+        },
+        "retrieved_policy/action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "strict_correct": 192,
+          "label_correct": 192,
+          "strict_accuracy_supported": 0.64,
+          "label_accuracy_supported": 0.64
+        }
+      },
+      "combined": {
+        "full_handbook": {
+          "planned": 900,
+          "supported": 0,
+          "unsupported": 900,
+          "strict_correct": 0,
+          "label_correct": 0,
+          "strict_accuracy_supported": null,
+          "label_accuracy_supported": null
+        },
+        "retrieved_policy": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 541,
+          "label_correct": 541,
+          "strict_accuracy_supported": 0.6011111111111112,
+          "label_accuracy_supported": 0.6011111111111112
+        }
+      }
+    },
+    "qwen": {
+      "natural": {
+        "full_handbook/route": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 541,
+          "label_correct": 541,
+          "strict_accuracy_supported": 0.6011111111111112,
+          "label_accuracy_supported": 0.6011111111111112
+        },
+        "full_handbook/action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "strict_correct": 153,
+          "label_correct": 153,
+          "strict_accuracy_supported": 0.51,
+          "label_accuracy_supported": 0.51
+        },
+        "retrieved_policy/route": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 530,
+          "label_correct": 530,
+          "strict_accuracy_supported": 0.5888888888888889,
+          "label_accuracy_supported": 0.5888888888888889
+        },
+        "retrieved_policy/action": {
+          "planned": 300,
+          "supported": 300,
+          "unsupported": 0,
+          "strict_correct": 167,
+          "label_correct": 167,
+          "strict_accuracy_supported": 0.5566666666666666,
+          "label_accuracy_supported": 0.5566666666666666
+        }
+      },
+      "combined": {
+        "full_handbook": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 504,
+          "label_correct": 504,
+          "strict_accuracy_supported": 0.56,
+          "label_accuracy_supported": 0.56
+        },
+        "retrieved_policy": {
+          "planned": 900,
+          "supported": 900,
+          "unsupported": 0,
+          "strict_correct": 518,
+          "label_correct": 518,
+          "strict_accuracy_supported": 0.5755555555555556,
+          "label_accuracy_supported": 0.5755555555555556
+        }
+      }
+    }
+  }
+}

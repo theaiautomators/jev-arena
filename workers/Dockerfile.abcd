@@ -1,0 +1,3 @@
+FROM jev-arena-worker:0.1
+COPY workers/abcd_runner.py /opt/arena/abcd_runner.py
+ENTRYPOINT ["python3", "-u", "/opt/arena/abcd_runner.py"]

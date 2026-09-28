@@ -1,0 +1,4 @@
+FROM jev-arena-winnow:0.1
+COPY workers/runner.py workers/winnow_runner.py /opt/arena/
+COPY arena/wire.py /opt/arena/wire.py
+ENTRYPOINT ["python3", "-u", "/opt/arena/winnow_runner.py"]

@@ -1,0 +1,153 @@
+I tested thirteen decision-model profiles to answer a practical question: when does a local model make sense inside your software or automation?
+
+You might ask: why build this when JevBench Live and DecisionBench already publish numbers?
+
+Those leaderboards are useful. I would use them to make a shortlist. JevBench includes public and sealed tests, while DecisionBench focuses on decisions grounded in documents and lets you compare different task groups.
+
+But I wanted to go from a leaderboard position to a deployment decision. What happens with the exact model version I can download, running on my GPU? How much memory does it take to load? Can it handle the number of choices and the amount of information my application needs? And when it fails, can I open the case and understand why?
+
+I also wanted to see whether a fast answer on a short question stays fast when I supply a full support handbook, and whether good individual answers lead to a successful sequence of decisions.
+
+That is why I built Arena: to inspect those tradeoffs on this setup. This is a complementary experiment. We use different cases and scoring, so our percentages should not be treated as a reproduction of either live leaderboard.
+
+The answer is more interesting than one winner.
+
+On the same questions, Jev was narrowly ahead of the strongest local contenders. But local models could be much faster. Small models sometimes won a specific task. And when we moved to long support conversations and a full policy handbook, both the ranking and the speed story changed.
+
+So this video is about how to choose a model for the job you actually need it to do.
+
+First, what is a decision model?
+
+You give it information, a question and a set of allowed answers. That might be Billing, Engineering, Customer Success or Review. It chooses among those outcomes, often returning a probability for each one.
+
+A general language model can generate the same answer as text or JSON. A decision model usually provides a more direct way to make that choice inside software. It can still be wrong, and it can still be confidently wrong.
+
+We tested hosted Jev, several local decision models, a Qwen JSON baseline, an entailment classifier and a simple first-option control. There are three related Laya profiles, so thirteen entries does not mean thirteen independent model architectures.
+
+You can click any model in the dashboard to see its size, base model, weights, license, input limits and the memory we actually recorded.
+
+For example, I loaded Winnow’s Q8 version and measured about twelve point nine gibibytes of extra GPU memory with an eight-thousand-token context, and thirteen point six with a sixty-four-thousand-token context. That is an idle measurement after loading, not peak memory while processing a long input, and not system RAM. Leave room for the workload, not just the weights.
+
+Let’s start with the broad comparison.
+
+Each profile received seven thousand, six hundred and seventy-one static cases. Two thousand use answers produced by AI teachers. We report agreement with those teachers separately, because agreeing with another model does not prove correctness.
+
+The remaining cases have a public answer key or an answer calculated from explicit rules. The main score is computed against that key. Astra is a separate spot-check for ambiguity and questionable references. It does not award part of the main accuracy score.
+
+For the simple leaderboard, we compare the same four thousand, six hundred and thirty-five supported questions for every model. Jev matches ninety-five point two three percent. Winnow matches ninety-four point six one. Decider, ninety-four point four six. Nimble, ninety-two point three four.
+
+Those are close results at the top. They give us candidates to investigate, not a universal deployment winner.
+
+Why use a shared set?
+
+Because capacity matters. Some interfaces accept only sixteen options. Winnow's native server accepts sixty-four. A banking dataset here has seventy-seven possible intents.
+
+You cannot make that comparison fair by giving one model an easier shortlist. And an unsupported request is not evidence of a wrong decision.
+
+Our harness initially advertised the wrong limit for Winnow, so five hundred banking requests failed. The original attempt log is preserved, but those cases are outside the shared leaderboard for every model. That is why the overview uses one consistent score instead of presenting an all-attempt percentage beside a different shared-question percentage.
+
+The trade-off is that this shared set leaves out some demanding cases. The full evidence and output checks are still available in the detailed results.
+
+Here is the first practical takeaway: start with the actual task.
+
+The small English Laya model led our five hundred news-category questions at ninety-two point two percent. Jev was eighty-eight point two on those same questions.
+
+That does not make Laya the best overall model. It was much weaker on the broad policy tests. But it does show why a small, fast classifier might be a sensible starting point for a narrow job.
+
+Decider led the tested multilingual entailment questions at eighty-four percent, while Jev and Nimble were eighty-one point four. Plumb did well on the shared public JevBench decision questions.
+
+These are descriptive differences from particular samples, not proof that the same ranking will hold on your data. Public training exposure is also unknown.
+
+The point is to evaluate the task you will deploy: your labels, your languages, your documents and your failure cases.
+
+Be careful with easy averages, too. In our SciFact relevance sample, more than ninety percent of documents were not relevant. A simple first-option baseline already scored ninety point six percent.
+
+A high accuracy number alone does not prove a useful retrieval system. You need to know whether the model finds the relevant documents, not just whether it rejects a large pile of irrelevant ones.
+
+Second takeaway: check input length and the number of choices before you compare accuracy.
+
+The eight-thousand-token settings in the first Arena run were not all architectural limits. Some were just the context we configured for that deployment.
+
+Jev accepts a thirty-two-thousand-token state and question. In the follow-on support assessment, Winnow used a sixty-four-thousand-token serving ceiling. Decider used thirty-two thousand, and Qwen also used a configured thirty-two-thousand-token budget including its answer.
+
+Nimble's pinned release was limited to eight thousand and could not accept the complete handbook.
+
+So Jev is not the only long-context option. You have to distinguish what the model supports, what the server is configured to allow, and what your GPU can actually run.
+
+Count the entire input: policy, conversation, instructions, options and wrappers. A state that is already eight thousand tokens can exceed an eight-thousand-token model once you add the rest.
+
+Third takeaway: speed changes with the workload.
+
+On repeated short-input tests, several local contenders answered in roughly fifty to sixty milliseconds. Hosted Jev was around two hundred and forty-five milliseconds, including the network trip.
+
+That looks attractive for routing, UI interactions and frequent decisions inside an automation.
+
+But with the full support handbook, the order changed. Jev’s median request was around three hundred and sixty milliseconds. Qwen was around one point six seconds, Decider around one point nine, and Winnow around two point nine.
+
+Retrieving a smaller policy excerpt greatly reduced the local request times.
+
+We do not know Jev's parameter count or backend hardware. We also have different precision, runtimes and caching behavior. So I cannot say Jev was slower on short inputs because it is a bigger model, or faster on long inputs because of a particular architecture.
+
+What I can say is: benchmark at the input length and traffic pattern you will actually use.
+
+We measured one request at a time. That does not establish maximum server throughput. For a real-time application, you should also test slow-tail latency, startup time and concurrent load.
+
+Fourth takeaway: choosing an action and knowing when to act are different problems.
+
+For ABCD, we used three hundred held-out support conversations. We compared the complete handbook with five retrieved policy sections.
+
+One test explicitly tells the model that an action is due, then asks it to choose among all thirty actions. With the full handbook, Jev matched seventy-eight point seven percent of the recorded action labels, versus Winnow’s sixty-six point seven.
+
+With retrieval, Winnow improved to seventy-six point three, while Jev was seventy-five point three. More policy text did not help every model in the same way.
+
+Then we asked the broader question: should the system take an action, speak to the customer, or finish? When it should act, did it also choose the correct action?
+
+Winnow led that combined task. It was much better at matching when the recorded agent spoke. Jev was better on the true action checkpoints.
+
+That matters for agent design. A good tool selector is not automatically a good controller for the entire conversation.
+
+And these are matches to recorded steps. A human conversation can have more than one acceptable next move. The audit found optional farewells, flexible action order and differences between repairing a policy omission and predicting what the recorded agent did next.
+
+This is not a live customer-resolution rate. The task mix is also balanced, with one action, one message and one synthesized ending per conversation. It is not a claim about the frequency of decisions in your production workload.
+
+Fifth takeaway: the answer has to work in software.
+
+Our strict score checks both the selected label and the output format. For probability outputs, that includes adding up to one within a declared tolerance.
+
+Decider matched about ninety-two point three percent of labels across the original reference set, but passed the correct-plus-usable check on eighty-three point eight percent.
+
+Calling that entire gap bad reasoning would be misleading. Ignoring the output failures would also be misleading if your application depends on those probabilities.
+
+Keep both checks. Validate the response, log failures and decide what the application should do next. We did not quietly repair invalid outputs or prove that every repair is safe.
+
+The confidence chart asks a simple question: when the model says it is eighty percent confident, is it right about eighty percent of the time?
+
+Below the diagonal means it was too confident. Above means it was too cautious. Empty groups mean we have no observations.
+
+Do not assume one model's confidence threshold works for another.
+
+Finally, test the sequence of decisions.
+
+The replay section has two small environments: ticket routing and warehouse movement. Each has multiple saved scenarios, models and deadline settings. Playback does not call the models again.
+
+In the untimed warehouse tests, Jev completed twenty of twenty scenarios, Winnow nineteen, Nimble seventeen and Decider nine.
+
+Some other profiles routed every ticket to Review. That avoided certain violations, but it also deferred a lot of work unnecessarily. Safe-looking behavior is not automatically useful automation.
+
+These are toy environments, not general agent benchmarks. A normal pathfinder can solve the warehouse. Their value is showing how a repeated bad decision or an overused fallback affects a sequence.
+
+Where does that leave an AI builder?
+
+For short, frequent decisions, local models deserve serious testing. Winnow and Decider were close to Jev on the shared broad score, while smaller encoders can make sense for a narrow classification task.
+
+For long policy-heavy inputs, test both the full context and retrieval. Check the actual capacity, memory headroom and latency. Jev was strong at conditional action selection, but it did not win every support decision.
+
+For every option, evaluate on your own answer keys, check output validity and confidence, and test the workflow around the model. The cost of a wrong action or an unnecessary handoff can matter much more than a small leaderboard difference.
+
+The main run and follow-ups took about four hours and thirty-three minutes. ABCD candidate work took about three hours and sixteen minutes, excluding earlier waiting and the later audit and reporting.
+
+Recorded Jev API usage was about a dollar forty-six across both assessments. That is not the total cost of the experiment: local hardware, electricity and Codex usage are separate, and the application ledger is not a reconciled invoice.
+
+The measurements, limits and recorded failures are preserved. The dashboard now starts with the practical comparison, with the technical evidence available when you want it.
+
+There is no universal winner here. There are better-informed deployment choices.
