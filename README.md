@@ -115,7 +115,7 @@ Raw ABCD conversations and predictions are not distributed in this repository or
 - [Implemented profile and limitations](docs/IMPLEMENTATION.md)
 - [Verification evidence](docs/VERIFICATION.md) and [independent adversarial review](docs/ADVERSARIAL-REVIEW.md)
 - [Builder takeaways](docs/BUILDER-TAKEAWAYS.md) and [Winnow loaded-memory measurements](docs/evidence/winnow-memory.json)
-- [Measured results](docs/RESULTS.md), [video spine](docs/VIDEO-SPINE.md) and [teleprompter script](docs/VIDEO-SCRIPT.txt)
+- [Measured results](docs/RESULTS.md), [video spine](docs/VIDEO-SPINE.md), [Markdown script](docs/VIDEO-SCRIPT.md) and [video analysis](docs/VIDEO-ANALYSIS.md)
 - [Reference cautions and post-hoc sensitivity](docs/REFERENCE-CAUTIONS.md)
 - [Licenses and attribution](THIRD_PARTY.md)
 

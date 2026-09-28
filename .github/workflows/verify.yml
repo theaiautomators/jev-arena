@@ -17,4 +17,5 @@ jobs:
       - run: uv sync --frozen --extra dev
       - run: uv run pytest -q
       - run: npm ci
+      - run: node --experimental-strip-types --test apps/web/tests/*.test.mjs
       - run: npm run build

@@ -31,7 +31,7 @@ assert payload["result"]["judge_summary"]["cli_versions"] == ["codex-cli 0.157.1
 assert payload["readiness"]["hardware"]["gpu"]["name"] == "NVIDIA GeForce RTX 5090"
 for before, after in zip(result["entrants"], payload["result"]["entrants"]):
     assert before == after
-files = ["WHY-ARENA.md", "evidence/winnow-memory.json", "BUILDER-TAKEAWAYS.md", "ABCD-RESULTS.md", "evidence/abcd-dashboard-data.json", "evidence/model-guide.json", "evidence/builder-task-breakdown.json", "evidence/ASTRA-ABCD-REVIEW.md", "evidence/ABCD-AUDIT-REVIEW.md", "RESULTS.md", "VERIFICATION.md", "VIDEO-EVALUATION-V2.md", "VIDEO-SCRIPT.txt", "VIDEO-SPINE.md",
+files = ["VIDEO-SCRIPT.md", "VIDEO-ANALYSIS.md", "evidence/video-task-analysis.json", "evidence/video-findings.json", "WHY-ARENA.md", "evidence/winnow-memory.json", "BUILDER-TAKEAWAYS.md", "ABCD-RESULTS.md", "evidence/abcd-dashboard-data.json", "evidence/model-guide.json", "evidence/builder-task-breakdown.json", "evidence/ASTRA-ABCD-REVIEW.md", "evidence/ABCD-AUDIT-REVIEW.md", "RESULTS.md", "VERIFICATION.md", "VIDEO-EVALUATION-V2.md", "VIDEO-SCRIPT.txt", "VIDEO-SPINE.md",
          "IMPLEMENTATION.md", "evidence/full-v2-summary.json", "evidence/full-v2-supplement.json",
          "evidence/ASTRA-V2-REVIEW.md", "evidence/winnow-option-limit.md",
          "evidence/clm-preflight-recovery.md", "evidence/parallel-audit-amendment.md"]

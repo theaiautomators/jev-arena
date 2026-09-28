@@ -91,12 +91,30 @@ async def results(rid:str):
     return await asyncio.to_thread(controller.results,rid)
 
 @app.get("/api/runs/{rid}/cases")
-async def cases(rid:str,model:str|None=None,pack:str|None=None,offset:int=0,limit:int=100):
+async def cases(rid:str,model:str|None=None,pack:str|None=None,family:str|None=None,kind:str|None=None,
+                search:str="",outcome:str=Query("",pattern="^(|correct|wrong|failed|unsupported)$"),
+                offset:int=Query(0,ge=0),limit:int=Query(30,ge=1,le=200),index_only:bool=False):
     require_run(rid)
-    values=controller.cases(rid)
-    if pack:values=[c for c in values if c.pack==pack]
-    subset=values[max(0,offset):max(0,offset)+min(200,max(1,limit))];ids={c.id for c in subset}
-    return {"total":len(values),"cases":[c.model_dump() for c in subset],"predictions":[p for p in controller.store.predictions(rid,model) if p["case_id"] in ids]}
+    if outcome and not model:raise HTTPException(422,"Choose a model to filter by outcome")
+    from arena.explorer import case_page
+    return await asyncio.to_thread(case_page,RUNS/rid,controller.store,rid,model=model,pack=pack,
+        family=family,kind=kind,search=search,outcome=outcome,offset=offset,limit=limit,index_only=index_only)
+
+@app.get("/api/runs/{rid}/cases/{case_id}")
+async def case_detail(rid:str,case_id:str,model:str|None=None):
+    require_run(rid)
+    from arena.explorer import saved_cases
+    def detail():
+        case=next((c for c in saved_cases(RUNS/rid) if c["id"]==case_id),None)
+        if case is None:raise HTTPException(404,"Case not found")
+        return {"case":case,"predictions":controller.store.predictions_for_cases(rid,[case_id],model)}
+    return await asyncio.to_thread(detail)
+
+@app.get("/api/runs/{rid}/analysis")
+async def run_analysis(rid:str):
+    run=require_run(rid)
+    from arena.explorer import analysis
+    return await asyncio.to_thread(analysis,RUNS/rid,controller.store,rid,run['request']['model_ids'],run['status']=='complete')
 
 @app.get("/api/runs/{rid}/events")
 async def events(rid:str,request:Request,after:int=0):

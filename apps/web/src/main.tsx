@@ -40,8 +40,6 @@ import type {
   Run,
   Result,
   Metrics,
-  Case,
-  Prediction,
   ArenaEvent,
 } from "./types";
 
@@ -50,8 +48,10 @@ import "./styles.css";
 import { AppShell } from "../../shared/AppShell";
 
 import { Operations, EpisodeReplay } from "./Operations";
-import { Takeaways, ModelGuide, SourcesGuide, CaseState, TaskBreakdown, ABCDResults } from "./Guide";
+import { Takeaways, ModelGuide, SourcesGuide, TaskBreakdown, ABCDResults } from "./Guide";
 import { ABCDCases } from "./ABCDCases";
+import { EvidenceExplorer, TaskAnalysis, type CaseJump } from "./Explore";
+import { NavigationProvider, useNavigation, useViewState } from "./ViewHistory";
 
 const terminal = [
   "complete",
@@ -158,13 +158,22 @@ const typicalTime = (result: Result | null, id: string) => {
   return blocks.length ? blocks[Math.floor(blocks.length/2)] : result?.entrants.find(e=>e.id===id)?.metrics.p50_ms;
 };
 function App() {
-  const [page, setPage] = useState("arena"),
-    [caseDataset, setCaseDataset] = useState("arena"),
+  const { page, navigate: setPage, back, canGoBack, backLabel } = useNavigation();
+  const [resultsAssessment, setResultsAssessment] = useViewState("resultsAssessment", "arena");
+  const [caseDataset, setCaseDataset] = useViewState("caseDataset", "arena");
+  const [rid, setRid] = useViewState<string | null>("runId", null);
+  const openCases = (jump: CaseJump) => setPage("cases", { caseDataset: "arena",
+    [`cases:${rid}:filters`]: { pack: jump.pack, family: jump.family, model: jump.model || "", search: jump.search || "", kind: "", outcome: "", offset: 0 },
+    [`cases:${rid}:search`]: jump.search || "", [`cases:${rid}:chosen`]: "" });
+  const openAnalysis = (jump: CaseJump) => setPage("results", { resultsAssessment: "arena",
+    [`analysis:${rid}:group`]: `${jump.pack}::${jump.family}`, [`analysis:${rid}:model`]: jump.model || "" });
+  const openAbcdCases = () => setPage("cases", { caseDataset: "abcd" });
+  const
     [ready, setReady] = useState<Ready | null>(null),
     [runs, setRuns] = useState<Run[]>([]),
-    [rid, setRid] = useState<string | null>(null),
     [result, setResult] = useState<Result | null>(null),
     [events, setEvents] = useState<ArenaEvent[]>([]);
+  const showingAbcd = page === "abcd" || (page === "cases" && caseDataset === "abcd") || (page === "results" && resultsAssessment === "abcd");
 
   const [selected, setSelected] = useState<string[]>([
       "jev",
@@ -181,10 +190,8 @@ function App() {
     [drawer, setDrawer] = useState(false),
     [error, setError] = useState(""),
     [busy, setBusy] = useState(false),
-    [focus, setFocus] = useState<string | null>(null),
+    [focus, setFocus] = useViewState<string | null>("focusedModel", null),
     [present, setPresent] = useState(false);
-
-  useEffect(() => { window.scrollTo({top:0, behavior:"instant"}); }, [page]);
 
   const refresh = useCallback(async () => {
     try {
@@ -226,11 +233,15 @@ function App() {
     }
   }, [rid]);
 
+  const selectedRunStatus = runs.find(run => run.id === rid)?.status;
+  const isLiveRun = !!selectedRunStatus && !terminal.includes(selectedRunStatus);
   useEffect(() => {
     setResult(null);
     setEvents([]);
     loadResult();
-    if (!rid || offline) return;
+    // Completed evidence has no live events to follow. Replaying its entire
+    // history repeatedly fetched the large result file while browsing cases.
+    if (!rid || offline || !isLiveRun) return;
     let update: ReturnType<typeof setTimeout> | null = null;
     const es = new EventSource(`/api/runs/${rid}/events`);
     es.addEventListener("arena", (e) => {
@@ -252,7 +263,7 @@ function App() {
       es.close();
       if (update) clearTimeout(update);
     };
-  }, [rid, loadResult, refresh]);
+  }, [rid, isLiveRun, loadResult, refresh]);
 
   useEffect(() => {
     if (!drawer) return;
@@ -389,7 +400,7 @@ function App() {
         onPresenterChange={setPresent}
         status={offline ? "Saved report" : ready?.hardware.gpu?.name.replace("NVIDIA GeForce ", "") || "Local workspace"}
         sidebarFooter={<><p>Saved evidence. Clear comparisons.</p><button className="text-button" onClick={()=>setPage("sources")}>All benchmark sources →</button></>}
-        footerNote={page === "abcd" || (page === "cases" && caseDataset === "abcd") ? "abcd-test-v1 · Separate completed assessment" : result ? `${result.run_id} · ${label(current?.status || "")}` : "No synthetic measurements"}
+        footerNote={showingAbcd ? "abcd-test-v1 · Separate completed assessment" : result ? `${result.run_id} · ${label(current?.status || "")}` : "No synthetic measurements"}
         className={`page-${page}`}
       >
           {offline && (
@@ -409,6 +420,7 @@ function App() {
             </div>
           )}
 
+          {canGoBack ? <button className="text-button page-back" onClick={back}>← Back to {backLabel}</button> : page === "cases" ? <button className="text-button page-back" onClick={()=>setPage("results")}>← Back to Results</button> : null}
           <div className="page-heading">
             <div>
               <div className="eyebrow">
@@ -434,7 +446,7 @@ function App() {
                 {page === "models" ? "What each model is, what it needs, and where it fits." : page === "takeaways" ? "Practical lessons for software, automation and real-time decisions." : page === "sources" ? "Where the questions and answers come from." : page === "abcd" ? "A separate five-model assessment of support decisions with longer inputs." : page === "run" ? "New tests are saved separately. Existing results remain available." : page === "chart" ? "Higher is more accurate. Left is faster. Click a point to inspect it." : page === "arena"
                   ? "One headline comparison: the same answer-key questions for every model."
                   : page === "results"
-                    ? "Compare quality, speed, coverage and confidence on identical cases."
+                    ? "Explore results by assessment, question type and model."
                     : page === "cases"
                       ? "Trace a score back to its evidence, answer and reference."
                       : page === "replay"
@@ -443,7 +455,7 @@ function App() {
               </p>
             </div>
             <div className="heading-actions">
-              {runs.length > 0 && !(page === "cases" && caseDataset === "abcd") && page !== "abcd" && (
+              {runs.length > 0 && !showingAbcd && (
                 <select
                   aria-label="Select saved run"
                   value={rid || ""}
@@ -461,7 +473,7 @@ function App() {
                   ))}
                 </select>
               )}
-              {rid && !offline && !(page === "cases" && caseDataset === "abcd") && page !== "abcd" && (
+              {rid && !offline && !showingAbcd && (
                 <a
                   className="button secondary compact"
                   href={`/api/runs/${rid}/export`}
@@ -480,7 +492,7 @@ function App() {
             </div>
           </div>
 
-          {result?.run_id === "20260927-205440-6350b9" && (page === "arena" || page === "results") && (
+          {result?.run_id === "20260927-205440-6350b9" && (page === "arena" || (page === "results" && !showingAbcd)) && (
             <details className="explain"><summary>How to read the headline: 4,635 identical questions per model</summary>
               <p>Answer accuracy counts selected answers that match the answer key. It ignores probability-format checks, which remain in the detailed results. This presents the existing shared-question comparison; it does not change saved scoring.</p>
               <p>We exclude 1,000 questions with more options than some models accept, plus 36 inputs exceeding a tested context setting. The same exclusions apply to every model. These 4,635 questions are a restricted comparison, not all 7,671 cases.</p>
@@ -488,9 +500,9 @@ function App() {
             </details>
           )}
           {page === "models" && <ModelGuide selected={focus} onSelect={setFocus}/>}
-          {page === "takeaways" && <><Takeaways onModels={()=>setPage("models")} onAbcd={()=>setPage("abcd")}/><TaskBreakdown/><p className="small muted">This findings page describes completed v2 (27 September) and ABCD (28 September), regardless of the saved run selected above.</p></>}
+          {page === "takeaways" && <><Takeaways onModels={()=>setPage("models")} onAbcd={()=>setPage("abcd")} onAnalysis={openAnalysis}/><TaskBreakdown/><p className="small muted">This findings page describes completed v2 (27 September) and ABCD (28 September), regardless of the saved run selected above. Results by question type uses the selected run.</p></>}
           {page === "sources" && <SourcesGuide/>}
-          {page === "abcd" && <><button className="text-button" onClick={()=>{setCaseDataset("abcd");setPage("cases")}}>Inspect ABCD cases →</button><ABCDResults/></>}
+          {page === "abcd" && <><button className="text-button" onClick={openAbcdCases}>Inspect ABCD cases →</button><ABCDResults/></>}
           {page === "chart" && <section className="frontier-panel chart-large"><button className="text-button" onClick={()=>setPage("arena")}>← Back to overview</button><Frontier rows={metricRows} result={result} focus={focus} onFocus={setFocus}/><p className="small muted">Answer accuracy on shared questions. Typical time is the middle of three repeated timing-block medians; CLM supports only 172 of 200 timing inputs. Hosted timing includes network travel. One request at a time.</p></section>}
 
           {page === "arena" && (
@@ -620,7 +632,7 @@ function App() {
 
 
               </div>
-              {result?.run_id === "20260927-205440-6350b9" && <Takeaways onModels={()=>setPage("models")} onAbcd={()=>setPage("abcd")}/>}
+              {result?.run_id === "20260927-205440-6350b9" && <Takeaways onModels={()=>setPage("models")} onAbcd={()=>setPage("abcd")} onAnalysis={openAnalysis}/>}
 
               <div className="method-strip">
                 <div>
@@ -647,11 +659,14 @@ function App() {
           )}
 
           {page === "results" && (
-            <Results result={result} focus={focus} onFocus={setFocus} onProfile={(id)=>{setFocus(id);setPage("models")}} />
+            <><div className="quick-types assessment-tabs" role="group" aria-label="Results assessment">
+              <button aria-pressed={resultsAssessment === "arena"} className={resultsAssessment === "arena" ? "selected" : ""} onClick={()=>setResultsAssessment("arena")}>Arena · selected saved run</button>
+              <button aria-pressed={resultsAssessment === "abcd"} className={resultsAssessment === "abcd" ? "selected" : ""} onClick={()=>setResultsAssessment("abcd")}>ABCD · support conversations</button>
+            </div>{resultsAssessment === "abcd" ? <><button className="text-button" onClick={openAbcdCases}>Inspect ABCD cases →</button><ABCDResults/></> : <>{result && <TaskAnalysis key={result.run_id} result={result} onCases={openCases}/>}<details className="whole-run-details"><summary>Whole-run model diagnostics: confidence, output checks and workflows</summary><Results result={result} focus={focus} onFocus={setFocus} onProfile={(id)=>{setFocus(id);setPage("models")}} /></details></>}</>
           )}
 
           {page === "cases" && (
-            <><label className="case-dataset">Assessment<select value={caseDataset} onChange={e=>setCaseDataset(e.target.value)}><option value="arena">Arena v2 · 13-profile benchmark</option><option value="abcd">ABCD · support conversations</option></select></label>{caseDataset==="abcd"?<ABCDCases offline={!!offline}/>:<Cases rid={rid} models={models} result={result} />}</>
+            <><label className="case-dataset">Assessment<select value={caseDataset} onChange={e=>setCaseDataset(e.target.value)}><option value="arena">Arena · selected saved benchmark</option><option value="abcd">ABCD · support conversations</option></select></label>{caseDataset==="abcd"?<ABCDCases offline={!!offline}/>:<EvidenceExplorer rid={rid} result={result} />}</>
           )}
 
           {page === "replay" &&
@@ -1365,216 +1380,6 @@ function Results({
   );
 }
 
-function Cases({
-  rid,
-  models,
-  result,
-}: {
-  rid: string | null;
-  models: Model[];
-  result: Result | null;
-}) {
-  const [data, setData] = useState<{
-      total: number;
-      cases: Case[];
-      predictions: Prediction[];
-    } | null>(null),
-    [chosen, setChosen] = useState<string | null>(null),
-    [search, setSearch] = useState(""),
-    [pack, setPack] = useState(""),
-    [offset, setOffset] = useState(0);
-
-  useEffect(() => {
-    if (rid)
-      api<{ total: number; cases: Case[]; predictions: Prediction[] }>(
-        `/runs/${rid}/cases?limit=100&offset=${offset}${pack ? "&pack=" + encodeURIComponent(pack) : ""}`,
-      ).then(setData);
-  }, [rid, offset, pack]);
-
-  if (!rid || !data)
-    return (
-      <Empty
-        icon={FlaskConical}
-        title="The evidence lives here"
-        detail="Each measured decision includes its exact state, available options, reference and model outputs."
-      />
-    );
-
-  const filtered = data.cases.filter((c) =>
-      (c.id + " " + c.state + " " + c.family)
-        .toLowerCase()
-        .includes(search.toLowerCase()),
-    ),
-    c = filtered.find((c) => c.id === chosen) || filtered[0];
-
-  return (
-    <div className="case-workspace">
-      <aside className="case-list">
-        <div className="search">
-          <Search size={16} />
-          <input
-            aria-label="Search visible cases"
-            placeholder="Search this page of cases…"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
-        <select
-          aria-label="Filter case pack"
-          value={pack}
-          onChange={(e) => {
-            setPack(e.target.value);
-            setOffset(0);
-          }}
-        >
-          <option value="">All benchmark packs</option>
-          {[
-            "JevBench public",
-            "Typed decisions",
-            "Classification",
-            "Multilingual",
-            "RAG relevance",
-            "Arena Fresh",
-            "Robustness",
-          ].map((p) => (
-            <option key={p}>{p}</option>
-          ))}
-        </select>
-        <div className="case-list-items">
-          {filtered.map((item) => (
-            <button
-              key={item.id}
-              className={c?.id === item.id ? "selected" : ""}
-              onClick={() => setChosen(item.id)}
-            >
-              <span>
-                {item.family}
-                <small>
-                  {item.pack} · {item.question.kind}
-                </small>
-              </span>
-              <ChevronRight size={14} />
-            </button>
-          ))}
-        </div>
-        <div className="pagination">
-          <button
-            disabled={!offset}
-            onClick={() => setOffset(Math.max(0, offset - 100))}
-          >
-            Previous
-          </button>
-          <span>
-            {offset + 1}–{Math.min(offset + 100, data.total)} / {data.total}
-          </span>
-          <button
-            disabled={offset + 100 >= data.total}
-            onClick={() => setOffset(offset + 100)}
-          >
-            Next
-          </button>
-        </div>
-      </aside>
-      <section className="case-detail">
-        {c ? (
-          <>
-            <div className="eyebrow">
-              {c.pack} <span>/</span> {c.id}
-            </div>
-            <h2>{c.question.text}</h2>
-            <div className="case-tags">
-              <span className="tag">{c.question.kind.toUpperCase()}</span>
-              <span className="tag">
-                {c.label_status === "teacher" ? "AI-TEACHER ANSWER" : c.label_status === "formal" ? "RULE-DERIVED ANSWER" : "DATASET ANSWER KEY"}
-              </span>
-            </div>
-            <div className="evidence-block">
-              <CaseState text={c.state}/>
-            </div>
-            {c.question.rubric && (
-              <div className="rubric">
-                <span className="field-label">Decision rules / scoring instructions</span>
-                <p>{c.question.rubric}</p>
-              </div>
-            )}
-            <div className="reference">
-              <CheckCircle2 size={18} />
-              <span>Reference answer</span>
-              <strong>{c.gold}</strong>
-            </div>
-            <h3>Model decisions</h3>
-            <div className="decision-rows">
-              {data.predictions
-                .filter((p) => p.case_id === c.id)
-                .map((p) => (
-                  <div key={p.model_id}>
-                    <div className="decision-title">
-                      <strong>
-                        {models.find((m) => m.id === p.model_id)?.name ||
-                          p.model_id}
-                      </strong>
-                      <span
-                        className={
-                          p.status === "ok" && p.selected === c.gold
-                            ? "accent"
-                            : "muted"
-                        }
-                      >
-                        {p.status === "ok" ? p.selected : label(p.status)}
-                      </span>
-                      <small>{ms(p.request_ms)}</small>
-                    </div>
-                    {p.probabilities && (
-                      <div className="prob-bars">
-                        {Object.entries(p.probabilities).map(([name, v]) => (
-                          <div key={name}>
-                            <span>{name}</span>
-                            <div>
-                              <i style={{ width: `${v * 100}%` }} />
-                            </div>
-                            <b>{pct(v)}</b>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    {p.error && <p className="muted">{p.error}</p>}
-                    <small className="muted">
-                      Probability source: {p.probability_source}
-                    </small>
-                  </div>
-                ))}
-            </div>
-            {result?.judge_jobs
-              .filter((j) => j.data.item.case_id === c.id && j.data.grade)
-              .map((j) => (
-                <div className="judge-case" key={j.job_id}>
-                  <ShieldCheck size={17} />
-                  <div>
-                    <strong>Astra · {j.data.grade?.verdict}</strong>
-                    <p>{j.data.grade?.rationale}</p>
-                    <q>{j.data.grade?.evidence}</q>
-                  </div>
-                </div>
-              ))}
-          </>
-        ) : (
-          <Empty
-            icon={Search}
-            title={
-              offline ? "Case text stays in the local run" : "No matching cases"
-            }
-            detail={
-              offline
-                ? "This shareable report includes metrics, judge verdicts and recorded workflows. Open the originating Arena workspace to inspect source text."
-                : "Try a different search or benchmark pack."
-            }
-          />
-        )}
-      </section>
-    </div>
-  );
-}
-
 function Replay({
   rid,
   result,
@@ -2024,6 +1829,6 @@ function Empty({
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <NavigationProvider><App /></NavigationProvider>
   </React.StrictMode>,
 );

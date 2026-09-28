@@ -1,36 +1,52 @@
-# Video spine — choosing a decision model for the job
+# Video spine: what running the experiment taught us
 
-Use [VIDEO-SCRIPT.txt](VIDEO-SCRIPT.txt) as the spoken script and [BUILDER-TAKEAWAYS.md](BUILDER-TAKEAWAYS.md) for the supporting explanation. Evidence remains in [RESULTS.md](RESULTS.md) and [ABCD-RESULTS.md](ABCD-RESULTS.md). Previous scripts/spines are preserved in archive/before-builder-edit; original v2-only materials are in archive/full-v2-final.
+The spoken draft is [VIDEO-SCRIPT.md](VIDEO-SCRIPT.md). The supporting claim ledger, new analyses, exact cases and source boundaries are in [VIDEO-ANALYSIS.md](VIDEO-ANALYSIS.md). Keep the existing `VIDEO-SCRIPT.txt` working draft intact.
 
-The story: local decision models can be fast and competitive, but task fit, input limits, output reliability and complete-workflow performance matter more than one overall rank. This presentation revision does not change predictions, reference answers, the frozen primary metric or original reports. The underlying assessments received Astra adversarial reviews; this new editorial revision has separate display/data verification.
+The story is: local decision models are credible options, but choosing one requires understanding its task, interface, input strategy, output and workflow. Arena earns its place in the video by letting us inspect those differences.
 
-| Beat | Show in the dashboard | Explain |
-|---|---|---|
-| Practical question | What we learned | Which model fits the decisions inside your software? Start with the deployment choice, not benchmark vocabulary. |
-| Why build Arena? | Overview, then model details and Case explorer | Existing leaderboards help shortlist models. Arena adds inspection of these pinned profiles, hardware, memory, input limits and workflow tradeoffs. Different cases and scoring; no direct cross-leaderboard percentage comparison. See WHY-ARENA.md. |
-| First result | Overview, then Enlarge chart | On the same 4,635 answer-key questions: Jev 95.23%, Winnow 94.61%, Decider 94.46%. These are selected answers; Jev is only 29 answers ahead of Winnow here. |
-| What these models are | Model guide: Jev, Winnow, Decider, Laya | Hosted closed service versus local open weights; 12B, 4B and roughly 0.4B examples. Three Laya profiles are related. Parameters, dates and recorded load memory are different facts; load memory is not peak VRAM or system RAM. |
-| Check feasibility first | Model guide: Plumb, Winnow, Nimble | 16 choices cannot directly cover 77 intents; Winnow supports 64. The 500 rejected Winnow requests remain in evidence. The same-question headline excludes unsupported groups for everyone. |
-| Task specialization | What we learned: task table | Laya 92.2% news; Decider 84% multilingual entailment; Jev/Winnow 100% on our controlled policy groups. Narrow wins can be hidden by the overall average. |
-| Read the benchmark carefully | Task table plus Tests & scoring | Policy templates and variations are 2,440/4,635 of the shared headline. SciFact always-irrelevant baseline gets 90.6%. These are selected, sometimes correlated cases, not a random sample of enterprise work. |
-| Short-input response times | Enlarge chart; Presenter mode | Selected local contenders roughly 47–56ms versus hosted Jev 245ms. One request at a time on RTX 5090; hosted time includes network. Not concurrent throughput or an SLA. |
-| Context correction | Model guide; Support conversations | Jev is not uniquely long-context. ABCD used Jev32K, Winnow64K, Decider32K, Qwen32K configured; Nimble8K. Most extra input was a handbook, not a very long dialogue. |
-| The speed reversal | Support conversations | Full-handbook route medians: Jev0.36s, Qwen1.57s, Decider1.90s, Winnow2.85s. Different serving/caching/precision; Jev size is undisclosed. Do not infer model size from latency. |
-| Choosing an action versus choosing when to act | Support conversations: full handbook → conditional action → combined task | Label comparison: Jev78.67% vs Winnow66.67% when an action is due; Winnow68.44% vs Jev63.78% when also deciding act/speak/finish. Keep denominator and score selector visible. |
-| Retrieval changes the system | Switch to Retrieved policy | Winnow action labels76.33%; Nimble becomes feasible. Retrieval can shorten inputs and help, but can omit the needed policy. It is a different system design. |
-| An answer your software can use | Score selector; Results output checks | Selected answer vs correct-and-usable output. Arena's probability tolerance is specific to this harness; label-only Qwen does not face that check. |
-| Confidence and repeated decisions | Results confidence chart; Workflow replays | Confidence must be checked against observed correctness. Two tabs are two workflow types with many saved episodes, separate from static questions. Replays animate saved measurements. |
-| Explain trust in the results | Tests & scoring | Code compares with answer keys. AI teacher agreement is separate. Astra audits a sample, contributes zero weight to the headline and is not human validation. |
-| Deployment conclusion | What we learned | Shortlist by input length, choice count, task, memory and privacy needs. Measure production-like inputs and failure handling. No universal winner, no live customer-success claim. |
+## Sequence
 
-## Filming controls
+| Beat | Question it answers | What to show | Point to land |
+|---|---|---|---|
+| Intro | How close are local models to Jev, and when should I use them? | Arena overview, quick flashes of news/capacity/long-input findings | Promise learnings from the experiment. Use 13 setups and a 7,671-case suite. |
+| Models | What did we actually compare? | Grouped roster; highlight Winnow 12B, Decider 4B, Laya 421M | Thirteen entries include related checkpoints and controls. |
+| How they work | How can an LLM become a decision model? | Input + question + choices → scores/answer; fine-tune, scoring head, encoder, JSON paths | Similar interfaces can hide different implementations. We did no fine-tuning. |
+| Sample questions | What counts as a decision here? | Three short reveals: explicit policy, familiar classification, relevance/77 intents | Let viewers understand an input before revealing its answer. |
+| Headline | Are any local profiles competitive? | Same 4,635-question table; Jev/Winnow/Decider; short serial timing | Winnow is 29 labels behind Jev. Establish the shortlist, then leave the aggregate. |
+| Lesson 1: task fit | Does that rank tell me which model to deploy? | Results → News; XNLI; task-mix sensitivity; SciFact negatives/positives | Laya wins news labels; mix changes ranks; 90.6% can find zero relevant documents. |
+| Lesson 2: capacity | Can the interface accept my actual problem? | 77 banking choices; Plumb/SemIf 16; Winnow 64; Nimble 8K | Unsupported inputs are different from bad decisions. Name exactly which model hit which limit. |
+| Lesson 3: input strategy | Will the short-request speed carry over? | Full-handbook versus retrieval timing, then conditional action quality | The local speed advantage reverses with long input; retrieval changes both speed and quality. |
+| Lesson 4: inspect correctness | Does a high score mean a useful answer? | Decider label/strict toggle; AG News basketball case; optional confidence chart | Output validity and reference quality both matter. A benchmark mismatch can be reasonable. |
+| Lesson 5: workflow | Does choosing an action mean knowing when to act? | ABCD action versus combined task, message/action checkpoint split; warehouse replay | Test the controller and useful completion, not only the isolated choice. |
+| Shortlist | What would I investigate next? | Job → candidate → thing to validate | Short local: Winnow/Decider. Narrow classification: Laya. Full-handbook action selection: Jev. Retrieval makes Nimble feasible. |
 
-- Run controls live on Run a new test. Configure new test opens settings; the final start action would create a separate run, potentially spend money and take hours. Do not start a test during filming.
-- Enlarge chart and Presenter enlarge the evidence. Escape exits Presenter. Chart points can be focused to identify a model.
-- Support conversations is a separate five-profile experiment in the same dashboard. Do not add its questions to the 13-profile denominator or imply all 13 ran ABCD.
-- Keep the score selector visible when switching from selected answer to correct + usable output. Use the same metric within a comparison.
-- The context-control extension is deliberately simple, with only 12 base questions. All four supported long-context models selected every label; it does not establish unique Jev superiority or general long-context reasoning quality.
-- Recorded combined Jev usage was $1.458954042, not total electricity/hardware/subscription cost. A failed request retains a small unknown-usage reservation. V2 measurement/follow-up window was about4h33m; ABCD candidate window about3h16m. Waiting, preflight, audit and report work are not included in those windows.
-- The source is being published under MIT at https://github.com/theaiautomators/jev-arena. Third-party licenses still apply. No fine-tuning was done in these assessments.
-- ABCD cases: Case explorer → ABCD support conversations. Raw text is local only; exact inputs, answer keys and model responses are clearly separated.
-- Winnow memory check after the evaluations: Q8_0, about 12.90 GiB idle GPU-memory increase at 8K and 13.61 GiB at 64K. No predictions were repeated; this is not peak inference memory.
+## Filming rhythm
+
+The first four explanatory beats should take roughly a quarter of the video; spend most of the time on the five lessons. Each lesson follows one observed result into the reason it matters. Avoid reading all thirteen rows or explaining every metric. The Markdown script is a full spoken draft with optional shot directions; timing depends on how long examples and replays are held.
+
+Start the samples with `fresh-v2-test-01-000-choice`: the applicant is ineligible, approval is signed, and the explicit policy says Stop. The explorer now shows the choices and has a reveal button. Use the type selector rather than sequential paging.
+
+For the news result, keep “Same supported questions” and “Selected answer” visible. For capacity, switch to “Each model's supported questions” so unavailable cases are visible. For the Decider output gap, also use the supported set and explain the 5,671 denominator. These are intentional scope changes, not interchangeable percentages.
+
+For the reference-quality example, use `classification-ag news-450`, then compare Laya and Jev. The source file itself labels this basketball article World. Do not claim this one example reverses the measured news ranking or proves benchmark memorization.
+
+For the speed reversal, use routing medians consistently: Jev 358/265 ms, Decider 1,895/144 ms, Winnow 2,847/320 ms for full/retrieved policy. Then explicitly switch the subject to conditional action quality: Winnow 200/300 → 229/300. Retrieval overhead is outside those model-request medians.
+
+## Boundaries that belong beside the relevant shot
+
+- 7,671 planned cases/profile; 5,671 public or rule-derived references; 2,000 AI-teacher cases reported separately; 4,635 common supported references in the headline.
+- Thirteen configurations include three related Laya checkpoints and a deterministic control. “Thirteen independent AI models” is inaccurate.
+- The fixed policy templates and translated questions are correlated. Post-hoc task slices and task-mix changes are descriptive analyses.
+- Original strict scores, predictions, failed requests and answer keys remain unchanged.
+- The 500 Winnow banking failures came from Arena's incorrect capability declaration. The pinned server supports 64 choices; no reduced shortlist was tested.
+- ABCD is a separate five-profile follow-on with 300 conversations. Keep its scores outside the thirteen-profile total.
+- Hosted network time, local hardware, runtime, precision and caching differ. No maximum-throughput or architectural speed claim.
+- Memory readings are after loading, not peak inference VRAM or minimum RAM. Winnow's whole-device measurement differs from the PyTorch allocator readings.
+- Support-step agreement is not customer-resolution success. Automated audits are not human validation.
+- The unverified “popularity skyrocketing / new competitors every day” lead is replaced by the observable existence of competitors. Preserve the user's practical question and hosting motivation.
+
+## Files and app route
+
+[Script](VIDEO-SCRIPT.md) · [Claim ledger and new analysis](VIDEO-ANALYSIS.md) · [Original Arena evidence](RESULTS.md) · [Separate support evidence](ABCD-RESULTS.md)
+
+App: Results → question type/model → Open these questions or Inspect. Case explorer: type, model, outcome, answer format, global search and page jump. Answers and probabilities can be revealed separately for filming. Do not start a new evaluation while recording saved results.

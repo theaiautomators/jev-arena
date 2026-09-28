@@ -2726,3 +2726,30 @@ tbody tr.row-selected {
 @media(prefers-reduced-motion:reduce) { .explain[open],.model-link:hover { animation:none;transition:none;transform:none } }
 /* Local ABCD evidence browser. Input and scoring reference remain separate. */
 .case-dataset{display:flex;align-items:center;gap:16px;margin:0 0 24px;font-size:14px}.case-dataset select{max-width:420px;padding:10px}.conversation-turns{display:grid;gap:12px}.conversation-turns>div{padding:14px 18px;border-left:2px solid var(--accent);background:rgba(255,255,255,.025)}.conversation-turns b{font-size:11px;text-transform:uppercase;letter-spacing:.1em}.conversation-turns p{white-space:pre-wrap;line-height:1.7;margin:6px 0 0}.policy-text{white-space:pre-wrap;overflow-wrap:anywhere;max-height:540px;overflow:auto;font-size:12px;line-height:1.7}.abcd-controls input{padding:10px;background:transparent;border:1px solid var(--line);color:inherit;max-width:220px}.case-list small{overflow-wrap:anywhere}
+/* Evidence navigation: one comparison surface with explicit scope. */
+.page-back { display:inline-flex; margin:0 0 22px; font-size:13px; }
+.task-analysis { padding-bottom:32px; }
+.quick-types { display:flex; flex-wrap:wrap; gap:8px; margin:22px 0; }
+.quick-types button { padding:9px 13px; border:1px solid var(--line); border-radius:4px; font-size:12px; transition:background .15s, border-color .15s; }
+.quick-types button:hover,.quick-types button.selected { border-color:var(--accent); background:rgba(255,255,255,.05); color:var(--accent); }
+.analysis-scope { border-top:1px solid var(--line); padding:22px 0; }
+.analysis-scope h3 { margin:0 0 8px; font-size:22px; }
+.scope-heading {display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.leading-score {display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}.leading-score strong {font-size:32px;font-weight:500;color:var(--accent)}.leading-score span {font-size:11px;color:var(--muted)}
+.analysis-scope p { color:var(--muted); font-size:13px; line-height:1.65; max-width:90ch; }
+.slice-insight { border-left:2px solid var(--accent); padding:12px 20px; margin:0 0 24px; font-size:13px; line-height:1.7; background:rgba(255,255,255,.02); }.slice-insight h3 {margin-top:0;font-size:16px}
+.task-ranking { width:100%; border-collapse:collapse; font-size:12px; }
+.task-ranking th,.task-ranking td { padding:14px 12px; text-align:left; border-bottom:1px solid var(--line); }
+.task-ranking th { font-size:10px; color:var(--muted); font-weight:500; white-space:normal; line-height:1.5; }
+.task-ranking td { vertical-align:top; }
+.task-ranking td:first-child { min-width:140px; }.task-ranking td:nth-child(2) { min-width:110px; }
+.task-ranking small { display:block; color:var(--muted); font-size:10px; margin-top:5px; }
+.task-ranking .leading-row { background:rgba(255,255,255,.035); }.task-ranking .leading-row strong { color:var(--accent); }
+.table-bar { display:block; height:3px; background:var(--line); margin-top:8px; }.table-bar i { display:block; height:100%; background:var(--accent); transition:width .2s; }
+.whole-run-details { border-top:1px solid var(--line); padding-top:24px; }.whole-run-details>summary { cursor:pointer; font-size:17px; margin-bottom:28px; }
+.explorer-controls select { max-width:310px; }.case-list .search input { font-size:12px; }
+.case-list-items button:disabled { opacity:.45; }.case-list-items small { line-height:1.6; }
+.page-jump { display:flex; align-items:center; gap:12px; color:var(--muted); font-size:12px; }.page-jump select { width:85px; }
+.answer-options { display:flex; flex-wrap:wrap; gap:10px; margin:24px 0; }.answer-options>span { border:1px solid var(--line); padding:10px 16px; font-size:13px; }
+.answer-reveal { animation:guide-in .18s ease-out; }.case-detail .reference { flex-wrap:wrap; }
+.case-detail .decision-title { flex-wrap:wrap; }.case-detail .decision-title>span { overflow-wrap:anywhere; }
+@media(prefers-reduced-motion:reduce) { .answer-reveal {animation:none}.table-bar i,.quick-types button {transition:none} }

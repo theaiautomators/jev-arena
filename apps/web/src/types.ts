@@ -182,6 +182,7 @@ export type Case = {
   state: string;
   question: { text: string; kind: string; labels: string[]; rubric: string };
   gold: string;
+  acceptable?: string[];
   label_status: string;
   evidence: string;
   provenance: Record<string, unknown>;
