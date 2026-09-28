@@ -1,10 +1,10 @@
 # Arena Full v2: measured results
 
-**For builders and the video:** [Practical takeaways and plain-English scoring guide](BUILDER-TAKEAWAYS.md). The dashboard now leads with the existing shared selected-answer comparison; the original strict metrics and all measurements below remain unchanged.
+**Practical interpretation:** [Practical takeaways and plain-English scoring guide](BUILDER-TAKEAWAYS.md). The dashboard now leads with the existing shared selected-answer comparison; the original strict metrics and all measurements below remain unchanged.
 
-**Separate follow-on:** [ABCD next-step/action assessment](ABCD-RESULTS.md) has 12,720 independently verified records, a completed blinded audit and a completed Astra adversarial closing review. Its contexts and denominators are separate from all v2 numbers below. Original v2-only materials remain [archived](archive/full-v2-final/RESULTS.md).
+**Separate follow-on:** [ABCD next-step/action assessment](ABCD-RESULTS.md) has 12,720 independently verified records, a completed blinded audit and a completed Astra adversarial closing review. Its contexts and denominators are separate from all v2 numbers below.
 
-Run `20260927-205440-6350b9`, 27–28 September 2026, Windows RTX 5090 (32 GB). This supersedes the [earlier Demo and three-entry Full report](archive/pre-full-v2/RESULTS.md). Original runs remain intact.
+Run `20260927-205440-6350b9`, 27–28 September 2026, Windows RTX 5090 (32 GB). This supersedes earlier Demo and three-entry Full measurements, which remain preserved locally.
 
 **Jev led this suite; several local profiles were close on shared label selection and much faster per serial request. There is no universal winner.** On the identical 4,635-reference cohort, Jev matched 95.23% of labels, Winnow 94.61%, Decider 94.46%, and Nimble 92.34%. These are pinned deployment profiles, not interchangeable model families or latest-version claims.
 
@@ -149,6 +149,6 @@ For this suite, Jev offers strong reference agreement and the most consistent su
 
 Public dataset training exposure is unknown. Formal variants share eight templates. Locale labels are dataset metadata and some Arabic-labelled records contain English text. The relevance pool is imbalanced: Jev is 468/500 against a first-label control of 453/500. Calibration scores use valid probabilistic subsets and differing probability sources; they are not an apples-to-apples ranking of every entrant.
 
-**This run does not test Jev's near-limit context advantage:** its measured main input tokens have median 423, p95 1,756 and maximum 4,297. The separately authorized ABCD next-action assessment will compare a full handbook with retrieved policy and an explicitly controlled context-stress extension. No ABCD results are claimed here and no fine-tuning is authorized.
+**This run does not test Jev's near-limit context advantage:** its measured main input tokens have median 423, p95 1,756 and maximum 4,297. The completed [ABCD assessment](ABCD-RESULTS.md) separately compares a full handbook with retrieved policy and a controlled context-stress extension. Its results are outside the Full v2 totals. Neither assessment includes fine-tuning.
 
-Evidence: [independent summary](evidence/full-v2-summary.json), [follow-ups, intervals, runtime and ledger](evidence/full-v2-supplement.json), [frozen protocol](VIDEO-EVALUATION-V2.md), [verification](VERIFICATION.md), [teleprompter script](VIDEO-SCRIPT.txt), [video spine](VIDEO-SPINE.md). Portable dashboard/report files are saved separately under `.arena/reports/full-v2-report.*`. GitHub publication under `theaiautomators` remains deferred.
+Evidence: [independent summary](evidence/full-v2-summary.json), [follow-ups, intervals, runtime and ledger](evidence/full-v2-supplement.json), [frozen protocol](VIDEO-EVALUATION-V2.md), [verification](VERIFICATION.md), [task analysis](ANALYSIS.md). [Download the interactive report and evidence package](../results/README.md).

@@ -1,6 +1,6 @@
 # Implemented evaluation profile
 
-This describes the running v0.1 application. `PLAN.md` and `EVALUATION.md` preserve the broader proposed protocol; this file governs claims about the implementation.
+This describes the running v0.1 application. `EVALUATION.md` preserves the broader proposed protocol; this file governs claims about the implementation.
 
 New runs now use Arena v2 fixtures and the [video evaluation scope](VIDEO-EVALUATION-V2.md). Prior v1 measurements remain frozen in their own run directories and snapshots. V2 changes the owned-fixture seeds/IDs and explicitly resolves topic-versus-urgency and required-approval wording; public data and scoring rules are unchanged. Shared templates still limit generalization.
 

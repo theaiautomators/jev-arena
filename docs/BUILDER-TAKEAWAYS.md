@@ -1,6 +1,6 @@
 # What builders should learn from Arena
 
-The revised [Markdown script](VIDEO-SCRIPT.md) and [video analysis](VIDEO-ANALYSIS.md) expand these findings with paired news disagreements, task-mix sensitivity, relevant-document recall/precision and a source-checked news reference concern. In the app, Results now filters by question type and model and links directly to cases.
+The [task analysis](ANALYSIS.md) expands these findings with paired news disagreements, task-mix sensitivity, relevant-document recall/precision and a source-checked news reference concern. In the app, Results now filters by question type and model and links directly to cases.
 
 The useful conclusion is not that one model wins everything. Local decision models can be competitive and fast, but task fit, input limits, output validity and complete-workflow behavior determine whether they are useful in an application.
 

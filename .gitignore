@@ -23,3 +23,20 @@ pytest-cache-files-*/
 
 # Separate local experiments are not part of the Arena publication.
 /subprojects/
+
+# Local build plans, editorial drafts and superseded assessments.
+/PLAN.md
+/RESEARCH.md
+/docs/ABCD-ASSESSMENT-QUEUE.md
+/docs/ADVERSARIAL-REVIEW.md
+/docs/DESIGN.md
+/docs/LESSON-SANITY-CHECK.md
+/docs/PUBLISHING.md
+/docs/VIDEO-SCRIPT*.md
+/docs/VIDEO-SCRIPT*.txt
+/docs/VIDEO-SPINE.md
+/docs/VIDEO-ANALYSIS.md
+/docs/archive/
+/docs/evidence/abcd-feasibility.md
+/docs/evidence/demo-summary.json
+/docs/evidence/full-summary.json

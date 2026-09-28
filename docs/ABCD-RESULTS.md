@@ -1,6 +1,6 @@
 # ABCD: next-step and action selection
 
-Run `abcd-test-v1`, 28 September 2026. All **12,720 candidate records** are complete and independently verified. The blinded CLI audit, all flagged-case inspections and [Astra adversarial closing review](evidence/ASTRA-ABCD-REVIEW.md) are complete; no material scientific or numerical blocker remains. Original [Arena v2 results](archive/full-v2-final/RESULTS.md) and their denominators are preserved.
+Run `abcd-test-v1`, 28 September 2026. All **12,720 candidate records** are complete and independently verified. The blinded CLI audit, all flagged-case inspections and [Astra adversarial closing review](evidence/ASTRA-ABCD-REVIEW.md) are complete; no material scientific or numerical blocker remains. Original [Arena v2 results](RESULTS.md) and their denominators are preserved.
 
 **Winnow leads combined next-step agreement in this adaptation. Jev leads conditional action selection with the full handbook. More context does not consistently improve the complete pipeline.** These are results for five pinned serving profiles, not a universal ranking of model families.
 
@@ -86,6 +86,6 @@ The frozen blinded audit selects 76 questions (64 natural and 12 synthetic), wit
 - **Nimble:** valid and usable with retrieval, but the pinned 8K release cannot accept the full handbook. The experiment does not assess a hypothetical longer-context version.
 - **Qwen JSON:** a general generative control rather than a decision-specialized interface; weaker combined/action agreement here, with valid JSON throughout. Passing the easy context control does not close the natural-task gap.
 
-This experiment measures agreement with recorded support steps under supplied policy, not every acceptable next step. The completed audit identified optional farewells, flexible act-versus-speak order, missing action identity, policy gaps, and differences between policy repair and predicting recorded continuation. It does not establish a re-ranked semantic-acceptance winner. It is not published AST, full Cascading Dialogue Success, or live customer-resolution success. There is no human audit or GitHub publication.
+This experiment measures agreement with recorded support steps under supplied policy, not every acceptable next step. The completed audit identified optional farewells, flexible act-versus-speak order, missing action identity, policy gaps, and differences between policy repair and predicting recorded continuation. It does not establish a re-ranked semantic-acceptance winner. It is not published AST, full Cascading Dialogue Success, or live customer-resolution success. No human semantic audit has been performed.
 
-Machine evidence: [main summary](evidence/abcd-v1-summary.json), [independent supplement](evidence/abcd-v1-supplement.json). Original frozen v2 results remain [archived](archive/full-v2-final/RESULTS.md).
+Machine evidence: [main summary](evidence/abcd-v1-summary.json), [independent supplement](evidence/abcd-v1-supplement.json). [Download the interactive ABCD report and evidence package](../results/README.md). The [Full v2 assessment](RESULTS.md) remains separate.

@@ -13,4 +13,4 @@ The motivation is practical: model loading and memory, allowed choice counts, us
 
 Arena is not automatically more comprehensive because it has more cases than a particular displayed subset. Some Arena cases are deliberately simple or correlated; teacher-labelled cases only measure teacher agreement. ABCD uses a balanced task mix and synthesized terminal checkpoints. Neither assessment establishes live customer-resolution success. Read the result limitations before choosing a model.
 
-For the spoken opening, see [VIDEO-SCRIPT.txt](VIDEO-SCRIPT.txt). For the practical findings, see [BUILDER-TAKEAWAYS.md](BUILDER-TAKEAWAYS.md).
+Read the [practical findings](BUILDER-TAKEAWAYS.md) and [task analysis](ANALYSIS.md), or [download the recorded reports](../results/README.md).

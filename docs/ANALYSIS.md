@@ -1,4 +1,4 @@
-# Evidence behind the revised video
+# Task analysis and observed failure modes
 
 Analysis date: 28 September 2026. Main run: `20260927-205440-6350b9`. The analysis reads frozen cases and predictions; it makes no inference calls and changes no original scores. All thirteen profiles' reference/shared selected-label and strict counts reconcile with the saved `results.json`.
 
@@ -21,7 +21,7 @@ The script says **13 setups**, because this roster contains related checkpoints,
 
 These are selected-label matches to saved references. Slice selection is post-hoc; these differences do not establish deployment superiority or independent statistical significance. Public training exposure is unknown. In particular, the news references need scrutiny (lesson 4).
 
-### New: sensitivity to the task mix
+### sensitivity to the task mix
 
 The shared score contains 2,440 generated policy/variation questions out of 4,635: **52.64%**, from eight recurring templates. Removing those two packs yields this descriptive comparison:
 
@@ -34,7 +34,7 @@ The shared score contains 2,440 generated policy/variation questions out of 4,63
 
 Decider and Jev differ by two labels here. The useful conclusion is that weighting changes the ranking; this is not a replacement primary benchmark or a claim that the remaining mix is the correct mix. Invalid probability outputs still count as selected-label matches when the selected label matches.
 
-### New: relevance accuracy conceals what gets retrieved
+### relevance accuracy conceals what gets retrieved
 
 SciFact has 453 “no” and 47 “yes” references. The control always selects the first option, “no.” Its apparent 90.6% accuracy finds **zero** relevant documents.
 
@@ -80,7 +80,7 @@ Winnow conditional action labels improve from 200/300 to 229/300 with retrieval:
 
 Decider's original 5,671-reference cohort has 5,235 selected-label matches (92.31%) and 4,752 correct-plus-usable outputs (83.79%). The 483-answer gap is not 483 extra reasoning mistakes. Arena's fixed probability-sum tolerance is 1e-4; the scope is this contract, not a universal vendor requirement. Keep failures visible instead of silently normalizing arbitrary distributions.
 
-### New inspection: public references can reward a questionable category
+### Reference inspection: public references can reward a questionable category
 
 Case `classification-ag news-450` describes a US Olympic basketball match. The frozen AG News reference is **World**; Laya selects World; Jev selects **Sports**. I would question the reference for a news-topic product. Two additional examples are `classification-ag news-614` (Olympic hockey) and `classification-ag news-1617` (NFL), also World references and Sports predictions from Jev.
 
@@ -101,21 +101,7 @@ The ranking reversal has an identifiable mechanism: Winnow's 116 additional mess
 
 In the separate toy warehouse workflow, untimed completion was Jev 20/20, Winnow 19/20, Nimble 17/20 and Decider 9/20. All four completed all 20 ticket scenarios. Plumb, Qwen and the Laya profiles sent every untimed ticket to Review, avoiding some violations while deferring useful work. Tiny workflow counts are illustrations of failure mechanisms, not production estimates.
 
-## Showing questions without making the video hard to follow
-
-Use **Case explorer → Jump to question type**, then one exact ID. Keep all responses hidden while presenting the input and allowed answers. Reveal the reference, then the responses. Select one model to inspect an error; choose All model responses for a disagreement. Probabilities and audit details are collapsed until needed.
-
-| Shot | Exact navigation / case | What the viewer should notice |
-|---|---|---|
-| Simple policy | Arena Fresh / Workflow permissions; `fresh-v2-test-01-000-choice` | Ineligible takes precedence over signed approval; three visible choices. |
-| Familiar classification | Classification / SST-2 or AG News | Same input/choices for every model. |
-| Capacity | Classification / BANKING77 | All 77 choices; unavailable versus failed request. |
-| Reference concern | Classification / AG News; `classification-ag news-450` | Saved reference World, Jev Sports, Laya World. |
-| Model-specific errors | Select a model, then Selected answer differs | A concrete failure under the saved key; inspect before judging meaning. |
-
-Results now has task and model selectors, explicit common-support versus individual-support denominators, selected-label versus strict scores, failure counts, and links into the corresponding cases. AI-teacher slices are labelled agreement. The same controls work for the selected local run; fixed editorial findings refer specifically to v2/ABCD.
-
-## Roster to show on screen
+## Tested profiles
 
 | Entry | Tested approach | Base / scale |
 |---|---|---|
@@ -133,4 +119,4 @@ Results now has task and model selectors, explicit common-support versus individ
 | ModernBERT NLI | Entailment classification control | 395M |
 | Uniform baseline | Deterministic first-option selection | No model |
 
-Architecture details come from the pinned model guide and the official model cards linked in the script. Current upstream releases may differ from the saved configurations; model-card performance claims are not Arena measurements.
+Architecture details come from the pinned model guide and the official model cards linked in the model guide. Current upstream releases may differ from the saved configurations; model-card performance claims are not Arena measurements.

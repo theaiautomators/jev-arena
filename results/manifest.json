@@ -1,0 +1,29 @@
+{
+  "release": "video-results-2026-09",
+  "assessments": [
+    "20260927-205440-6350b9",
+    "abcd-test-v1"
+  ],
+  "assets": [
+    {
+      "name": "arena-full-v2.html",
+      "bytes": 7420865,
+      "sha256": "845c94207f362046dc52d562f46ef04428b0e0428e5268d6b1aefbdcab8945e5"
+    },
+    {
+      "name": "arena-full-v2.zip",
+      "bytes": 13455695,
+      "sha256": "cc4a94e63b739b32179d4df7e32fb043833d8ec248d4c603e852431b8e1ac694"
+    },
+    {
+      "name": "abcd-v1.html",
+      "bytes": 1384300,
+      "sha256": "5190c0f50e20ba4b8b40129708a3a79bdf10beb6ece5c4c8649dbe68753254c5"
+    },
+    {
+      "name": "abcd-v1.zip",
+      "bytes": 1519118,
+      "sha256": "6affc0a3765ae8167dcad0b0cbef0e871e4c0c191290e7d2a18c40fa1b08cf8c"
+    }
+  ]
+}

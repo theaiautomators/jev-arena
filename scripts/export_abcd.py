@@ -8,6 +8,7 @@ from pathlib import Path
 from dotenv import dotenv_values
 from arena.config import ROOT, digest, write_json
 from scripts.analyze_abcd import FOLDER, RUN
+from scripts.report_contents import ABCD_DOCS, public_documents, check_archive
 
 def read(p): return json.loads(p.read_text(encoding="utf-8"))
 
@@ -43,13 +44,9 @@ def main():
     assert "__DATA__" not in html and "__LOGO__" not in html
     files = {"report.html":html.encode(),"report-data.json":json.dumps(data,ensure_ascii=False,indent=2).encode(),
              "README.txt":b"Open report.html for the offline ABCD dashboard. Read docs/ABCD-RESULTS.md and the review evidence before using claims. Source conversations, prompts, credentials and private logs are excluded. This is not published AST or live customer-resolution success. V2 evidence remains separate. Source repository: https://github.com/theaiautomators/jev-arena."}
-    for name in ("ABCD-RESULTS.md","ABCD-PROTOCOL.md","VIDEO-SCRIPT.txt","VIDEO-SPINE.md",
-                 "evidence/ABCD-AUDIT-REVIEW.md","evidence/ASTRA-ABCD-REVIEW.md","evidence/abcd-retrieval-correction.json"):
-        path = ROOT/"docs"/name
-        if path.exists(): files["docs/"+name] = path.read_bytes()
+    files.update(public_documents(ROOT, ABCD_DOCS))
     files["docs/evidence/abcd-v1-summary.json"] = json.dumps(summary,indent=2).encode()
     files["docs/evidence/abcd-v1-supplement.json"] = json.dumps(supplement,indent=2).encode()
-    files["docs/archive/full-v2-final/RESULTS.md"] = (ROOT/"docs/archive/full-v2-final/RESULTS.md").read_bytes()
     for notice in ("LICENSE","THIRD-PARTY-LICENSES.txt"):
         files[notice] = (ROOT/notice).read_bytes()
     files["ABCD-LICENSE.txt"] = (ROOT/"docs/licenses/ABCD-LICENSE.txt").read_bytes()
@@ -75,16 +72,17 @@ def main():
         assert not any(s in value for s in secrets), "Credential in "+name
         assert not re.search(rb"apikey_[A-Za-z0-9_]{30,}",value), "Credential pattern in "+name
         assert not re.search(rb"[Cc]:[\\/]+[Uu]sers[\\/]+[Oo]wner",value), "Private path in "+name
-    target = ROOT/".arena/reports"; target.mkdir(exist_ok=True)
+    target = ROOT/".arena/public-reports"; target.mkdir(exist_ok=True)
     buffer = io.BytesIO()
     with zipfile.ZipFile(buffer,"w",zipfile.ZIP_DEFLATED) as z:
         for name, value in files.items(): z.writestr(name,value)
-    (target/"abcd-v1-report.html").write_bytes(html.encode())
-    (target/"abcd-v1-report.zip").write_bytes(buffer.getvalue())
+    check_archive(buffer.getvalue())
+    (target/"abcd-v1.html").write_bytes(html.encode())
+    (target/"abcd-v1.zip").write_bytes(buffer.getvalue())
     verification = {"id":"abcd-test-v1","files_scanned":len(files),"credential_private_path_scan_passed":True,
                     "prediction_rows":len(output),"no_dialogue_or_policy_text":True,
                     "html_sha256":digest(html.encode()),"zip_sha256":digest(buffer.getvalue()),"final_review_complete":ready}
-    write_json(ROOT/".arena/verification/abcd-export.json",verification)
+    write_json(ROOT/".arena/verification/public-abcd-export.json",verification)
     print(json.dumps(verification))
 
 if __name__ == "__main__": main()
